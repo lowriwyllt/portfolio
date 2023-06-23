@@ -4,10 +4,9 @@ import React, { useState, useRef } from "react";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import Image from "next/image";
-import Footer from "./Footer";
 import Link from "next/link";
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -16,7 +15,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <div>
+    <>
       <Sidebar
         open={showSidebar}
         setOpen={setShowSidebar}
@@ -45,9 +44,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           </div>
         </div>
       </div>
-      {children}
-      <Footer />
-    </div>
+    </>
   );
 };
 
