@@ -1,11 +1,10 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+import Layout from "./components/Layout";
 
 export const metadata = {
   title: "Lowri Roberts Portfolio",
-  description: "Portfolio website for Lowri Roberts a Web Developer",
+  description: "Portfolio website for Lowri Roberts, a Web Developer",
 };
 
 export default function RootLayout({
@@ -15,7 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className="bg-cream max-w-[100vw] min-h-fit">
+        <Layout children={children} />
+      </body>
     </html>
   );
 }
