@@ -5,6 +5,7 @@ import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import Image from "next/image";
 import Footer from "./Footer";
+import Link from "next/link";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -26,7 +27,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         ref={ref}
       >
         <div className="flex flex-row justify-between w-full">
-          <div className="m-5 flex flex-col items-center justify-center">
+          <Link
+            href="/"
+            aria-label="Home"
+            className="m-5 flex flex-col items-center justify-center"
+          >
             <Image
               src="/logo_Lowri_Roberts.png"
               alt="Logo Lowri Roberts - Web developer"
@@ -34,7 +39,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               height={50}
             />
             <p>Web Developer</p>
-          </div>
+          </Link>
           <div className=" z-10 h-full justify-self-end flex flex-row items-center justify-end">
             <Navbar />
           </div>
