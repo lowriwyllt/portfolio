@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Coding Project - Lowri Roberts",
+  description: "View Lowri Roberts' coding projects and web development work.",
+};
+
 export default function CodingProjects() {
   return (
     <main className="flex md:min-h-[calc(100vh-108px)] min-h-[calc(100vh-148px)] flex-col items-center justify-between relative top-[100px] px-[56px] py-24">

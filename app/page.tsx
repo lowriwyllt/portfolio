@@ -1,4 +1,10 @@
-import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home - Lowri Roberts",
+  description:
+    "Welcome to Lowri Roberts' portfolio website. Explore my work as a web designer.",
+};
 
 export default function Home() {
   return (
