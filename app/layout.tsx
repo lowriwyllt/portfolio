@@ -2,11 +2,6 @@ import "./globals.css";
 
 import Layout from "./components/Layout";
 
-export const metadata = {
-  title: "Lowri Roberts Portfolio",
-  description: "Portfolio website for Lowri Roberts, a Web Developer",
-};
-
 export default function RootLayout({
   children,
 }: {
