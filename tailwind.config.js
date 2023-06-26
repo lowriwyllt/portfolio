@@ -8,16 +8,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        darkPurple: "#3C174D",
-        lilac: "#B4AFCF",
+        darkPurple: "#471ca8",
+        lilac: "#884ab2",
         darkBlue: "#19283E",
         lightBlue: "#5AC3D3",
         cream: "#F2F9FA",
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      dropShadow: {
+        icon: "0 0 5px rgba(255, 255, 255, 1)",
+      },
+      flexGrow: {
+        7: "7",
+      },
+      transitionProperty: {
+        flex: "flex",
       },
     },
   },
