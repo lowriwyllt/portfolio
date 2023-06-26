@@ -11,7 +11,7 @@ import { NavItem } from "./Sidebar";
 export const defaultNavItems: NavItem[] = [
   {
     label: "Home",
-    href: "/",
+    href: "/home",
     icon: <HomeIcon className="w-6 h-6" />,
   },
   {
