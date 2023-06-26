@@ -34,7 +34,7 @@ const Sidebar = ({
     <div
       className={classNames({
         "flex flex-col justify-between fixed z-30": true,
-        "text-darkPurple bg-lilac md:bg-transparent": true,
+        "text-white bg-lilac md:bg-transparent": true,
         "top-0 right-14 ": true,
         "h-[calc(100vh)] w-[300px]": true,
         "transition-transform .3s ease-in-out md:translate-x-full": true,
@@ -66,7 +66,7 @@ const Sidebar = ({
                 <Link aria-label={item.label} key={index} href={item.href}>
                   <li
                     onClick={() => setOpen(false)}
-                    className="hover:text-lilac hover:bg-darkPurple flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2"
+                    className=" hover:bg-darkPurple flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2"
                   >
                     {item.icon} {item.label}
                   </li>
@@ -85,7 +85,7 @@ const Sidebar = ({
           >
             <li
               onClick={() => setOpen(false)}
-              className="md:bg-lilac hover:text-lilac hover:bg-darkPurple flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2"
+              className="md:bg-lilac  hover:bg-darkPurple flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2"
             >
               <Image
                 src="/github-mark.png"
@@ -105,7 +105,7 @@ const Sidebar = ({
           >
             <li
               onClick={() => setOpen(false)}
-              className="md:bg-lilac hover:text-lilac hover:bg-darkPurple flex gap-4 items-center  transition-colors duration-300 rounded-md p-2 mx-2"
+              className="md:bg-lilac  hover:bg-darkPurple flex gap-4 items-center  transition-colors duration-300 rounded-md p-2 mx-2"
             >
               <Image
                 src="/LI-In-Bug.png"
@@ -124,7 +124,7 @@ const Sidebar = ({
           >
             <li
               onClick={() => setOpen(false)}
-              className="md:bg-lilac hover:text-lilac hover:bg-darkPurple flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2"
+              className="md:bg-lilac hover:bg-darkPurple flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2"
             >
               <EnvelopeIcon className="h-6 w-6" />
 

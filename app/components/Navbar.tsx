@@ -22,7 +22,7 @@ const Navbar = ({ navItems = defaultNavItems }: Props) => {
             key={index}
             href={item.href}
             aria-label={item.label}
-            className="text-darkPurple bg-cream hover:text-lilac hover:bg-darkPurple flex gap-4 items-center transition-colors duration-300 rounded-md mx-2"
+            className="text-darkPurple bg-white hover:text-white hover:bg-darkPurple flex gap-4 items-center transition-colors duration-300 rounded-md mx-2"
           >
             <li className="flex gap-4 items-center rounded-md p-2">
               {item.icon} {item.label}

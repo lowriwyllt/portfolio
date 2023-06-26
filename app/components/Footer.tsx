@@ -16,7 +16,7 @@ const Footer = ({ navItems = defaultNavItems }: Props) => {
         <div className="flex flex-wrap items-center justify-between">
           <div className="w-full md:w-1/3">
             <h3 className="text-lg font-semibold text-white">Lowri Roberts</h3>
-            <p className="text-lilac mt-2">Web Developer</p>
+            <p className="text-white mt-2">Web Developer</p>
           </div>
           <div className="w-full md:w-2/3 flex flex-wrap justify-end items-center ">
             <nav className="w-full md:w-auto">
@@ -28,7 +28,7 @@ const Footer = ({ navItems = defaultNavItems }: Props) => {
                       key={item.label}
                       href={item.href}
                     >
-                      <li className="hover:text-darkPurple hover:bg-lilac text-lilac flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2">
+                      <li className="hover:text-darkPurple hover:bg-white text-white flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2">
                         <div className="block sm:hidden md:block">
                           {item.icon}
                         </div>
