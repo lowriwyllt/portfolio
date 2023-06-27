@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import TechStack from "../components/TechStackComponent";
-import RecentProjects from "../components/RecentProjects";
-import RecentAdventures from "../components/RecentAdventures";
-import ContactMe from "../components/ContactMe";
+import TechStack from "../components/home/TechStackComponent";
+import RecentProjects from "../components/home/RecentProjects";
+import RecentAdventures from "../components/home/RecentAdventures";
+import ContactMe from "../components/home/ContactMe";
 
 export const metadata: Metadata = {
   title: "Home - Lowri Roberts",
