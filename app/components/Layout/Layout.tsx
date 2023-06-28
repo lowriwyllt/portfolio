@@ -22,7 +22,7 @@ const Layout = () => {
         onMenuButtonClick={handleMenuButtonClick}
       />
       <div
-        className="flex justify-between text-darkPurple w-full h-[100px] top-0 left-0 fixed z-20"
+        className="flex justify-between text-darkPurple w-full h-[100px] top-0 left-0 fixed z-20 bg-white bg-opacity-50 backdrop-filter backdrop-blur-sm"
         ref={ref}
       >
         <div className="flex flex-row justify-between w-full">
