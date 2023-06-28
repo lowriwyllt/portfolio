@@ -34,7 +34,8 @@ const Sidebar = ({
     <div
       className={classNames({
         "flex flex-col justify-between fixed z-30": true,
-        "text-white bg-lilac md:bg-transparent": true,
+        "text-white bg-lilac md:bg-transparent drop-shadow-[0_0_10px_rgba(0,0,0,1)] md:drop-shadow-none":
+          true,
         "top-0 right-14 ": true,
         "h-[calc(100vh)] w-[300px]": true,
         "transition-transform .3s ease-in-out md:translate-x-full": true,
@@ -85,21 +86,21 @@ const Sidebar = ({
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Github for Lowri Roberts"
-              className="md:bg-lilac  hover:bg-darkPurple flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2"
+              className="md:bg-lilac  hover:bg-darkPurple md:drop-shadow-[0_0_10px_rgba(0,0,0,1)] drop-shadow-none flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2"
             >
               <Image
                 src="/github-mark.png"
                 width="21"
                 height="21"
                 alt="Github logo"
-                className="h-6 w-6"
+                className="h-6 w-6 drop-shadow-[0_0_5px_rgba(255,255,255,1)]"
               />
               <p>Github</p>
             </a>
           </li>
           <li onClick={() => setOpen(false)}>
             <a
-              className="md:bg-lilac  hover:bg-darkPurple flex gap-4 items-center  transition-colors duration-300 rounded-md p-2 mx-2"
+              className="md:bg-lilac  hover:bg-darkPurple md:drop-shadow-[0_0_10px_rgba(0,0,0,1)] drop-shadow-none flex gap-4 items-center  transition-colors duration-300 rounded-md p-2 mx-2"
               href="https://www.linkedin.com/in/lowri-gwenllian-roberts/"
               target="_blank"
               rel="noopener noreferrer"
@@ -110,7 +111,7 @@ const Sidebar = ({
                 width="21"
                 height="21"
                 alt="LinkedIn logo"
-                className="h-6 w-6"
+                className="h-6 w-6 drop-shadow-[0_0_5px_rgba(255,255,255,1)]"
               />
 
               <p>LinkedIn</p>
@@ -118,7 +119,7 @@ const Sidebar = ({
           </li>
           <li onClick={() => setOpen(false)}>
             <a
-              className="md:bg-lilac hover:bg-darkPurple flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2"
+              className="md:bg-lilac hover:bg-darkPurple md:drop-shadow-[0_0_10px_rgba(0,0,0,1)] drop-shadow-none flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2"
               href="mailto:lowri.g.roberts@hotmail.com"
               aria-label="Email Lowri Roberts"
             >
