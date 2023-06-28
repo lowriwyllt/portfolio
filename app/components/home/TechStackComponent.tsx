@@ -1,9 +1,10 @@
+import { merriweather } from "@/app/fonts";
 import { myTechStack } from "./myTechStack";
 
 export default function TechStack() {
   return (
     <div className="p-2 flex flex-col items-center pr-[60px]">
-      <h2>Tech Stack</h2>
+      <h2 className={`${merriweather.className} mb-4`}>Tech Stack</h2>
       <div className="w-4/5 flex flex-row flex-wrap gap-8 justify-center">
         {myTechStack.map((tech) => {
           return (

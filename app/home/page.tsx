@@ -4,6 +4,7 @@ import TechStack from "../components/home/TechStackComponent";
 import RecentProjects from "../components/home/RecentProjects";
 import RecentAdventures from "../components/home/RecentAdventures";
 import ContactMe from "../components/home/ContactMe";
+import { merriweather } from "../fonts";
 
 export const metadata: Metadata = {
   title: "Home - Lowri Roberts",
@@ -24,8 +25,8 @@ export default function Home() {
           width={500}
           height={500}
         />
-        <div className="md:p-4">
-          <h1>Lowri Roberts</h1>
+        <div className="md:p-4 max-w-[90%] md:max-w-[50%]">
+          <h1 className={merriweather.className}>Lowri Roberts</h1>
           <p>
             I'm a full stack web developer, with a focus on JavaScript. I'm
             dedicated to delivering sleek and dynamic websites.

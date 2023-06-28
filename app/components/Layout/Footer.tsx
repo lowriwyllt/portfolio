@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { defaultNavItems } from "./defaultNavItems";
+import { merriweather } from "@/app/fonts";
 
 export type NavItem = {
   label: string;
@@ -15,7 +16,11 @@ const Footer = ({ navItems = defaultNavItems }: Props) => {
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap items-center justify-between">
           <div className="w-full md:w-1/3">
-            <h3 className="text-lg font-semibold text-white">Lowri Roberts</h3>
+            <h3
+              className={`text-lg font-semibold text-white ${merriweather.className}`}
+            >
+              Lowri Roberts
+            </h3>
             <p className="text-white mt-2">Web Developer</p>
           </div>
           <div className="w-full md:w-2/3 flex flex-wrap justify-end items-center ">
