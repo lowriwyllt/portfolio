@@ -28,8 +28,9 @@ export default function Home() {
         <div className="md:p-4 max-w-[90%] md:max-w-[50%]">
           <h1 className={merriweather.className}>Lowri Roberts</h1>
           <p>
-            I'm a full stack web developer, with a focus on JavaScript. I'm
-            dedicated to delivering sleek and dynamic websites.
+            {
+              "I'm a full stack web developer, with a focus on JavaScript. I'm dedicated to delivering sleek and dynamic websites."
+            }
           </p>
         </div>
       </div>
