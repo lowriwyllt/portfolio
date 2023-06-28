@@ -10,6 +10,7 @@ export default async function RecentAdventures() {
         {data.map((adventure) => {
           return (
             <div
+              aria-label={adventure.name}
               key={adventure.name}
               className={`flex justify-center items-center max-w-[70vh] grow hover:grow-[7] transition-flex duration-800 ease-in bg-cover bg-no-repeat bg-center`}
               style={{
