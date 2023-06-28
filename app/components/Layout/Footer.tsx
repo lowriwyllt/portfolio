@@ -10,7 +10,7 @@ export type NavItem = {
 type Props = {
   navItems?: NavItem[];
 };
-const Footer = ({ navItems = defaultNavItems }: Props) => {
+const Footer = ({ navItems = defaultNavItems }: Props): JSX.Element => {
   return (
     <footer className="bg-darkPurple py-6  w-full relative z-40">
       <div className="container mx-auto px-4">

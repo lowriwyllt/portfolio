@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { Metadata, NextPage } from "next";
 import Image from "next/image";
 import TechStack from "../components/home/TechStackComponent";
 import RecentProjects from "../components/home/RecentProjects";
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "Welcome to Lowri Roberts' portfolio website. Explore my work as a web designer.",
 };
 
-export default function Home() {
+const Home: NextPage = (): JSX.Element => {
   return (
     <main
       className="md:min-h-[calc(100vh-108px)] min-h-[calc(100vh-148px)] h-fit
@@ -42,4 +42,6 @@ export default function Home() {
       </div>
     </main>
   );
-}
+};
+
+export default Home;

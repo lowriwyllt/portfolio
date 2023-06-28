@@ -1,8 +1,8 @@
 import { merriweather } from "@/app/fonts";
-import { fetchAdventures } from "@/database/database";
+import { fetchAdventures, adventureType } from "@/database/database";
 
 export default async function RecentAdventures() {
-  const data = await fetchAdventures();
+  const data: adventureType[] = await fetchAdventures();
   return (
     <div className="p-2 flex flex-col items-center pr-[60px]">
       <h2 className={`${merriweather.className} mb-4`}>Recent Adventures</h2>

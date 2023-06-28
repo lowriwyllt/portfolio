@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { Metadata, NextPage } from "next";
 import { merriweather } from "./fonts";
 import Link from "next/link";
 import UnderConstruction from "./components/UnderConstruction";
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "",
 };
 
-export default function LandingPage() {
+const LandingPage: NextPage = (): JSX.Element => {
   return (
     <main className="flex md:min-h-[calc(100vh-108px)] min-h-[calc(100vh-148px)] flex-col items-center relative top-[100px] px-[56px] py-24">
       <h1 className={merriweather.className}>
@@ -24,4 +24,6 @@ export default function LandingPage() {
       <UnderConstruction />
     </main>
   );
-}
+};
+
+export default LandingPage;

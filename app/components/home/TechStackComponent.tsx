@@ -1,7 +1,7 @@
 import { merriweather } from "@/app/fonts";
 import { myTechStack } from "./myTechStack";
 
-export default function TechStack() {
+export default function TechStack(): JSX.Element {
   return (
     <div className="p-2 flex flex-col items-center pr-[60px]">
       <h2 className={`${merriweather.className} mb-4`}>Tech Stack</h2>

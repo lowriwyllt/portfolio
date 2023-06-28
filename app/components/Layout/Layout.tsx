@@ -6,11 +6,11 @@ import Navbar from "./Navbar";
 import Image from "next/image";
 import Link from "next/link";
 
-const Layout = () => {
-  const [showSidebar, setShowSidebar] = useState(false);
+const Layout = (): JSX.Element => {
+  const [showSidebar, setShowSidebar] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const handleMenuButtonClick = () => {
+  const handleMenuButtonClick = (): void => {
     setShowSidebar((prev) => !prev);
   };
 

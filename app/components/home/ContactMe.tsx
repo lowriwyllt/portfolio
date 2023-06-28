@@ -1,6 +1,6 @@
 import { merriweather } from "@/app/fonts";
 
-export default function ContactMe() {
+export default function ContactMe(): JSX.Element {
   return (
     <div className=" p-2 flex flex-col items-center pr-[56px]">
       <h2 className={`${merriweather.className} mb-4`}>Contact Me</h2>

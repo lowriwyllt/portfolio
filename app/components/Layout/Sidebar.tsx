@@ -24,9 +24,9 @@ const Sidebar = ({
   navItems = defaultNavItems,
   setOpen,
   onMenuButtonClick,
-}: Props) => {
+}: Props): JSX.Element => {
   const ref = useRef<HTMLDivElement>(null);
-  useOnClickOutside(ref, (e) => {
+  useOnClickOutside(ref, (e: MouseEvent | TouchEvent) => {
     setOpen(false);
   });
 

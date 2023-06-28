@@ -1,9 +1,9 @@
 import { merriweather } from "@/app/fonts";
-import { fetchProjects } from "@/database/database";
+import { fetchProjects, projectType } from "@/database/database";
 import Image from "next/image";
 
 export default async function RecentProjects() {
-  const data = await fetchProjects();
+  const data: projectType[] = await fetchProjects();
   return (
     <div className="p-2 flex flex-col items-center pr-[60px]">
       <h2 className={`${merriweather.className} mb-4`}>Recent Projects</h2>

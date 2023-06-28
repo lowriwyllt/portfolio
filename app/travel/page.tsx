@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { Metadata, NextPage } from "next";
 import UnderConstruction from "../components/UnderConstruction";
 
 export const metadata: Metadata = {
@@ -6,11 +6,13 @@ export const metadata: Metadata = {
   description: "Discover Lowri Roberts' travel experiences and adventures.",
 };
 
-export default function Travel() {
+const Travel: NextPage = (): JSX.Element => {
   return (
     <main className="flex md:min-h-[calc(100vh-108px)] min-h-[calc(100vh-148px)] flex-col items-center justify-between relative top-[100px] px-[56px] py-24">
       <h1>Travel</h1>
       <UnderConstruction />
     </main>
   );
-}
+};
+
+export default Travel;
