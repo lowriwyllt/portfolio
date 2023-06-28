@@ -11,7 +11,9 @@ export default async function RecentAdventures() {
           return (
             <div
               className={`flex justify-center items-center max-w-[70vh] grow hover:grow-[7] transition-flex duration-800 ease-in bg-cover bg-no-repeat bg-center`}
-              style={{ backgroundImage: `url(${adventure.mainImg})` }}
+              style={{
+                backgroundImage: `url(${adventure.mainImg[1]})`,
+              }}
             >
               <h3 className="absolute font-outline-2 drop-shadow-[0_0_10px_rgba(0,0,0,1)] font-bold text-[3em] md:rotate-90">
                 {adventure.name}
