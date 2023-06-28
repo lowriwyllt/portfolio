@@ -6,11 +6,11 @@ import Navbar from "./Navbar";
 import Image from "next/image";
 import Link from "next/link";
 
-const Layout = () => {
-  const [showSidebar, setShowSidebar] = useState(false);
+const Layout = (): JSX.Element => {
+  const [showSidebar, setShowSidebar] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const handleMenuButtonClick = () => {
+  const handleMenuButtonClick = (): void => {
     setShowSidebar((prev) => !prev);
   };
 
@@ -22,7 +22,7 @@ const Layout = () => {
         onMenuButtonClick={handleMenuButtonClick}
       />
       <div
-        className="flex justify-between text-darkPurple w-full h-[100px] top-0 left-0 fixed z-20"
+        className="flex justify-between text-darkPurple w-full h-[100px] top-0 left-0 fixed z-20 bg-white bg-opacity-50 backdrop-filter backdrop-blur-sm"
         ref={ref}
       >
         <div className="flex flex-row justify-between w-full">
