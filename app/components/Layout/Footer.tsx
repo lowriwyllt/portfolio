@@ -28,18 +28,19 @@ const Footer = ({ navItems = defaultNavItems }: Props) => {
               <ul className="flex items-center justify-center space-x-4 ">
                 {navItems.map((item, index) => {
                   return (
-                    <Link
-                      aria-label={item.label}
-                      key={item.label}
-                      href={item.href}
-                    >
-                      <li className="hover:text-darkPurple hover:bg-white text-white flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2">
+                    <li key={item.label}>
+                      <Link
+                        aria-label={item.label}
+                        key={item.label}
+                        href={item.href}
+                        className="hover:text-darkPurple hover:bg-white text-white flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2"
+                      >
                         <div className="block sm:hidden md:block">
                           {item.icon}
                         </div>
                         <div className="hidden sm:block">{item.label}</div>
-                      </li>
-                    </Link>
+                      </Link>
+                    </li>
                   );
                 })}
               </ul>

@@ -63,28 +63,28 @@ const Sidebar = ({
           <ul className="py-2 flex flex-col gap-2 md:hidden">
             {navItems.map((item, index) => {
               return (
-                <Link aria-label={item.label} key={index} href={item.href}>
-                  <li
-                    onClick={() => setOpen(false)}
+                <li key={item.label} onClick={() => setOpen(false)}>
+                  <Link
                     className=" hover:bg-darkPurple flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2"
+                    aria-label={item.label}
+                    key={index}
+                    href={item.href}
                   >
                     {item.icon} {item.label}
-                  </li>
-                </Link>
+                  </Link>
+                </li>
               );
             })}
           </ul>
         </nav>
 
         <ul className="py-2 flex flex-col gap-2">
-          <a
-            href="https://github.com/lowriwyllt"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Github for Lowri Roberts"
-          >
-            <li
-              onClick={() => setOpen(false)}
+          <li onClick={() => setOpen(false)}>
+            <a
+              href="https://github.com/lowriwyllt"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Github for Lowri Roberts"
               className="md:bg-lilac  hover:bg-darkPurple flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2"
             >
               <Image
@@ -95,17 +95,15 @@ const Sidebar = ({
                 className="h-6 w-6"
               />
               <p>Github</p>
-            </li>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/lowri-gwenllian-roberts/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn for Lowri Roberts"
-          >
-            <li
-              onClick={() => setOpen(false)}
+            </a>
+          </li>
+          <li onClick={() => setOpen(false)}>
+            <a
               className="md:bg-lilac  hover:bg-darkPurple flex gap-4 items-center  transition-colors duration-300 rounded-md p-2 mx-2"
+              href="https://www.linkedin.com/in/lowri-gwenllian-roberts/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn for Lowri Roberts"
             >
               <Image
                 src="/LI-In-Bug.png"
@@ -116,21 +114,19 @@ const Sidebar = ({
               />
 
               <p>LinkedIn</p>
-            </li>
-          </a>
-          <a
-            href="mailto:lowri.g.roberts@hotmail.com"
-            aria-label="Email Lowri Roberts"
-          >
-            <li
-              onClick={() => setOpen(false)}
+            </a>
+          </li>
+          <li onClick={() => setOpen(false)}>
+            <a
               className="md:bg-lilac hover:bg-darkPurple flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2"
+              href="mailto:lowri.g.roberts@hotmail.com"
+              aria-label="Email Lowri Roberts"
             >
               <EnvelopeIcon className="h-6 w-6" />
 
               <p>Email me</p>
-            </li>
-          </a>
+            </a>
+          </li>
         </ul>
       </div>
       <div className={`md:h-[108px] h-[148px] `}></div>
