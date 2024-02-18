@@ -1,7 +1,7 @@
 // components/layout/Sidebar.tsx
 import React, { useRef } from "react";
 import Link from "next/link";
-import { defaultNavItems } from "./defaultNavItems";
+import { englishNavItems } from "./englishNavItems";
 
 export type NavItem = {
   label: string;
@@ -13,7 +13,7 @@ type Props = {
   navItems?: NavItem[];
 };
 
-const Navbar = ({ navItems = defaultNavItems }: Props): JSX.Element => {
+const Navbar = ({ navItems = englishNavItems }: Props): JSX.Element => {
   return (
     <nav className="py-2 md:flex flex-row gap-2 hidden  flex-grow  justify-end">
       <ul className="md:sticky top-0 md:top-16 flex flex-grow flex-row  items-center">

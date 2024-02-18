@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { defaultNavItems } from "./defaultNavItems";
+import { englishNavItems } from "./englishNavItems";
 import { merriweather } from "@/app/fonts";
 
 export type NavItem = {
@@ -10,7 +10,7 @@ export type NavItem = {
 type Props = {
   navItems?: NavItem[];
 };
-const Footer = ({ navItems = defaultNavItems }: Props): JSX.Element => {
+const Footer = ({ navItems = englishNavItems }: Props): JSX.Element => {
   return (
     <footer className="bg-darkPurple py-6  w-full relative z-40">
       <div className="container mx-auto px-4">

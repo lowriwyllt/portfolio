@@ -5,8 +5,14 @@ import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import Image from "next/image";
 import Link from "next/link";
+import { welshNavItems } from "./welshNavItems";
+import { englishNavItems } from "./englishNavItems";
 
-const Layout = (): JSX.Element => {
+const Layout = ({
+  language = "english",
+}: {
+  language?: string;
+}): JSX.Element => {
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -20,6 +26,7 @@ const Layout = (): JSX.Element => {
         open={showSidebar}
         setOpen={setShowSidebar}
         onMenuButtonClick={handleMenuButtonClick}
+        navItems={language === "welsh" ? welshNavItems : englishNavItems}
       />
       <div
         className="flex justify-between text-darkPurple w-full h-[100px] top-0 left-0 fixed z-20 bg-white bg-opacity-50 backdrop-filter backdrop-blur-sm"
@@ -28,7 +35,7 @@ const Layout = (): JSX.Element => {
         <div className="flex flex-row justify-between w-full">
           <Link
             href="/"
-            aria-label="Home"
+            aria-label="Landing Page"
             className="m-5 flex flex-col items-center justify-center"
           >
             <Image
@@ -40,7 +47,9 @@ const Layout = (): JSX.Element => {
             <p>Web Developer</p>
           </Link>
           <div className=" z-10 h-full justify-self-end flex flex-row items-center justify-end">
-            <Navbar />
+            <Navbar
+              navItems={language === "welsh" ? welshNavItems : englishNavItems}
+            />
           </div>
         </div>
       </div>
