@@ -5,6 +5,8 @@ export type projectType = {
   name: string;
   mainImg: string;
   shortDescription: string;
+  enw: string;
+  disgrifiadByr: string;
 };
 
 export const fetchProjects = async () => {
@@ -17,6 +19,8 @@ export const fetchProjects = async () => {
         name: doc.data().name,
         mainImg: doc.data().mainImg,
         shortDescription: doc.data().shortDescription,
+        enw: doc.data().enw,
+        disgrifiadByr: doc.data().disgrifiadByr,
       });
     });
     return result;
@@ -29,6 +33,7 @@ export const fetchProjects = async () => {
 export type adventureType = {
   name: string;
   mainImg: string[];
+  enw: string;
 };
 
 export const fetchAdventures = async () => {
@@ -40,6 +45,7 @@ export const fetchAdventures = async () => {
       result.push({
         name: doc.data().name,
         mainImg: doc.data().mainImg,
+        enw: doc.data().enw,
       });
     });
     return result;
