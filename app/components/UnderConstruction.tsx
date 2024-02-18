@@ -1,8 +1,14 @@
-export default function UnderConstruction(): JSX.Element {
+export default function UnderConstruction({
+  language = "english",
+}: {
+  language?: string;
+}): JSX.Element {
   return (
     <div className="w-full absolute top-72">
       <p className="font-bold text-3xl text-center relative -top-16">
-        Still under construction
+        {language === "welsh"
+          ? "Dal yn cael ei osod"
+          : "Still under construction"}
       </p>
       <div
         className="rotate-12"

@@ -1,11 +1,19 @@
 import { merriweather } from "@/app/fonts";
 
-export default function ContactMe(): JSX.Element {
+export default function ContactMe({
+  language = "english",
+}: {
+  language?: string;
+}): JSX.Element {
   return (
     <div className=" p-2 flex flex-col items-center pr-[56px]">
-      <h2 className={`${merriweather.className} mb-4`}>Contact Me</h2>
+      <h2 className={`${merriweather.className} mb-4`}>
+        {language === "welsh" ? "Cysylltwch a fi" : "Contact Me"}
+      </h2>
       <p className="text-center">
-        Contact me via email or check out my socials :)
+        {language === "welsh"
+          ? "Cysylltwch a fi trwy ebost neu taro golwg ar fy cyfryngau cymdeithasol :)"
+          : "Contact me via email or check out my socials :)"}
       </p>
       <div className="w-full ">
         <div className="relative -mt-[4%] mr-[10%] ml-auto w-1/4">

@@ -1,7 +1,11 @@
 import { merriweather } from "@/app/fonts";
 import { fetchAdventures, adventureType } from "@/database/database";
 
-export default async function RecentAdventures() {
+export default async function RecentAdventures({
+  language = "english",
+}: {
+  language?: string;
+}) {
   const data: adventureType[] = await fetchAdventures();
   return (
     <div className="p-2 flex flex-col items-center pr-[60px]">
@@ -18,7 +22,7 @@ export default async function RecentAdventures() {
               }}
             >
               <h3 className="absolute font-outline-2 drop-shadow-[0_0_10px_rgba(0,0,0,1)] font-bold text-[3em] md:rotate-90">
-                {adventure.name}
+                {language === "welsh" ? adventure.enw : adventure.name}
               </h3>
             </div>
           );
