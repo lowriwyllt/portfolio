@@ -10,11 +10,7 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en" className={ibm_plex_mono.className}>
-      <body className="bg-white max-w-[100vw] min-h-fit">
-        <Layout />
-        {children}
-        <Footer />
-      </body>
+      <body className="bg-white max-w-[100vw] min-h-fit">{children}</body>
     </html>
   );
 }

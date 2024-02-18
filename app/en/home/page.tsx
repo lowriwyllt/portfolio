@@ -1,10 +1,10 @@
 import { Metadata, NextPage } from "next";
 import Image from "next/image";
-import TechStack from "../components/home/TechStackComponent";
-import RecentProjects from "../components/home/RecentProjects";
-import RecentAdventures from "../components/home/RecentAdventures";
-import ContactMe from "../components/home/ContactMe";
-import { merriweather } from "../fonts";
+import TechStack from "../../components/home/TechStackComponent";
+import RecentProjects from "../../components/home/RecentProjects";
+import RecentAdventures from "../../components/home/RecentAdventures";
+import ContactMe from "../../components/home/ContactMe";
+import { merriweather } from "../../fonts";
 
 export const metadata: Metadata = {
   title: "Home - Lowri Roberts",

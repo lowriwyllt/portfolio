@@ -15,7 +15,7 @@ const LandingPage: NextPage = (): JSX.Element => {
         Choose Your Language - only avaiable in English at the moment
       </h1>
       <Link
-        href="/home"
+        href="/en/home"
         aria-label={"Home"}
         className="flex gap-4 items-center rounded-md p-2"
       >

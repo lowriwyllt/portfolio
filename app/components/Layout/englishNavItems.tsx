@@ -1,4 +1,4 @@
-// components/layout/defaultNavItems.tsx
+// components/layout/englishNavItems.tsx
 import React from "react";
 import {
   CodeBracketIcon,
@@ -8,25 +8,25 @@ import {
 } from "@heroicons/react/24/outline";
 import { NavItem } from "./Sidebar";
 
-export const defaultNavItems: NavItem[] = [
+export const englishNavItems: NavItem[] = [
   {
     label: "Home",
-    href: "/home",
+    href: "/en/home",
     icon: <HomeIcon className="w-6 h-6" />,
   },
   {
     label: "Coding Projects",
-    href: "/codingprojects",
+    href: "/en/codingprojects",
     icon: <CodeBracketIcon className="w-6 h-6" />,
   },
   {
     label: "Experience",
-    href: "/experience",
+    href: "/en/experience",
     icon: <DocumentIcon className="w-6 h-6" />,
   },
   {
     label: "Travel",
-    href: "/travel",
+    href: "/en/travel",
     icon: <GlobeEuropeAfricaIcon className="w-6 h-6" />,
   },
 ];
