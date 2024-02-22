@@ -1,7 +1,6 @@
 import { Metadata, NextPage } from "next";
 import { merriweather } from "./fonts";
 import Link from "next/link";
-import UnderConstruction from "./components/UnderConstruction";
 import Image from "next/image";
 
 export const metadata: Metadata = {

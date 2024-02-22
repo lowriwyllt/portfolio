@@ -14,7 +14,7 @@ export default async function RecentProjects({
         {language === "welsh" ? "Prosiectau Diweddar" : "Recent Projects"}
       </h2>
       <div className="max-w-[1326px] w-full md:w-4/5 flex flex-row flex-wrap gap-4 justify-center">
-        {data.map((project: any) => {
+        {data.map((project) => {
           return (
             <div
               key={language === "welsh" ? project.enw : project.name}

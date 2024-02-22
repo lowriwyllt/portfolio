@@ -2,7 +2,6 @@ import "../globals.css";
 import Layout from "../components/Layout/Layout";
 import Footer from "../components/Layout/Footer";
 import { ibm_plex_mono } from "../fonts";
-import { usePathname } from "next/navigation";
 import { welshNavItems } from "../components/Layout/welshNavItems";
 
 export default function RootLayout({

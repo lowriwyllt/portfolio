@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef } from "react";
 import classNames from "classnames";
 import Link from "next/link";
 import Image from "next/image";
@@ -26,7 +26,7 @@ const Sidebar = ({
   onMenuButtonClick,
 }: Props): JSX.Element => {
   const ref = useRef<HTMLDivElement>(null);
-  useOnClickOutside(ref, (e: MouseEvent | TouchEvent) => {
+  useOnClickOutside(ref, () => {
     setOpen(false);
   });
 
@@ -130,7 +130,7 @@ const Sidebar = ({
           </li>
         </ul>
       </div>
-      <div className={`md:h-[108px] h-[148px] `}></div>
+      <div className={"md:h-[108px] h-[148px] "}></div>
     </div>
   );
 };

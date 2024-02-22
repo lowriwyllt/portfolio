@@ -26,7 +26,7 @@ const Footer = ({ navItems = englishNavItems }: Props): JSX.Element => {
           <div className="w-full md:w-2/3 flex flex-wrap justify-end items-center ">
             <nav className="w-full md:w-auto">
               <ul className="flex items-center justify-center space-x-4 ">
-                {navItems.map((item, index) => {
+                {navItems.map((item) => {
                   return (
                     <li key={item.label}>
                       <Link

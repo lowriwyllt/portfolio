@@ -1,6 +1,4 @@
 import "./globals.css";
-import Layout from "./components/Layout/Layout";
-import Footer from "./components/Layout/Footer";
 import { ibm_plex_mono } from "./fonts";
 
 export default function RootLayout({
