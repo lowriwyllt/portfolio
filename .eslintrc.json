@@ -1,5 +1,5 @@
 {
-  "extends": ["next/core-web-vitals",  "plugin:@typescript-eslint/recommended"],
+  "extends": ["next/core-web-vitals",  "plugin:@typescript-eslint/recommended", "prettier"],
   "rules": {
     "indent": ["error", 2],
     "quotes": ["error", "double"],
