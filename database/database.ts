@@ -61,6 +61,7 @@ export type experienceType = {
   shortDescription: string;
   startDate: string;
   endDate: string;
+  companyImg: string;
 };
 
 export const fetchExperience = async () => {
@@ -75,6 +76,7 @@ export const fetchExperience = async () => {
         shortDescription: doc.data().shortDescription,
         startDate: doc.data().start_date,
         endDate: doc.data().end_date,
+        companyImg: doc.data().companyImg,
       });
     });
     return result;
