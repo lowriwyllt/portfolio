@@ -54,3 +54,32 @@ export const fetchAdventures = async () => {
     throw error;
   }
 };
+
+export type experienceType = {
+  role: string;
+  company: string;
+  shortDescription: string;
+  startDate: string;
+  endDate: string;
+};
+
+export const fetchExperience = async () => {
+  try {
+    console.log("fetchExperience");
+    const querySnapshot = await getDocs(collection(db, "Experience"));
+    const result: experienceType[] = [];
+    querySnapshot.forEach((doc) => {
+      result.push({
+        role: doc.data().role,
+        company: doc.data().company,
+        shortDescription: doc.data().shortDescription,
+        startDate: doc.data().start_date,
+        endDate: doc.data().end_date,
+      });
+    });
+    return result;
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+    throw error;
+  }
+};
