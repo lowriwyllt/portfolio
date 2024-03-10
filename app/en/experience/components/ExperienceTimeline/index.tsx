@@ -26,7 +26,6 @@ export const ExperienceTimeline = async () => {
           date={`${job.startDate} - ${job.endDate}`}
           iconStyle={{ background: "#471ca8", color: "#fff" }}
           contentStyle={{ backgroundColor: "#F2F9FA" }}
-          // You can add an icon here using the `icon` prop
         >
           <h3 className="vertical-timeline-element-title">{job.role}</h3>
           <h4 className="vertical-timeline-element-subtitle">{job.company}</h4>
