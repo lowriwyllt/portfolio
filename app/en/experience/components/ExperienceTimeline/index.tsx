@@ -1,7 +1,6 @@
 "use client";
 
 import { experienceType, fetchExperience } from "@/database/database";
-import { useEffect, useState } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -9,15 +8,9 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 
 export const ExperienceTimeline = async () => {
-  const [jobs, setJobs] = useState<experienceType[]>([]);
+  const jobs: experienceType[] = await fetchExperience();
 
-  useEffect(() => {
-    const fetchJobs = async () => {
-      const data: experienceType[] = await fetchExperience();
-      setJobs(data);
-    };
-    fetchJobs();
-  }, []);
+  console.log({ jobs });
 
   const sortedJobs = jobs.sort((a, b) => {
     const [monthA, yearA] = a.startDate.split("/");
