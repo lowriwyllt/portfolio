@@ -63,6 +63,7 @@ export const Sidebar = ({ navItems }: Props) => {
                   aria-label={item.label}
                   style={{ textDecoration: "none" }}
                   key={item.label}
+                  onClick={onClose}
                   {...STYLING.BUTTON.DARK_PURPLE}
                 >
                   <HStack spacing={4}>
