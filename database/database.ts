@@ -57,8 +57,11 @@ export const fetchAdventures = async () => {
 
 export type experienceType = {
   role: string;
+  rol: string;
   company: string;
+  cwmni: string;
   shortDescription: string;
+  disgrifiadByr: string;
   startDate: string;
   endDate: string;
   companyImg: string;
@@ -72,8 +75,11 @@ export const fetchExperience = async () => {
     querySnapshot.forEach((doc) => {
       result.push({
         role: doc.data().role,
+        rol: doc.data().rol,
         company: doc.data().company,
+        cwmni: doc.data().cwmni,
         shortDescription: doc.data().shortDescription,
+        disgrifiadByr: doc.data().disgrifiadByr,
         startDate: doc.data().start_date,
         endDate: doc.data().end_date,
         companyImg: doc.data().companyImg,

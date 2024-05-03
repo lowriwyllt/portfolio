@@ -1,54 +1,69 @@
-import Link from "next/link";
-import { englishNavItems } from "./englishNavItems";
-import { merriweather } from "@/app/fonts";
+"use client";
 
-export type NavItem = {
-  label: string;
-  href: string;
-  icon: React.ReactNode;
-};
+import { merriweather } from "@/app/fonts";
+import { NavItem, englishNavItems } from "./navItems";
+import { Box, Button, Flex, HStack, Text } from "@chakra-ui/react";
+import { STYLING } from "@/app/theme/Styling";
+import { Link } from "@chakra-ui/next-js";
+
 type Props = {
   navItems?: NavItem[];
 };
 const Footer = ({ navItems = englishNavItems }: Props): JSX.Element => {
   return (
-    <footer className="bg-darkPurple py-6  w-full relative z-40">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-wrap items-center justify-between">
-          <div className="w-full md:w-1/3">
-            <h3
-              className={`text-lg font-semibold text-white ${merriweather.className}`}
+    <Flex
+      as="footer"
+      backgroundColor={STYLING.COLORS.DARK_PURPLE}
+      py={6}
+      px={4}
+      width={"full"}
+      zIndex={1}
+      flexDirection={{ base: "column", sm: "row" }}
+      alignItems={"center"}
+      justifyContent={"space-between"}
+    >
+      <Box w={{ base: "full", md: "1/3" }}>
+        <Text
+          size="lg"
+          fontWeight="semibold"
+          color="white"
+          className={`${merriweather.className}`}
+        >
+          Lowri Roberts
+        </Text>
+        <Text color="white" mt={2}>
+          Web Developer
+        </Text>
+      </Box>
+      <HStack
+        as={"nav"}
+        w={{ base: "full", md: "2/3" }}
+        justify="flex-end"
+        alignItems={"center"}
+      >
+        {navItems.map((item) => {
+          return (
+            <Button
+              as={Link}
+              aria-label={item.label}
+              key={item.label}
+              href={item.href}
+              style={{ textDecoration: "none" }}
+              {...STYLING.BUTTON.DARK_PURPLE}
             >
-              Lowri Roberts
-            </h3>
-            <p className="text-white mt-2">Web Developer</p>
-          </div>
-          <div className="w-full md:w-2/3 flex flex-wrap justify-end items-center ">
-            <nav className="w-full md:w-auto">
-              <ul className="flex items-center justify-center space-x-4 ">
-                {navItems.map((item) => {
-                  return (
-                    <li key={item.label}>
-                      <Link
-                        aria-label={item.label}
-                        key={item.label}
-                        href={item.href}
-                        className="hover:text-darkPurple hover:bg-white text-white flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2"
-                      >
-                        <div className="block sm:hidden md:block">
-                          {item.icon}
-                        </div>
-                        <div className="hidden sm:block">{item.label}</div>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </footer>
+              <HStack spacing={4}>
+                <Box display={{ base: "block", sm: "none", md: "block" }}>
+                  {item.icon}
+                </Box>
+                <Text display={{ base: "none", sm: "block" }}>
+                  {item.label}
+                </Text>
+              </HStack>
+            </Button>
+          );
+        })}
+      </HStack>
+    </Flex>
   );
 };
 

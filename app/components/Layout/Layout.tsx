@@ -1,42 +1,42 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import Image from "next/image";
-import Link from "next/link";
-import { welshNavItems } from "./welshNavItems";
-import { englishNavItems } from "./englishNavItems";
+import { Flex, HStack, Text } from "@chakra-ui/react";
+import { STYLING } from "@/app/theme/Styling";
+import { Link } from "@chakra-ui/next-js";
+import Socials from "./Socials";
+import { englishNavItems, welshNavItems } from "./navItems";
 
 const Layout = ({
   language = "english",
 }: {
   language?: string;
 }): JSX.Element => {
-  const [showSidebar, setShowSidebar] = useState<boolean>(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  const handleMenuButtonClick = (): void => {
-    setShowSidebar((prev) => !prev);
-  };
-
   return (
     <>
-      <Sidebar
-        open={showSidebar}
-        setOpen={setShowSidebar}
-        onMenuButtonClick={handleMenuButtonClick}
-        navItems={language === "welsh" ? welshNavItems : englishNavItems}
-      />
-      <div
-        className="flex justify-between text-darkPurple w-full h-[100px] top-0 left-0 fixed z-20 bg-white bg-opacity-50 backdrop-filter backdrop-blur-sm"
-        ref={ref}
+      <Socials />
+      <Flex
+        justifyContent="space-between"
+        width="full"
+        height="100px"
+        position="fixed"
+        top={0}
+        left={0}
+        zIndex={1}
+        bgColor="whiteAlpha.500"
+        backdropFilter="blur(4px)"
+        p={4}
       >
-        <div className="flex flex-row justify-between w-full">
+        <HStack justify={"space-between"} w="full">
           <Link
             href="/"
             aria-label="Landing Page"
-            className="m-5 flex flex-col items-center justify-center"
+            display="flex"
+            flexDirection={"column"}
+            justifyContent={"center"}
+            alignItems={"center"}
           >
             <Image
               src="/logo_Lowri_Roberts.png"
@@ -44,15 +44,13 @@ const Layout = ({
               width={61}
               height={50}
             />
-            <p>Web Developer</p>
+            <Text color={STYLING.COLORS.DARK_PURPLE}>Web Developer</Text>
           </Link>
-          <div className=" z-10 h-full justify-self-end flex flex-row items-center justify-end">
-            <Navbar
-              navItems={language === "welsh" ? welshNavItems : englishNavItems}
-            />
-          </div>
-        </div>
-      </div>
+          <Navbar
+            navItems={language === "welsh" ? welshNavItems : englishNavItems}
+          />
+        </HStack>
+      </Flex>
     </>
   );
 };

@@ -8,8 +8,10 @@ import {
 
 export default async function VerticalTimelineComponent({
   jobs,
+  language = "english",
 }: {
   jobs: experienceType[];
+  language?: string;
 }) {
   return (
     <VerticalTimeline lineColor="#884ab2">
@@ -23,15 +25,25 @@ export default async function VerticalTimelineComponent({
             <div className="rounded-full w-full h-full flex items-center justify-center overflow-hidden">
               <img
                 src={job.companyImg}
-                alt={`${job.company} logo`}
+                alt={
+                  language === "english"
+                    ? `${job.company} logo`
+                    : `logo ${job.cwmni}`
+                }
                 className="rounded-full object-contain"
               />
             </div>
           }
         >
-          <h2 className="vertical-timeline-element-title">{job.role}</h2>
-          <h3 className="vertical-timeline-element-subtitle">{job.company}</h3>
-          <p>{job.shortDescription}</p>
+          <h2 className="vertical-timeline-element-title">
+            {language === "english" ? job.role : job.rol}
+          </h2>
+          <h3 className="vertical-timeline-element-subtitle">
+            {language === "english" ? job.company : job.cwmni}
+          </h3>
+          <p>
+            {language === "english" ? job.shortDescription : job.disgrifiadByr}
+          </p>
         </VerticalTimelineElement>
       ))}
     </VerticalTimeline>

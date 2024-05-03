@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "Welcome to Lowri Roberts' portfolio website. Explore my work as a web designer.",
 };
 
-const Home: NextPage = (): JSX.Element => {
+const Adra: NextPage = (): JSX.Element => {
   return (
     <main
       className="md:min-h-[calc(100vh-108px)] min-h-[calc(100vh-148px)] h-fit
@@ -44,4 +44,4 @@ const Home: NextPage = (): JSX.Element => {
   );
 };
 
-export default Home;
+export default Adra;

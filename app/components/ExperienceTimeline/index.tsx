@@ -2,7 +2,11 @@ import { experienceType, fetchExperience } from "@/database/database";
 import "react-vertical-timeline-component/style.min.css";
 import VerticalTimelineComponent from "./VerticalTimelineComponent";
 
-export const ExperienceTimeline = async () => {
+export const ExperienceTimeline = async ({
+  language = "english",
+}: {
+  language?: string;
+}) => {
   const jobs: experienceType[] = await fetchExperience();
 
   const sortedJobs = jobs.sort((a, b) => {
@@ -13,5 +17,5 @@ export const ExperienceTimeline = async () => {
     return dateB.getTime() - dateA.getTime();
   });
 
-  return <VerticalTimelineComponent jobs={sortedJobs} />;
+  return <VerticalTimelineComponent jobs={sortedJobs} language={language} />;
 };

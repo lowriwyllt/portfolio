@@ -1,12 +1,14 @@
-// components/layout/Sidebar.tsx
-import React from "react";
-import Link from "next/link";
-import { englishNavItems } from "./englishNavItems";
+import { Link } from "@chakra-ui/next-js";
+import { Button, HStack, Text } from "@chakra-ui/react";
+import { ReactNode } from "react";
+import { STYLING } from "@/app/theme/Styling";
+import { Sidebar } from "./Sidebar";
+import { englishNavItems } from "./navItems";
 
 export type NavItem = {
   label: string;
   href: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
 };
 
 type Props = {
@@ -15,25 +17,32 @@ type Props = {
 
 const Navbar = ({ navItems = englishNavItems }: Props): JSX.Element => {
   return (
-    <nav className="py-2 md:flex flex-row gap-2 hidden  flex-grow  justify-end">
-      <ul className="md:sticky top-0 md:top-16 flex flex-grow flex-row  items-center">
-        {navItems.map((item, index) => (
-          <li
+    <>
+      <HStack
+        as={"nav"}
+        justify={"end"}
+        p={2}
+        spacing={2}
+        display={{ base: "none", md: "flex" }}
+      >
+        {navItems.map((item) => (
+          <Button
+            as={Link}
+            href={item.href}
+            aria-label={item.label}
+            style={{ textDecoration: "none" }}
             key={item.label}
-            className="text-darkPurple bg-white hover:text-white hover:bg-darkPurple flex gap-4 items-center transition-colors duration-300 rounded-md mx-2"
+            {...STYLING.BUTTON.WHITE}
           >
-            <Link
-              key={index}
-              href={item.href}
-              aria-label={item.label}
-              className="flex gap-4 items-center rounded-md p-2"
-            >
-              {item.icon} {item.label}
-            </Link>
-          </li>
+            <HStack spacing={4}>
+              {item.icon}
+              <Text>{item.label}</Text>
+            </HStack>
+          </Button>
         ))}
-      </ul>
-    </nav>
+      </HStack>
+      <Sidebar navItems={navItems} />
+    </>
   );
 };
 export default Navbar;
