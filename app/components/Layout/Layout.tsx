@@ -18,9 +18,7 @@ const Layout = ({
     <>
       <Socials />
       <Flex
-        display="flex"
         justifyContent="space-between"
-        color="darkPurple"
         width="full"
         height="100px"
         position="fixed"
@@ -29,7 +27,7 @@ const Layout = ({
         zIndex={1}
         bgColor="whiteAlpha.500"
         backdropFilter="blur(4px)"
-        padding={4}
+        p={4}
       >
         <HStack justify={"space-between"} w="full">
           <Link
