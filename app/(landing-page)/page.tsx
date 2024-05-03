@@ -1,5 +1,5 @@
 import { Metadata, NextPage } from "next";
-import { merriweather } from "./fonts";
+import { merriweather } from "../fonts";
 import Link from "next/link";
 import Image from "next/image";
 
