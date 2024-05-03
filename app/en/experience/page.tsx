@@ -1,5 +1,5 @@
 import { Metadata, NextPage } from "next";
-import { ExperienceTimeline } from "./components/ExperienceTimeline";
+import { ExperienceTimeline } from "../../components/ExperienceTimeline";
 
 export const metadata: Metadata = {
   title: "Experience - Lowri Roberts",
