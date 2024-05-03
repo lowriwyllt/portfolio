@@ -37,7 +37,7 @@ export const Sidebar = ({ navItems }: Props) => {
         ref={btnRef}
         display={{ md: "none" }}
         onClick={onOpen}
-        {...STYLING.BUTTON.DARK_PURPLE}
+        {...STYLING.BUTTON.WHITE}
       >
         <Bars3Icon className="h-6 w-6" />
       </Button>
@@ -64,7 +64,7 @@ export const Sidebar = ({ navItems }: Props) => {
                   style={{ textDecoration: "none" }}
                   key={item.label}
                   onClick={onClose}
-                  {...STYLING.BUTTON.DARK_PURPLE}
+                  {...STYLING.BUTTON.WHITE}
                 >
                   <HStack spacing={4}>
                     {item.icon}
@@ -86,7 +86,7 @@ export const Sidebar = ({ navItems }: Props) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={onClose}
-                {...STYLING.BUTTON.DARK_PURPLE}
+                {...STYLING.BUTTON.WHITE}
               >
                 <HStack spacing={4}>
                   <Image
@@ -107,7 +107,7 @@ export const Sidebar = ({ navItems }: Props) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={onClose}
-                {...STYLING.BUTTON.DARK_PURPLE}
+                {...STYLING.BUTTON.WHITE}
               >
                 <HStack spacing={4}>
                   <Image
@@ -126,7 +126,7 @@ export const Sidebar = ({ navItems }: Props) => {
                 aria-label={"Email Lowri Roberts"}
                 style={{ textDecoration: "none" }}
                 onClick={onClose}
-                {...STYLING.BUTTON.DARK_PURPLE}
+                {...STYLING.BUTTON.WHITE}
               >
                 <HStack spacing={4}>
                   <EnvelopeIcon className="h-6 w-6" />

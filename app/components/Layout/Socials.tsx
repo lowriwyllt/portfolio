@@ -27,7 +27,7 @@ const Socials = (): JSX.Element => {
         borderWidth={2}
         borderColor={STYLING.COLORS.DARK_PURPLE}
         borderRight={"none"}
-        {...STYLING.BUTTON.DARK_PURPLE}
+        {...STYLING.BUTTON.WHITE}
       >
         <HStack spacing={4}>
           <Image
@@ -50,7 +50,7 @@ const Socials = (): JSX.Element => {
         borderWidth={2}
         borderColor={STYLING.COLORS.DARK_PURPLE}
         borderRight={"none"}
-        {...STYLING.BUTTON.DARK_PURPLE}
+        {...STYLING.BUTTON.WHITE}
       >
         <HStack spacing={4}>
           <Image
@@ -71,7 +71,7 @@ const Socials = (): JSX.Element => {
         borderWidth={2}
         borderColor={STYLING.COLORS.DARK_PURPLE}
         borderRight={"none"}
-        {...STYLING.BUTTON.DARK_PURPLE}
+        {...STYLING.BUTTON.WHITE}
       >
         <HStack spacing={4}>
           <EnvelopeIcon className="h-6 w-6" />

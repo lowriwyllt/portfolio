@@ -32,7 +32,7 @@ const Navbar = ({ navItems = englishNavItems }: Props): JSX.Element => {
             aria-label={item.label}
             style={{ textDecoration: "none" }}
             key={item.label}
-            {...STYLING.BUTTON.DARK_PURPLE}
+            {...STYLING.BUTTON.WHITE}
           >
             <HStack spacing={4}>
               {item.icon}
