@@ -11,4 +11,7 @@ export const STYLING = {
       },
     },
   },
+  COLORS: {
+    DARK_PURPLE,
+  },
 };

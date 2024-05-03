@@ -4,9 +4,11 @@ import React, { useState, useRef } from "react";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import Image from "next/image";
-import Link from "next/link";
 import { welshNavItems } from "./welshNavItems";
 import { englishNavItems } from "./englishNavItems";
+import { Flex, HStack, Text } from "@chakra-ui/react";
+import { STYLING } from "@/app/theme/Styling";
+import { Link } from "@chakra-ui/next-js";
 
 const Layout = ({
   language = "english",
@@ -28,11 +30,21 @@ const Layout = ({
         onMenuButtonClick={handleMenuButtonClick}
         navItems={language === "welsh" ? welshNavItems : englishNavItems}
       />
-      <div
-        className="flex justify-between text-darkPurple w-full h-[100px] top-0 left-0 fixed z-20 bg-white bg-opacity-50 backdrop-filter backdrop-blur-sm"
+      <Flex
         ref={ref}
+        display="flex"
+        justifyContent="space-between"
+        color="darkPurple"
+        width="full"
+        height="100px"
+        position="fixed"
+        top={0}
+        left={0}
+        zIndex={20}
+        bgColor="whiteAlpha.500"
+        backdropFilter="blur(4px)"
       >
-        <div className="flex flex-row justify-between w-full">
+        <HStack justify={"space-between"} w="full">
           <Link
             href="/"
             aria-label="Landing Page"
@@ -44,15 +56,13 @@ const Layout = ({
               width={61}
               height={50}
             />
-            <p>Web Developer</p>
+            <Text color={STYLING.COLORS.DARK_PURPLE}>Web Developer</Text>
           </Link>
-          <div className=" z-10 h-full justify-self-end flex flex-row items-center justify-end">
-            <Navbar
-              navItems={language === "welsh" ? welshNavItems : englishNavItems}
-            />
-          </div>
-        </div>
-      </div>
+          <Navbar
+            navItems={language === "welsh" ? welshNavItems : englishNavItems}
+          />
+        </HStack>
+      </Flex>
     </>
   );
 };
