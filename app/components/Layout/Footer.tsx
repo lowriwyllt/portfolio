@@ -1,12 +1,7 @@
 import Link from "next/link";
-import { englishNavItems } from "./englishNavItems";
 import { merriweather } from "@/app/fonts";
+import { NavItem, englishNavItems } from "./navItems";
 
-export type NavItem = {
-  label: string;
-  href: string;
-  icon: React.ReactNode;
-};
 type Props = {
   navItems?: NavItem[];
 };

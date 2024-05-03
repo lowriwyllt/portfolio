@@ -1,14 +1,13 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import Image from "next/image";
-import { welshNavItems } from "./welshNavItems";
-import { englishNavItems } from "./englishNavItems";
 import { Flex, HStack, Text } from "@chakra-ui/react";
 import { STYLING } from "@/app/theme/Styling";
 import { Link } from "@chakra-ui/next-js";
+import Socials from "./Socials";
+import { englishNavItems, welshNavItems } from "./navItems";
 
 const Layout = ({
   language = "english",
@@ -18,18 +17,9 @@ const Layout = ({
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const handleMenuButtonClick = (): void => {
-    setShowSidebar((prev) => !prev);
-  };
-
   return (
     <>
-      <Sidebar
-        open={showSidebar}
-        setOpen={setShowSidebar}
-        onMenuButtonClick={handleMenuButtonClick}
-        navItems={language === "welsh" ? welshNavItems : englishNavItems}
-      />
+      <Socials />
       <Flex
         ref={ref}
         display="flex"
@@ -40,15 +30,19 @@ const Layout = ({
         position="fixed"
         top={0}
         left={0}
-        zIndex={20}
+        zIndex={1}
         bgColor="whiteAlpha.500"
         backdropFilter="blur(4px)"
+        padding={4}
       >
         <HStack justify={"space-between"} w="full">
           <Link
             href="/"
             aria-label="Landing Page"
-            className="m-5 flex flex-col items-center justify-center"
+            display="flex"
+            flexDirection={"column"}
+            justifyContent={"center"}
+            alignItems={"center"}
           >
             <Image
               src="/logo_Lowri_Roberts.png"

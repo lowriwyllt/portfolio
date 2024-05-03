@@ -1,137 +1,141 @@
-import React, { useRef } from "react";
-import classNames from "classnames";
-import Link from "next/link";
-import Image from "next/image";
-import { englishNavItems } from "./englishNavItems";
-import { useOnClickOutside } from "usehooks-ts";
+import { STYLING } from "@/app/theme/Styling";
+import { Link } from "@chakra-ui/next-js";
+import {
+  Button,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerOverlay,
+  HStack,
+  Text,
+  VStack,
+  useBreakpointValue,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { Bars3Icon, EnvelopeIcon } from "@heroicons/react/24/outline";
-
-export type NavItem = {
-  label: string;
-  href: string;
-  icon: React.ReactNode;
-};
+import Image from "next/image";
+import { useRef } from "react";
+import { NavItem } from "./navItems";
 
 type Props = {
-  open: boolean;
-  navItems?: NavItem[];
-  setOpen(open: boolean): void;
-  onMenuButtonClick(): void;
+  navItems: NavItem[];
 };
 
-const Sidebar = ({
-  open,
-  navItems = englishNavItems,
-  setOpen,
-  onMenuButtonClick,
-}: Props): JSX.Element => {
-  const ref = useRef<HTMLDivElement>(null);
-  useOnClickOutside(ref, () => {
-    setOpen(false);
-  });
+export const Sidebar = ({ navItems }: Props) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = useRef<HTMLButtonElement>(null);
+
+  const isOpenValue = useBreakpointValue(
+    { base: isOpen, md: false },
+    { fallback: "md" }
+  );
 
   return (
-    <div
-      className={classNames({
-        "flex flex-col justify-between fixed z-30": true,
-        "text-white bg-lilac md:bg-transparent drop-shadow-[0_0_10px_rgba(0,0,0,1)] md:drop-shadow-none":
-          true,
-        "top-0 right-14 ": true,
-        "h-[calc(100vh)] w-[300px]": true,
-        "transition-transform .3s ease-in-out md:translate-x-full": true,
-        "translate-x-full": !open,
-        "translate-x-14": open,
-      })}
-      ref={ref}
-    >
-      <div className="h-[100px]">
-        <div className="flex flex-grow flex-row justify-start h-full">
-          <ul className="py-2 flex flex-col gap-2 items-center justify-center h-full ">
-            <li className="flex  items-center justify-center h-full transition-colors duration-300 md:hidden">
-              <button
-                aria-label="Menu"
-                onClick={onMenuButtonClick}
-                className="rounded-md p-2 mx-2"
+    <>
+      <Button
+        ref={btnRef}
+        display={{ md: "none" }}
+        onClick={onOpen}
+        {...STYLING.BUTTON.DARK_PURPLE}
+      >
+        <Bars3Icon className="h-6 w-6" />
+      </Button>
+      <Drawer
+        isOpen={isOpenValue !== undefined ? isOpenValue : isOpen}
+        placement="right"
+        onClose={onClose}
+        finalFocusRef={btnRef}
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerBody
+            display={"flex"}
+            flexDirection={"column"}
+            justifyContent={"space-between"}
+          >
+            <VStack as={"nav"} spacing={2} alignItems={"flex-start"}>
+              {navItems.map((item) => (
+                <Button
+                  as={Link}
+                  href={item.href}
+                  aria-label={item.label}
+                  style={{ textDecoration: "none" }}
+                  key={item.label}
+                  {...STYLING.BUTTON.DARK_PURPLE}
+                >
+                  <HStack spacing={4}>
+                    {item.icon}
+                    <Text>{item.label}</Text>
+                  </HStack>
+                </Button>
+              ))}
+            </VStack>
+            <VStack
+              spacing={2}
+              alignItems={"flex-start"}
+              marginBottom={{ base: "148px", md: "108px" }}
+            >
+              <Button
+                as={Link}
+                href={"https://github.com/lowriwyllt"}
+                aria-label={"Github for Lowri Roberts"}
+                style={{ textDecoration: "none" }}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={onClose}
+                {...STYLING.BUTTON.DARK_PURPLE}
               >
-                <Bars3Icon className="h-6 w-6" />
-              </button>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="flex flex-grow flex-col justify-between">
-        <nav>
-          <ul className="py-2 flex flex-col gap-2 md:hidden">
-            {navItems.map((item, index) => {
-              return (
-                <li key={item.label} onClick={() => setOpen(false)}>
-                  <Link
-                    className=" hover:bg-darkPurple flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2"
-                    aria-label={item.label}
-                    key={index}
-                    href={item.href}
-                  >
-                    {item.icon} {item.label}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-
-        <ul className="py-2 flex flex-col gap-2">
-          <li onClick={() => setOpen(false)}>
-            <a
-              href="https://github.com/lowriwyllt"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Github for Lowri Roberts"
-              className="md:bg-lilac  hover:bg-darkPurple md:drop-shadow-[0_0_10px_rgba(0,0,0,1)] drop-shadow-none flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2"
-            >
-              <Image
-                src="/github-mark.png"
-                width="21"
-                height="21"
-                alt="Github logo"
-                className="h-6 w-6 drop-shadow-[0_0_5px_rgba(255,255,255,1)]"
-              />
-              <p>Github</p>
-            </a>
-          </li>
-          <li onClick={() => setOpen(false)}>
-            <a
-              className="md:bg-lilac  hover:bg-darkPurple md:drop-shadow-[0_0_10px_rgba(0,0,0,1)] drop-shadow-none flex gap-4 items-center  transition-colors duration-300 rounded-md p-2 mx-2"
-              href="https://www.linkedin.com/in/lowri-gwenllian-roberts/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn for Lowri Roberts"
-            >
-              <Image
-                src="/LI-In-Bug.png"
-                width="21"
-                height="21"
-                alt="LinkedIn logo"
-                className="h-6 w-6 drop-shadow-[0_0_5px_rgba(255,255,255,1)]"
-              />
-
-              <p>LinkedIn</p>
-            </a>
-          </li>
-          <li onClick={() => setOpen(false)}>
-            <a
-              className="md:bg-lilac hover:bg-darkPurple md:drop-shadow-[0_0_10px_rgba(0,0,0,1)] drop-shadow-none flex gap-4 items-center transition-colors duration-300 rounded-md p-2 mx-2"
-              href="mailto:lowri.g.roberts@hotmail.com"
-              aria-label="Email Lowri Roberts"
-            >
-              <EnvelopeIcon className="h-6 w-6" />
-
-              <p>Email me</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div className={"md:h-[108px] h-[148px] "}></div>
-    </div>
+                <HStack spacing={4}>
+                  <Image
+                    src="/github-mark.png"
+                    width="21"
+                    height="21"
+                    alt="Github logo"
+                    className="h-6 w-6 drop-shadow-[0_0_5px_rgba(255,255,255,1)]"
+                  />
+                  <Text>Github</Text>
+                </HStack>
+              </Button>
+              <Button
+                as={Link}
+                href={"https://www.linkedin.com/in/lowri-gwenllian-roberts/"}
+                aria-label={"LinkedIn for Lowri Roberts"}
+                style={{ textDecoration: "none" }}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={onClose}
+                {...STYLING.BUTTON.DARK_PURPLE}
+              >
+                <HStack spacing={4}>
+                  <Image
+                    src="/LI-In-Bug.png"
+                    width="21"
+                    height="21"
+                    alt="LinkedIn logo"
+                    className="h-6 w-6 drop-shadow-[0_0_5px_rgba(255,255,255,1)]"
+                  />
+                  <Text>LinkedIn</Text>
+                </HStack>
+              </Button>
+              <Button
+                as={Link}
+                href={"mailto:lowri.g.roberts@hotmail.com"}
+                aria-label={"Email Lowri Roberts"}
+                style={{ textDecoration: "none" }}
+                onClick={onClose}
+                {...STYLING.BUTTON.DARK_PURPLE}
+              >
+                <HStack spacing={4}>
+                  <EnvelopeIcon className="h-6 w-6" />
+                  <Text>Email me</Text>
+                </HStack>
+              </Button>
+            </VStack>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+    </>
   );
 };
-export default Sidebar;

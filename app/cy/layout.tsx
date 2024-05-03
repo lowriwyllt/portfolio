@@ -2,8 +2,8 @@ import "../globals.css";
 import Layout from "../components/Layout/Layout";
 import Footer from "../components/Layout/Footer";
 import { ibm_plex_mono } from "../fonts";
-import { welshNavItems } from "../components/Layout/welshNavItems";
 import { ChakraProvider } from "@chakra-ui/react";
+import { welshNavItems } from "../components/Layout/navItems";
 
 export default function RootLayout({
   children,
