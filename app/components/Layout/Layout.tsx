@@ -14,14 +14,10 @@ const Layout = ({
 }: {
   language?: string;
 }): JSX.Element => {
-  const [showSidebar, setShowSidebar] = useState<boolean>(false);
-  const ref = useRef<HTMLDivElement>(null);
-
   return (
     <>
       <Socials />
       <Flex
-        ref={ref}
         display="flex"
         justifyContent="space-between"
         color="darkPurple"
