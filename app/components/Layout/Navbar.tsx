@@ -1,5 +1,4 @@
 // components/layout/Sidebar.tsx
-"use client";
 import { Link } from "@chakra-ui/next-js";
 import { englishNavItems } from "./englishNavItems";
 import { Button, HStack, Text } from "@chakra-ui/react";
