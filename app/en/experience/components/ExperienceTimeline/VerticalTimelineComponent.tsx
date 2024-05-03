@@ -29,8 +29,8 @@ export default async function VerticalTimelineComponent({
             </div>
           }
         >
-          <h3 className="vertical-timeline-element-title">{job.role}</h3>
-          <h4 className="vertical-timeline-element-subtitle">{job.company}</h4>
+          <h2 className="vertical-timeline-element-title">{job.role}</h2>
+          <h3 className="vertical-timeline-element-subtitle">{job.company}</h3>
           <p>{job.shortDescription}</p>
         </VerticalTimelineElement>
       ))}
