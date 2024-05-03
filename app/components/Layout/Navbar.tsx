@@ -2,7 +2,7 @@
 "use client";
 import { Link } from "@chakra-ui/next-js";
 import { englishNavItems } from "./englishNavItems";
-import { Button, HStack } from "@chakra-ui/react";
+import { Button, HStack, Text } from "@chakra-ui/react";
 import { ReactNode } from "react";
 import { STYLING } from "@/app/theme/Styling";
 
@@ -35,7 +35,7 @@ const Navbar = ({ navItems = englishNavItems }: Props): JSX.Element => {
         >
           <HStack spacing={4}>
             {item.icon}
-            <>{item.label}</>
+            <Text>{item.label}</Text>
           </HStack>
         </Button>
       ))}
