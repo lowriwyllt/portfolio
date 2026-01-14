@@ -85,9 +85,6 @@
 }
 
 @media (min-width: 640px) {
-  .navLink {
-    border: 2px solid white;
-  }
   .iconWrapper {
     display: none;
   }
