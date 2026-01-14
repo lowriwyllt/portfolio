@@ -14,7 +14,6 @@ export default function RootLayout({
     <html lang="en" className={ibm_plex_mono.className}>
       <body className={styles.body}>
         <Layout>{children}</Layout>
-        <Footer />
       </body>
     </html>
   );

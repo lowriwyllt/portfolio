@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Socials from "./Socials";
 import styles from "./Layout.module.css";
+import Footer from "./Footer";
 
 const Layout = ({
   language = "english",
@@ -30,6 +31,7 @@ const Layout = ({
         </div>
       </header>
       <main className={styles.main}>{children}</main>
+      <Footer />
     </>
   );
 };
