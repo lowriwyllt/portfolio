@@ -19,6 +19,7 @@ const LandingPage: NextPage = (): JSX.Element => {
         alt="Set up of Lowri Roberts work area.  She is wearing headphones while working on a laptop with a second monitor. She has a ipad on side."
         width={250}
         height={250}
+        priority
       />
       <div className="flex gap-4">
         <Link
