@@ -42,3 +42,13 @@
   color: #471ca8;
   background-color: white;
 }
+
+.languageLink:focus {
+  outline: 3px solid #fbbf24;
+  outline-offset: 2px;
+}
+
+.languageLink:focus-visible {
+  outline: 3px solid #fbbf24;
+  outline-offset: 2px;
+}
