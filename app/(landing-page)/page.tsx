@@ -6,7 +6,8 @@ import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "Landing page - Lowri Roberts",
-  description: "",
+  description:
+    "Welcome to Lowri Roberts' portfolio. Full stack web developer specializing in JavaScript, React, and Next.js. Explore my projects and experience.",
 };
 
 const LandingPage: NextPage = () => {
