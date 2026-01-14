@@ -12,20 +12,31 @@ export const NotFoundContent = () => {
   return (
     <div className={`${styles.container} ${merriweather.className}`}>
       <h1 className={styles.errorCode}>404</h1>
-      <h2 className={styles.title}>Page Not Found - Tudalen heb ei Chanfod</h2>
+      <h2 className={styles.title}>
+        Page Not Found -<span lang="cy">Tudalen heb ei Chanfod</span>
+      </h2>
       <p className={styles.description}>
         Sorry, the page you're looking for doesn't exist.
       </p>
-      <p className={styles.description}>
+      <p className={styles.description} lang="cy">
         Mae'n ddrwg gen i, nid yw'r dudalen rydych chi'n chwilio amdani yn
         bodoli.
       </p>
       <div className={styles.links}>
         {/* TODO: once the separate home pages are implemented, update these links */}
-        <Link href="/" className={`${styles.link} ${ibm_plex_mono.className}`}>
+        <Link
+          href="/"
+          className={`${styles.link} ${ibm_plex_mono.className}`}
+          aria-label="Return to english home page"
+        >
           Return Home
         </Link>
-        <Link href="/" className={`${styles.link} ${ibm_plex_mono.className}`}>
+        <Link
+          href="/"
+          aria-label="Return to welsh home page"
+          className={`${styles.link} ${ibm_plex_mono.className}`}
+          lang="cy"
+        >
           Dychwelyd Adref
         </Link>
       </div>
