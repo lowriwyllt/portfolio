@@ -45,7 +45,6 @@ describe("Footer Component", () => {
 
   it("renders correct number of navigation links", () => {
     render(<Footer />);
-    const nav = screen.getByRole("navigation");
     const links = screen.getAllByRole("link");
     expect(links).toHaveLength(ENGLISH_NAV_ITEMS.length);
   });
