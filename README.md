@@ -33,9 +33,9 @@ I've looked at this for the first time in a good part of 2 years. This has compl
 
 - Add tests... oops
 - Use jest axe to help test for accessability
-- Integrate Knip to detect unused code
-- Remove Firebase config; site is fully static
-- Consolidate styling (Tailwind CSS vs. Chakra UI vs something completely different) and migrate to one.
-- Add linting
+- Integrate Knip to detect unused code ✅
+- Remove Firebase config; site is fully static ✅
+- Consolidate styling (Tailwind CSS vs. Chakra UI vs something completely different) and migrate to one. ✅ - going to use css modules going forward
+- Add linting ✅ - fixed ones
 - Add workflows for PRs to run linting, testing, knip and run a build
 - Complete pages that are under construction
