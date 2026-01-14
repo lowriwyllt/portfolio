@@ -1,13 +1,13 @@
-import { experienceType, fetchExperience } from "@/database/database";
 import "react-vertical-timeline-component/style.min.css";
 import VerticalTimelineComponent from "./VerticalTimelineComponent";
+import { EXPERIENCE } from "@/app/data/experience";
 
 export const ExperienceTimeline = async ({
   language = "english",
 }: {
   language?: string;
 }) => {
-  const jobs: experienceType[] = await fetchExperience();
+  const jobs = EXPERIENCE;
 
   const sortedJobs = jobs.sort((a, b) => {
     const [monthA, yearA] = a.startDate.split("/");
