@@ -3,6 +3,7 @@ import { ibm_plex_mono } from "../fonts";
 import Footer from "../components/Layout/Footer";
 import styles from "./layout.module.css";
 import Socials from "../components/Layout/Socials";
+import Layout from "../components/Layout";
 
 export default function RootLayout({
   children,
@@ -12,8 +13,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={ibm_plex_mono.className}>
       <body className={styles.body}>
-        <Socials />
-        {children}
+        <Layout>{children}</Layout>
         <Footer />
       </body>
     </html>
