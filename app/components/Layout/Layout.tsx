@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React from "react";
 import Navbar from "./Navbar";
 import Image from "next/image";
 import { Flex, HStack, Text } from "@chakra-ui/react";
