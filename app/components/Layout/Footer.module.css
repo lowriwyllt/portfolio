@@ -1,0 +1,110 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #471ca8;
+  padding: 1.5rem 1rem;
+  width: 100%;
+  z-index: 1;
+}
+
+@media (min-width: 640px) {
+  .footer {
+    flex-direction: row;
+  }
+}
+
+.info {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .info {
+    width: 33.333%;
+  }
+}
+
+.name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+}
+
+.role {
+  color: white;
+  margin-top: 0.5rem;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    width: 66.666%;
+  }
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #471ca8;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+  min-height: 60px;
+}
+
+.navLink:hover {
+  background-color: white;
+  color: #471ca8;
+}
+
+.navLink:focus {
+  outline: 3px solid #fbbf24;
+  outline-offset: 2px;
+}
+
+.navLink:focus-visible {
+  outline: 3px solid #fbbf24;
+  outline-offset: 2px;
+}
+
+.iconWrapper {
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .navLink {
+    border: 2px solid white;
+  }
+  .iconWrapper {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .iconWrapper {
+    display: block;
+  }
+}
+
+.labelText {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .labelText {
+    display: block;
+  }
+}
