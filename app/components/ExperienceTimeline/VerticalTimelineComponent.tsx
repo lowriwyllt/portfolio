@@ -1,6 +1,7 @@
 "use client";
 
 import { experienceType } from "@/database/database";
+import Image from "next/image";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -22,8 +23,8 @@ export default async function VerticalTimelineComponent({
           iconStyle={{ background: "white", color: "#fff" }}
           contentStyle={{ backgroundColor: "#F2F9FA" }}
           icon={
-            <div className="rounded-full w-full h-full flex items-center justify-center overflow-hidden">
-              <img
+            <div className="relative rounded-full w-full h-full flex items-center justify-center overflow-hidden">
+              <Image
                 src={job.companyImg}
                 alt={
                   language === "english"
@@ -31,6 +32,8 @@ export default async function VerticalTimelineComponent({
                     : `logo ${job.cwmni}`
                 }
                 className="rounded-full object-contain"
+                fill
+                sizes="100%"
               />
             </div>
           }
