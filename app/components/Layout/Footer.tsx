@@ -20,15 +20,20 @@ const Footer = ({ navItems = ENGLISH_NAV_ITEMS }: Props) => {
       </div>
       <nav className={styles.nav}>
         {navItems.map((item) => {
+          const labelId = `label-${item.label
+            .toLowerCase()
+            .replace(/\s+/g, "-")}`;
           return (
             <Link
               key={item.label}
               href={item.href}
-              aria-label={item.label}
+              aria-labelledby={labelId}
               className={styles.navLink}
             >
               <span className={styles.iconWrapper}>{item.icon}</span>
-              <span className={styles.labelText}>{item.label}</span>
+              <span className={styles.labelText} id={labelId}>
+                {item.label}
+              </span>
             </Link>
           );
         })}
