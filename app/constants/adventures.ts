@@ -1,4 +1,4 @@
-export type adventureType = {
+type adventureType = {
   name: string;
   enw: string;
   mainImg: string[];
