@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import RecentProjects from "@/app/components/Home/RecentProjects";
 import RecentAdventures from "@/app/components/Home/RecentAdventures";
+import ContactMe from "@/app/components/Home/ContactMe";
 
 const HomePage = () => {
   return (
@@ -29,6 +30,7 @@ const HomePage = () => {
         <TechStack />
         <RecentProjects />
         <RecentAdventures />
+        <ContactMe />
       </div>
     </>
   );
