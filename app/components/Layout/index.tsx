@@ -6,6 +6,8 @@ import Link from "next/link";
 import Socials from "./Socials";
 import styles from "./Layout.module.css";
 import Footer from "./Footer";
+import Navbar from "./Navbar";
+import { ENGLISH_NAV_ITEMS, WELSH_NAV_ITEMS } from "@/app/constants/navItems";
 
 const Layout = ({
   language = "english",
@@ -28,6 +30,11 @@ const Layout = ({
             />
             <span className={styles.logoText}>Web Developer</span>
           </Link>
+          <Navbar
+            navItems={
+              language === "welsh" ? WELSH_NAV_ITEMS : ENGLISH_NAV_ITEMS
+            }
+          />
         </div>
       </header>
       <main className={styles.main}>{children}</main>
