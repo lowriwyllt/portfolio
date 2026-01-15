@@ -1,0 +1,16 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  top: 100px;
+  padding: 6rem 56px;
+  min-height: calc(100vh - 148px);
+}
+
+@media (min-width: 768px) {
+  .main {
+    min-height: calc(100vh - 108px);
+  }
+}
