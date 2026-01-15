@@ -44,7 +44,9 @@ const Layout = ({
         </div>
       </header>
       <main className={styles.main}>{children}</main>
-      <Footer />
+      <Footer
+        navItems={language === "welsh" ? WELSH_NAV_ITEMS : ENGLISH_NAV_ITEMS}
+      />
     </>
   );
 };
