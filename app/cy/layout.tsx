@@ -9,7 +9,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={ibm_plex_mono.className}>
+    <html lang="cy" className={ibm_plex_mono.className}>
       <body className={styles.body}>
         <Layout language="welsh">{children}</Layout>
       </body>
