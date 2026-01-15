@@ -3,6 +3,7 @@ import { merriweather } from "@/app/fonts";
 import Image from "next/image";
 import styles from "./page.module.css";
 import RecentProjects from "@/app/components/Home/RecentProjects";
+import RecentAdventures from "@/app/components/Home/RecentAdventures";
 
 const HomePage = () => {
   return (
@@ -27,6 +28,7 @@ const HomePage = () => {
       <div className={styles.techStackSection}>
         <TechStack />
         <RecentProjects />
+        <RecentAdventures />
       </div>
     </>
   );
