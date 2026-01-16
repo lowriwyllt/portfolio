@@ -7,9 +7,9 @@ import ContactMe from "../../components/home/ContactMe";
 import { merriweather } from "../../fonts";
 
 export const metadata: Metadata = {
-  title: "Home - Lowri Roberts",
+  title: "Adra - Lowri Roberts",
   description:
-    "Welcome to Lowri Roberts' portfolio website. Explore my work as a web designer.",
+    "Croeso i wefan bortffolio Lowri Roberts. Archwiliwch fy ngwaith fel datblygwr gwe.",
 };
 
 const Adra: NextPage = (): JSX.Element => {
