@@ -30,11 +30,13 @@ const Layout = ({
           <Link href="/" aria-label="Landing Page" className={styles.logoLink}>
             <Image
               src="/logo_Lowri_Roberts.png"
-              alt="Logo Lowri Roberts - Web developer"
+              alt="Logo Lowri Roberts - Datblygwr Gwe"
               width={61}
               height={50}
             />
-            <span className={styles.logoText}>Web Developer</span>
+            <span className={styles.logoText}>
+              {language === "welsh" ? "Datblygwr Gwe" : "Web Developer"}
+            </span>
           </Link>
           <Navbar
             navItems={
@@ -47,6 +49,7 @@ const Layout = ({
       <main className={styles.main}>{children}</main>
       <Footer
         navItems={language === "welsh" ? WELSH_NAV_ITEMS : ENGLISH_NAV_ITEMS}
+        language={language}
       />
     </>
   );

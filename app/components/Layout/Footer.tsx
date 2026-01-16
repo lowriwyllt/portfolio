@@ -2,22 +2,27 @@
 
 import { merriweather } from "@/app/fonts";
 import { NavItem, ENGLISH_NAV_ITEMS } from "../../constants/navItems";
-import Link from "next/link";
 import styles from "./Footer.module.css";
 import ButtonAsLink from "../Links/ButtonAsLink";
 
 type Props = {
   navItems?: NavItem[];
+  language?: "english" | "welsh";
 };
 
-const Footer = ({ navItems = ENGLISH_NAV_ITEMS }: Props) => {
+const Footer = ({
+  navItems = ENGLISH_NAV_ITEMS,
+  language = "english",
+}: Props) => {
   return (
     <footer className={styles.footer}>
       <div className={styles.info}>
         <h2 className={`${styles.name} ${merriweather.className}`}>
           Lowri Roberts
         </h2>
-        <p className={styles.role}>Web Developer</p>
+        <p className={styles.role}>
+          {language === "welsh" ? "Datblygwr Gwe" : "Web Developer"}
+        </p>
       </div>
       <nav className={styles.nav}>
         {navItems.map((item) => {
