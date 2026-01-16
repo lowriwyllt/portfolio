@@ -22,7 +22,7 @@ const HomePageComponent = ({ language = "english" }: { language?: string }) => {
           <h1 className={merriweather.className}>Lowri Roberts</h1>
           <p>
             {language === "welsh"
-              ? "Rwy'n ddatblygwr gwe stac llawn, gyda ffocws ar JavaScript. Rwy'n ymroddedig i ddarparu gwefannau slei a dynamig"
+              ? "Rwy'n ddatblygwr gwe stac llawn, gyda ffocws ar JavaScript. Rwy'n ymroddedig i ddarparu gwefannau slic a dynamig"
               : "I'm a full stack web developer, with a focus on JavaScript. I'm dedicated to delivering sleek and dynamic websites."}
           </p>
         </div>
