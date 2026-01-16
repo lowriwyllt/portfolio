@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
-import Page from "../page";
+import Page from "@/app/(landing-page)/page";
 
 describe("Landing Page", () => {
   it("renders the main heading", () => {

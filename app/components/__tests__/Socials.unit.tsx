@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
-import Socials from "../Socials";
+import Socials from "../Layout/Socials";
 
 describe("Socials Component", () => {
   it("renders GitHub link with correct attributes", () => {

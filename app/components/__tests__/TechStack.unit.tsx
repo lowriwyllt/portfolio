@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
-import TechStack from "../TechStack";
-import TECH_STACK from "../../../constants/myTechStack";
+import TechStack from "../Home/TechStack";
+import TECH_STACK from "../../constants/myTechStack";
 
 describe("TechStack Component", () => {
   it("renders the English heading by default", () => {

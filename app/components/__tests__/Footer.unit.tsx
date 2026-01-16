@@ -1,10 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
-import Footer from "../Footer";
-import {
-  ENGLISH_NAV_ITEMS,
-  WELSH_NAV_ITEMS,
-} from "../../../constants/navItems";
+import Footer from "../Layout/Footer";
+import { ENGLISH_NAV_ITEMS, WELSH_NAV_ITEMS } from "../../constants/navItems";
 
 describe("Footer Component", () => {
   it("renders the name heading", () => {
