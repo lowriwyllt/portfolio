@@ -6,7 +6,7 @@ import styles from "./Socials.module.css";
 
 const Socials = () => {
   return (
-    <div className={styles.socialsContainer}>
+    <nav className={styles.socialsContainer} aria-label="Social media links">
       <Link
         href="https://github.com/lowriwyllt"
         aria-label="Github for Lowri Roberts"
@@ -44,7 +44,7 @@ const Socials = () => {
       >
         <EnvelopeIcon className={styles.icon} />
       </Link>
-    </div>
+    </nav>
   );
 };
 
