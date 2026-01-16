@@ -1,7 +1,7 @@
 import "../globals.css";
 import { ibm_plex_mono } from "../fonts";
 import styles from "./layout.module.css";
-import Layout from "../components/Layout";
+import Layout from "@/app/components/Layout";
 
 export default function RootLayout({
   children,
