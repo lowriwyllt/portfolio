@@ -15,6 +15,20 @@ const ComponentsLibraryPage = () => {
         <ButtonAsLink href="#" ariaLabel="Button as link">
           Button As Link
         </ButtonAsLink>
+        <ButtonAsLink
+          href="#"
+          ariaLabel="Button as link"
+          variant="primaryOutline"
+        >
+          Button As Link Secondary
+        </ButtonAsLink>
+        <ButtonAsLink
+          href="#"
+          ariaLabel="Button as link"
+          variant="primarySubtle"
+        >
+          Button As Link Secondary
+        </ButtonAsLink>
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ interface ButtonAsLinkProps extends Omit<LinkProps, "href"> {
   children: ReactNode;
   lang?: string;
   className?: string;
+  variant?: "primary" | "primaryOutline" | "primarySubtle";
 }
 
 const ButtonAsLink = ({
@@ -16,6 +17,7 @@ const ButtonAsLink = ({
   children,
   lang = "en",
   className,
+  variant = "primary",
   ...rest
 }: ButtonAsLinkProps) => {
   return (
@@ -23,7 +25,7 @@ const ButtonAsLink = ({
       href={href}
       aria-label={ariaLabel}
       lang={lang}
-      className={`${styles.buttonAsLink} ${className || ""}`}
+      className={`${styles.buttonAsLink} ${styles[variant]} ${className || ""}`}
       {...rest}
     >
       {children}

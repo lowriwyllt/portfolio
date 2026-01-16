@@ -1,6 +1,6 @@
 import { ENGLISH_NAV_ITEMS, NavItem } from "@/app/constants/navItems";
-import Link from "next/link";
 import styles from "./Navbar.module.css";
+import ButtonAsLink from "../Links/ButtonAsLink";
 
 type Props = {
   navItems?: NavItem[];
@@ -10,20 +10,19 @@ type Props = {
 const Navbar = ({ navItems = ENGLISH_NAV_ITEMS, SidebarButton }: Props) => {
   return (
     <>
-      {" "}
       <nav className={styles.nav}>
         {navItems.map((item) => (
-          <Link
-            href={item.href}
-            aria-label={item.label}
+          <ButtonAsLink
             key={item.label}
-            className={styles.navButton}
+            href={item.href}
+            ariaLabel={item.label}
+            variant="primarySubtle"
           >
             <div className={styles.navContent}>
               {item.icon}
               <span>{item.label}</span>
             </div>
-          </Link>
+          </ButtonAsLink>
         ))}
       </nav>
       <SidebarButton />
