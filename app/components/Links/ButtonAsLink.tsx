@@ -1,8 +1,8 @@
-import Link from "next/link";
+import Link, { LinkProps } from "next/link";
 import { ReactNode } from "react";
 import styles from "./ButtonAsLink.module.css";
 
-interface ButtonAsLinkProps {
+interface ButtonAsLinkProps extends Omit<LinkProps, "href"> {
   href: string;
   ariaLabel: string;
   children: ReactNode;
@@ -16,13 +16,15 @@ const ButtonAsLink = ({
   children,
   lang = "en",
   className,
+  ...rest
 }: ButtonAsLinkProps) => {
   return (
     <Link
       href={href}
       aria-label={ariaLabel}
       lang={lang}
-      className={`${styles.buttonAsLink} ${className}`}
+      className={`${styles.buttonAsLink} ${className || ""}`}
+      {...rest}
     >
       {children}
     </Link>

@@ -4,6 +4,7 @@ import { merriweather } from "@/app/fonts";
 import { NavItem, ENGLISH_NAV_ITEMS } from "../../constants/navItems";
 import Link from "next/link";
 import styles from "./Footer.module.css";
+import ButtonAsLink from "../Links/ButtonAsLink";
 
 type Props = {
   navItems?: NavItem[];
@@ -24,17 +25,17 @@ const Footer = ({ navItems = ENGLISH_NAV_ITEMS }: Props) => {
             .toLowerCase()
             .replace(/\s+/g, "-")}`;
           return (
-            <Link
+            <ButtonAsLink
               key={item.label}
               href={item.href}
-              aria-labelledby={labelId}
+              ariaLabel={item.label}
               className={styles.navLink}
             >
               <span className={styles.iconWrapper}>{item.icon}</span>
               <span className={styles.labelText} id={labelId}>
                 {item.label}
               </span>
-            </Link>
+            </ButtonAsLink>
           );
         })}
       </nav>
