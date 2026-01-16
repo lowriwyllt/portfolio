@@ -29,7 +29,7 @@ const Adra: NextPage = (): JSX.Element => {
           <h1 className={merriweather.className}>Lowri Roberts</h1>
           <p>
             {
-              "Rwy'n ddatblygwr gwe stac llawn, gyda ffocws ar JavaScript. Rwy'n ymroddedig i ddarparu gwefannau slei a dynamig"
+              "Rwy'n ddatblygwr gwe stac llawn, gyda ffocws ar JavaScript. Rwy'n ymroddedig i ddarparu gwefannau slic a dynamig"
             }
           </p>
         </div>
