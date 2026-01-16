@@ -14,11 +14,12 @@ const Layout = ({
   language = "english",
   children,
 }: {
-  language?: string;
+  language?: "english" | "welsh";
   children: React.ReactNode;
 }) => {
   const { Button, Sidebar } = useSidebar({
     navItems: language === "welsh" ? WELSH_NAV_ITEMS : ENGLISH_NAV_ITEMS,
+    language: language,
   });
   return (
     <>
