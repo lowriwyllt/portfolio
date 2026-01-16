@@ -1,8 +1,8 @@
 import { Metadata, NextPage } from "next";
 import { merriweather } from "../fonts";
-import Link from "next/link";
 import Image from "next/image";
 import styles from "./page.module.css";
+import ButtonAsLink from "../components/Links/ButtonAsLink";
 
 export const metadata: Metadata = {
   title: "Landing page - Lowri Roberts",
@@ -27,22 +27,22 @@ const LandingPage: NextPage = () => {
         />
       </div>
       <div className={styles.languageLinks}>
-        <Link
+        <ButtonAsLink
           href="/en/home"
-          aria-label="View portfolio in English"
+          ariaLabel="View portfolio in English"
           className={styles.languageLink}
-          lang="en"
         >
           Continue in English
-        </Link>
-        <Link
+        </ButtonAsLink>
+
+        <ButtonAsLink
           href="/cy/adra"
-          aria-label="Gweld portffolio yn Gymraeg"
-          className={styles.languageLink}
+          ariaLabel="Gweld portffolio yn Gymraeg"
           lang="cy"
+          className={styles.languageLink}
         >
           Parhau yn Gymraeg
-        </Link>
+        </ButtonAsLink>
       </div>
     </main>
   );

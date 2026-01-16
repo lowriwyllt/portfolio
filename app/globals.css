@@ -6,6 +6,11 @@
   -webkit-text-stroke: 4px black;
 } */
 
+:root {
+  --primary-color: #471ca8;
+  --focus-color: #fbbf24;
+}
+
 * {
   margin: 0;
   padding: 0;
