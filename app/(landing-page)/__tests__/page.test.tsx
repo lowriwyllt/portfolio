@@ -7,26 +7,24 @@ describe("Landing Page", () => {
     render(<Page />);
     expect(
       screen.getByRole("heading", {
-        name: /welcome to my portfolio - croeso i fy mhortfolio/i,
+        name: /welcome - croeso/i,
       })
     ).toBeInTheDocument();
   });
 
   it("renders language selection links", () => {
     render(<Page />);
-    expect(screen.getByRole("link", { name: /english home/i })).toHaveAttribute(
-      "href",
-      "/en/home"
-    );
-    expect(screen.getByRole("link", { name: /welsh home/i })).toHaveAttribute(
-      "href",
-      "/cy/adra"
-    );
+    expect(
+      screen.getByRole("link", { name: /View portfolio in English/i })
+    ).toHaveAttribute("href", "/en/home");
+    expect(
+      screen.getByRole("link", { name: /Gweld portffolio yn Gymraeg/i })
+    ).toHaveAttribute("href", "/cy/adra");
   });
 
   it("renders profile image with correct alt text", () => {
     render(<Page />);
-    const image = screen.getByAltText(/lowri roberts work area/i);
+    const image = screen.getByAltText(/Lowri Roberts working at her desk/i);
     expect(image).toBeInTheDocument();
   });
 
