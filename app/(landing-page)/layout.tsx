@@ -1,6 +1,5 @@
 import { ibm_plex_mono } from "../fonts";
 import "../globals.css";
-import styles from "./layout.module.css";
 
 export default function RootLayout({
   children,
@@ -9,7 +8,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={ibm_plex_mono.className}>
-      <body className={styles.body}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

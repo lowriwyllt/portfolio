@@ -13,32 +13,35 @@ export const metadata: Metadata = {
 const LandingPage: NextPage = () => {
   return (
     <main className={styles.main}>
-      <h1 className={merriweather.className}>
-        Welcome to my portfolio - <span lang="cy">Croeso i fy mhortfolio</span>
+      <h1 className={`${styles.title} ${merriweather.className}`}>
+        Welcome - <span lang="cy">Croeso</span>
       </h1>
-      <Image
-        src="/lowri_roberts_working.png"
-        alt="Set up of Lowri Roberts work area.  She is wearing headphones while working on a laptop with a second monitor. She has a ipad on side."
-        width={250}
-        height={250}
-        priority
-      />
+      <div>
+        <Image
+          src="/lowri_roberts_working.png"
+          alt="Lowri Roberts working at her desk"
+          width={250}
+          height={250}
+          priority
+          fetchPriority="high"
+        />
+      </div>
       <div className={styles.languageLinks}>
         <Link
           href="/en/home"
-          aria-label="English Home"
+          aria-label="View portfolio in English"
           className={styles.languageLink}
           lang="en"
         >
-          English
+          Continue in English
         </Link>
         <Link
           href="/cy/adra"
-          aria-label="Welsh Home"
+          aria-label="Gweld portffolio yn Gymraeg"
           className={styles.languageLink}
           lang="cy"
         >
-          Cymraeg
+          Parhau yn Gymraeg
         </Link>
       </div>
     </main>
