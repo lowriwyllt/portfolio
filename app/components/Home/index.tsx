@@ -13,7 +13,11 @@ const HomePageComponent = ({ language = "english" }: { language?: string }) => {
         <div className={styles.imageContainer}>
           <Image
             src="/lowri_roberts_working.png"
-            alt="Set up of Lowri Roberts work area.  She is wearing headphones while working on a laptop with a second monitor. She has a ipad on side."
+            alt={
+              language === "welsh"
+                ? "Lowri Roberts yn gweithio wrth ei desg"
+                : "Lowri Roberts working at her desk"
+            }
             fill
             className={styles.image}
           />
