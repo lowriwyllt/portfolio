@@ -22,7 +22,7 @@
 
 @media (min-width: 768px) {
   .menuButton {
-    display: none;
+    display: none !important;
   }
 
   .overlay {
