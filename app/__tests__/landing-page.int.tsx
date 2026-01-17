@@ -8,17 +8,17 @@ describe("Landing Page", () => {
     expect(
       screen.getByRole("heading", {
         name: /welcome - croeso/i,
-      })
+      }),
     ).toBeInTheDocument();
   });
 
   it("renders language selection links", () => {
     render(<Page />);
     expect(
-      screen.getByRole("link", { name: /View portfolio in English/i })
+      screen.getByRole("link", { name: /Continue in English/i }),
     ).toHaveAttribute("href", "/en/home");
     expect(
-      screen.getByRole("link", { name: /Gweld portffolio yn Gymraeg/i })
+      screen.getByRole("link", { name: /Parhau yn Gymraeg/i }),
     ).toHaveAttribute("href", "/cy/adra");
   });
 
