@@ -50,7 +50,7 @@
 
 .sidebarMenuitem {
   width: 100%;
-  justify-content: start;
+  justify-content: start !important;
 }
 
 .sidebarListItem {
