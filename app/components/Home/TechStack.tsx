@@ -2,15 +2,11 @@ import { merriweather } from "@/app/fonts";
 import TECH_STACK from "../../constants/myTechStack";
 import styles from "./TechStack.module.css";
 
-export default function TechStack({
-  language = "english",
-}: {
-  language?: string;
-}) {
+export default function TechStack({ lang = "en" }: { lang?: string }) {
   return (
     <div className={styles.container}>
       <h2 className={`${styles.heading} ${merriweather.className}`}>
-        {language === "welsh" ? "Stac Techengol" : "Tech Stack"}
+        {lang === "cy" ? "Stac Techengol" : "Tech Stack"}
       </h2>
       <div className={styles.techGrid}>
         {TECH_STACK.map((tech) => {

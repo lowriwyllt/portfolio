@@ -32,7 +32,7 @@ const HomePageComponent = ({ language = "english" }: { language?: string }) => {
         </div>
       </div>
       <div className={styles.techStackSection}>
-        <TechStack language={language} />
+        <TechStack lang={language === "welsh" ? "cy" : "en"} />
         <RecentProjects lang={language === "welsh" ? "cy" : "en"} />
         <RecentAdventures lang={language === "welsh" ? "cy" : "en"} />
         <ContactMe lang={language === "welsh" ? "cy" : "en"} />
