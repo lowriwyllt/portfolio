@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 const HomePage = () => {
-  return <HomePageComponent language="welsh" />;
+  return <HomePageComponent lang="cy" />;
 };
 
 export default HomePage;

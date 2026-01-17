@@ -1,7 +1,8 @@
 import { merriweather } from "@/app/fonts";
 import styles from "./ContactMe.module.css";
+import langType from "@/app/constants/langType";
 
-export default function ContactMe({ lang = "en" }: { lang?: string }) {
+export default function ContactMe({ lang = "en" }: { lang?: langType }) {
   return (
     <div className={styles.container}>
       <h2 className={`${merriweather.className} ${styles.heading}`}>

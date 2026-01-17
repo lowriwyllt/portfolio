@@ -1,7 +1,8 @@
+import langType from "@/app/constants/langType";
 import WebsiteNavigation from "./WebsiteNavigation";
 
 type Props = {
-  lang?: "en" | "cy";
+  lang?: langType;
   SidebarButton: React.FC;
 };
 

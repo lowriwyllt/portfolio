@@ -2,9 +2,10 @@ import { WELSH_NAV_ITEMS, ENGLISH_NAV_ITEMS } from "@/app/constants/navItems";
 import ButtonAsLink from "../Links/ButtonAsLink";
 import styles from "./WebsiteNavigation.module.css";
 import { ButtonVariantType } from "../Buttons/Button";
+import langType from "@/app/constants/langType";
 
 type Props = {
-  lang?: "en" | "cy";
+  lang?: langType;
   variation: "header" | "footer" | "sidebar";
   buttonVariant: ButtonVariantType;
 };

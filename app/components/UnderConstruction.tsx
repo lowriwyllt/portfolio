@@ -1,6 +1,11 @@
+import langType from "../constants/langType";
 import styles from "./UnderConstruction.module.css";
 
-export default function UnderConstruction({ lang = "en" }: { lang?: string }) {
+export default function UnderConstruction({
+  lang = "en",
+}: {
+  lang?: langType;
+}) {
   return (
     <div className={styles.container}>
       <p className={styles.title}>

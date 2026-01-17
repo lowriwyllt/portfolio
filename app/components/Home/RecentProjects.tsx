@@ -2,11 +2,12 @@ import PROJECTS from "@/app/constants/projects";
 import { merriweather } from "@/app/fonts";
 import Image from "next/image";
 import styles from "./RecentProjects.module.css";
+import langType from "@/app/constants/langType";
 
 export default async function RecentProjects({
   lang = "en",
 }: {
-  lang?: string;
+  lang?: langType;
 }) {
   return (
     <div className={styles.container}>

@@ -1,8 +1,9 @@
 import { merriweather } from "@/app/fonts";
 import TECH_STACK from "../../constants/myTechStack";
 import styles from "./TechStack.module.css";
+import langType from "@/app/constants/langType";
 
-export default function TechStack({ lang = "en" }: { lang?: string }) {
+export default function TechStack({ lang = "en" }: { lang?: langType }) {
   return (
     <div className={styles.container}>
       <h2 className={`${styles.heading} ${merriweather.className}`}>

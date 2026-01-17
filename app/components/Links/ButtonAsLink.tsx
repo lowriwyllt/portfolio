@@ -2,12 +2,13 @@ import Link, { LinkProps } from "next/link";
 import { AriaRole, ReactNode } from "react";
 import { ButtonVariantType } from "../Buttons/Button";
 import styles from "../Buttons/Button.module.css";
+import langType from "@/app/constants/langType";
 
 interface ButtonAsLinkProps extends Omit<LinkProps, "href"> {
   href: string;
   ariaLabel: string;
   children: ReactNode;
-  lang?: string;
+  lang?: langType;
   className?: string;
   variant?: ButtonVariantType;
   role?: AriaRole;

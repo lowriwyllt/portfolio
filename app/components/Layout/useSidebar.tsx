@@ -10,9 +10,10 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./Sidebar.module.css";
 import Button from "../Buttons/Button";
 import WebsiteNavigation from "./WebsiteNavigation";
+import langType from "@/app/constants/langType";
 
 type Props = {
-  lang?: "en" | "cy";
+  lang?: langType;
 };
 
 const FOCUSABLE_ELEMENTS =

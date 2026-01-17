@@ -8,12 +8,13 @@ import styles from "./Layout.module.css";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { useSidebar } from "./useSidebar";
+import langType from "@/app/constants/langType";
 
 const Layout = ({
   lang = "en",
   children,
 }: {
-  lang?: "en" | "cy";
+  lang?: langType;
   children: React.ReactNode;
 }) => {
   const { Button, Sidebar } = useSidebar({

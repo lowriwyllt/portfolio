@@ -5,8 +5,9 @@ import TechStack from "./TechStack";
 import RecentProjects from "./RecentProjects";
 import RecentAdventures from "./RecentAdventures";
 import ContactMe from "./ContactMe";
+import langType from "@/app/constants/langType";
 
-const HomePageComponent = ({ language = "english" }: { language?: string }) => {
+const HomePageComponent = ({ lang = "en" }: { lang?: langType }) => {
   return (
     <>
       <div className={styles.heroSection}>
@@ -14,7 +15,7 @@ const HomePageComponent = ({ language = "english" }: { language?: string }) => {
           <Image
             src="/lowri_roberts_working.png"
             alt={
-              language === "welsh"
+              lang === "cy"
                 ? "Lowri Roberts yn gweithio wrth ei desg"
                 : "Lowri Roberts working at her desk"
             }
@@ -25,17 +26,17 @@ const HomePageComponent = ({ language = "english" }: { language?: string }) => {
         <div className={styles.content}>
           <h1 className={merriweather.className}>Lowri Roberts</h1>
           <p>
-            {language === "welsh"
+            {lang === "cy"
               ? "Rwy'n ddatblygwr gwe stac llawn, gyda ffocws ar JavaScript. Rwy'n ymroddedig i ddarparu gwefannau slic a dynamig"
               : "I'm a full stack web developer, with a focus on JavaScript. I'm dedicated to delivering sleek and dynamic websites."}
           </p>
         </div>
       </div>
       <div className={styles.techStackSection}>
-        <TechStack lang={language === "welsh" ? "cy" : "en"} />
-        <RecentProjects lang={language === "welsh" ? "cy" : "en"} />
-        <RecentAdventures lang={language === "welsh" ? "cy" : "en"} />
-        <ContactMe lang={language === "welsh" ? "cy" : "en"} />
+        <TechStack lang={lang} />
+        <RecentProjects lang={lang} />
+        <RecentAdventures lang={lang} />
+        <ContactMe lang={lang} />
       </div>
     </>
   );
