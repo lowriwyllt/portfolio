@@ -4,20 +4,20 @@ import Image from "next/image";
 import styles from "./RecentProjects.module.css";
 
 export default async function RecentProjects({
-  language = "english",
+  lang = "en",
 }: {
-  language?: string;
+  lang?: string;
 }) {
   return (
     <div className={styles.container}>
       <h2 className={`${merriweather.className} ${styles.heading}`}>
-        {language === "welsh" ? "Prosiectau Diweddar" : "Recent Projects"}
+        {lang === "cy" ? "Prosiectau Diweddar" : "Recent Projects"}
       </h2>
       <div className={styles.projectsGrid}>
         {PROJECTS.map((project) => {
           return (
             <div
-              key={language === "welsh" ? project.enw : project.name}
+              key={lang === "cy" ? project.enw : project.name}
               className={styles.projectCard}
             >
               <Image
@@ -27,9 +27,9 @@ export default async function RecentProjects({
                 className={styles.projectImage}
               />
               <div className={styles.overlay}>
-                <h3>{language === "welsh" ? project.enw : project.name}</h3>
+                <h3>{lang === "cy" ? project.enw : project.name}</h3>
                 <p className={styles.description}>
-                  {language === "welsh"
+                  {lang === "cy"
                     ? project.disgrifiadByr
                     : project.shortDescription}
                 </p>
