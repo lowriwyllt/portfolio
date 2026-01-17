@@ -6,9 +6,9 @@ import Link from "next/link";
 import Socials from "./Socials";
 import styles from "./Layout.module.css";
 import Footer from "./Footer";
-import Navbar from "./Navbar";
 import { useSidebar } from "./useSidebar";
 import langType from "@/app/constants/langType";
+import WebsiteNavigation from "./WebsiteNavigation";
 
 const Layout = ({
   lang = "en",
@@ -37,7 +37,12 @@ const Layout = ({
               {lang === "cy" ? "Datblygwr Gwe" : "Web Developer"}
             </span>
           </Link>
-          <Navbar lang={lang} SidebarButton={Button} />
+          <WebsiteNavigation
+            lang={lang}
+            variation="header"
+            buttonVariant="primarySubtle"
+          />
+          <Button />
         </div>
       </header>
       <main className={styles.main}>{children}</main>
