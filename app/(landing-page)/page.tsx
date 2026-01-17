@@ -27,20 +27,11 @@ const LandingPage: NextPage = () => {
         />
       </div>
       <div className={styles.languageLinks}>
-        <ButtonAsLink
-          href="/en/home"
-          ariaLabel="View portfolio in English"
-          className={styles.languageLink}
-        >
+        <ButtonAsLink href="/en/home" className={styles.languageLink}>
           Continue in English
         </ButtonAsLink>
 
-        <ButtonAsLink
-          href="/cy/adra"
-          ariaLabel="Gweld portffolio yn Gymraeg"
-          lang="cy"
-          className={styles.languageLink}
-        >
+        <ButtonAsLink href="/cy/adra" lang="cy" className={styles.languageLink}>
           Parhau yn Gymraeg
         </ButtonAsLink>
       </div>

@@ -25,14 +25,18 @@ const Layout = ({
       <Sidebar />
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <Link href="/" aria-label="Landing Page" className={styles.logoLink}>
+          <Link
+            href={lang === "cy" ? "/cy/adra" : "/en/home"}
+            aria-label={lang === "cy" ? "Adra" : "Home"}
+            className={styles.logoLink}
+          >
             <Image
               src="/logo_Lowri_Roberts.png"
               alt="Logo Lowri Roberts - Datblygwr Gwe"
               width={61}
               height={50}
             />
-            <span className={styles.logoText}>
+            <span className={styles.logoText} aria-hidden="true">
               {lang === "cy" ? "Datblygwr Gwe" : "Web Developer"}
             </span>
           </Link>
