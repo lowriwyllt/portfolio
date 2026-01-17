@@ -22,7 +22,6 @@ const Layout = ({
   });
   return (
     <>
-      <Socials lang={lang} />
       <Sidebar />
       <header className={styles.header}>
         <div className={styles.headerContent}>
@@ -46,6 +45,7 @@ const Layout = ({
         </div>
       </header>
       <main className={styles.main}>{children}</main>
+      <Socials lang={lang} />
       <Footer lang={lang} />
     </>
   );
