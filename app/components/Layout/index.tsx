@@ -27,7 +27,9 @@ const Layout = ({
         <div className={styles.headerContent}>
           <Link
             href={lang === "cy" ? "/cy/adra" : "/en/home"}
-            aria-label={lang === "cy" ? "Adra" : "Home"}
+            aria-label={
+              lang === "cy" ? "Adra - Datblygwr Gwe" : "Home - Web Developer"
+            }
             className={styles.logoLink}
           >
             <Image
