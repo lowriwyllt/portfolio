@@ -15,31 +15,25 @@ const WebsiteNavigation = ({
   variation,
   buttonVariant,
 }: Props) => {
-  const navigationItmes = lang === "cy" ? WELSH_NAV_ITEMS : ENGLISH_NAV_ITEMS;
+  const navigationItems = lang === "cy" ? WELSH_NAV_ITEMS : ENGLISH_NAV_ITEMS;
   return (
-    <nav className={styles[`${variation}Nav`]}>
-      <ul
-        role="menubar"
-        className={`${styles.menubar} ${styles[`${variation}Menubar`]}`}
-      >
-        {navigationItmes.map((item) => {
-          const labelId = `label-${item.label
-            .toLowerCase()
-            .replace(/\s+/g, "-")}`;
+    <nav
+      className={styles[`${variation}Nav`]}
+      aria-label={`${variation === "header" ? "Main" : variation === "footer" ? "Footer" : "Sidebar"} navigation`}
+    >
+      <ul className={`${styles.menubar} ${styles[`${variation}Menubar`]}`}>
+        {navigationItems.map((item) => {
           return (
-            <li
-              key={labelId}
-              role="none"
-              className={styles[`${variation}ListItem`]}
-            >
+            <li key={item.label} className={styles[`${variation}ListItem`]}>
               <ButtonAsLink
                 href={item.href}
-                ariaLabel={item.label}
-                role="menuitem"
                 className={`${styles.menuitem} ${styles[`${variation}Menuitem`]}`}
                 variant={buttonVariant}
               >
-                <span className={styles[`${variation}IconWrapper`]}>
+                <span
+                  className={styles[`${variation}IconWrapper`]}
+                  aria-hidden="true"
+                >
                   {item.icon}
                 </span>
                 <span className={styles[`${variation}LabelText`]}>

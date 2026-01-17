@@ -18,51 +18,48 @@ describe("Footer Component", () => {
 
   it("renders default English navigation items", () => {
     render(<Footer />);
-    expect(screen.getByRole("menuitem", { name: /home/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /home/i })).toBeInTheDocument();
     expect(
-      screen.getByRole("menuitem", { name: /coding projects/i }),
+      screen.getByRole("link", { name: /coding projects/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("menuitem", { name: /experience/i }),
+      screen.getByRole("link", { name: /experience/i }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole("menuitem", { name: /travel/i }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /travel/i })).toBeInTheDocument();
   });
 
   it("renders custom Welsh navigation items when provided", () => {
     render(<Footer lang="cy" />);
-    expect(screen.getByRole("menuitem", { name: /adra/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /adra/i })).toBeInTheDocument();
     expect(
-      screen.getByRole("menuitem", { name: /prosiectau codio/i }),
+      screen.getByRole("link", { name: /prosiectau codio/i }),
     ).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /profiad/i })).toBeInTheDocument();
     expect(
-      screen.getByRole("menuitem", { name: /profiad/i }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("menuitem", { name: /trafeilio/i }),
+      screen.getByRole("link", { name: /trafeilio/i }),
     ).toBeInTheDocument();
   });
 
   it("renders correct number of navigation links", () => {
     render(<Footer />);
-    const menuitems = screen.getAllByRole("menuitem");
-    expect(menuitems).toHaveLength(ENGLISH_NAV_ITEMS.length);
+    const links = screen.getAllByRole("link");
+    expect(links).toHaveLength(ENGLISH_NAV_ITEMS.length);
   });
 
   it("renders navigation links with correct hrefs", () => {
     render(<Footer />);
-    expect(screen.getByRole("menuitem", { name: /home/i })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /home/i })).toHaveAttribute(
       "href",
       "/en/home",
     );
     expect(
-      screen.getByRole("menuitem", { name: /coding projects/i }),
+      screen.getByRole("link", { name: /coding projects/i }),
     ).toHaveAttribute("href", "/en/codingprojects");
-    expect(
-      screen.getByRole("menuitem", { name: /experience/i }),
-    ).toHaveAttribute("href", "/en/experience");
-    expect(screen.getByRole("menuitem", { name: /travel/i })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /experience/i })).toHaveAttribute(
+      "href",
+      "/en/experience",
+    );
+    expect(screen.getByRole("link", { name: /travel/i })).toHaveAttribute(
       "href",
       "/en/travel",
     );

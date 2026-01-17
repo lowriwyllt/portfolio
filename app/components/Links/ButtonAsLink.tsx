@@ -6,7 +6,7 @@ import langType from "@/app/constants/langType";
 
 interface ButtonAsLinkProps extends Omit<LinkProps, "href"> {
   href: string;
-  ariaLabel: string;
+  ariaLabel?: string;
   children: ReactNode;
   lang?: langType;
   className?: string;
