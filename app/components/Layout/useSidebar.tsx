@@ -12,13 +12,13 @@ import Button from "../Buttons/Button";
 import WebsiteNavigation from "./WebsiteNavigation";
 
 type Props = {
-  language?: "english" | "welsh";
+  lang?: "en" | "cy";
 };
 
 const FOCUSABLE_ELEMENTS =
   "button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])";
 
-export const useSidebar = ({ language = "english" }: Props) => {
+export const useSidebar = ({ lang = "en" }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const triggerButtonRef = useRef<HTMLButtonElement>(null);
   const sidebarRef = useRef<HTMLDivElement>(null);
@@ -166,7 +166,7 @@ export const useSidebar = ({ language = "english" }: Props) => {
 
           <div className={styles.drawerBody}>
             <WebsiteNavigation
-              lang={language === "welsh" ? "cy" : "en"}
+              lang={lang}
               variation="sidebar"
               buttonVariant="secondaryOutline"
             />
@@ -215,9 +215,7 @@ export const useSidebar = ({ language = "english" }: Props) => {
                 className={styles.navButton}
               >
                 <EnvelopeIcon className={styles.icon} />
-                <span>
-                  {language === "welsh" ? "E-bostiwch fi" : "Email me"}
-                </span>
+                <span>{lang === "cy" ? "E-bostiwch fi" : "Email me"}</span>
               </a>
             </div>
           </div>

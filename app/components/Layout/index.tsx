@@ -10,14 +10,14 @@ import Navbar from "./Navbar";
 import { useSidebar } from "./useSidebar";
 
 const Layout = ({
-  language = "english",
+  lang = "en",
   children,
 }: {
-  language?: "english" | "welsh";
+  lang?: "en" | "cy";
   children: React.ReactNode;
 }) => {
   const { Button, Sidebar } = useSidebar({
-    language: language,
+    lang,
   });
   return (
     <>
@@ -33,17 +33,14 @@ const Layout = ({
               height={50}
             />
             <span className={styles.logoText}>
-              {language === "welsh" ? "Datblygwr Gwe" : "Web Developer"}
+              {lang === "cy" ? "Datblygwr Gwe" : "Web Developer"}
             </span>
           </Link>
-          <Navbar
-            lang={language === "welsh" ? "cy" : "en"}
-            SidebarButton={Button}
-          />
+          <Navbar lang={lang} SidebarButton={Button} />
         </div>
       </header>
       <main className={styles.main}>{children}</main>
-      <Footer lang={language === "welsh" ? "cy" : "en"} />
+      <Footer lang={lang} />
     </>
   );
 };

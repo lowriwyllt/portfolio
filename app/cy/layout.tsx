@@ -11,7 +11,7 @@ export default function RootLayout({
   return (
     <html lang="cy" className={ibm_plex_mono.className}>
       <body className={styles.body}>
-        <Layout language="welsh">{children}</Layout>
+        <Layout lang="cy">{children}</Layout>
       </body>
     </html>
   );
