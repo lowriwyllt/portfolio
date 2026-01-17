@@ -8,7 +8,6 @@ import styles from "./Layout.module.css";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { useSidebar } from "./useSidebar";
-import { ENGLISH_NAV_ITEMS, WELSH_NAV_ITEMS } from "@/app/constants/navItems";
 
 const Layout = ({
   language = "english",
@@ -18,7 +17,6 @@ const Layout = ({
   children: React.ReactNode;
 }) => {
   const { Button, Sidebar } = useSidebar({
-    navItems: language === "welsh" ? WELSH_NAV_ITEMS : ENGLISH_NAV_ITEMS,
     language: language,
   });
   return (

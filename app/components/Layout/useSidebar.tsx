@@ -1,26 +1,24 @@
 "use client";
 
-import { NavItem } from "@/app/constants/navItems";
 import {
   Bars3Icon,
   EnvelopeIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import styles from "./Sidebar.module.css";
 import Button from "../Buttons/Button";
+import WebsiteNavigation from "./WebsiteNavigation";
 
 type Props = {
-  navItems: NavItem[];
   language?: "english" | "welsh";
 };
 
 const FOCUSABLE_ELEMENTS =
   "button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])";
 
-export const useSidebar = ({ navItems, language = "english" }: Props) => {
+export const useSidebar = ({ language = "english" }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const triggerButtonRef = useRef<HTMLButtonElement>(null);
   const sidebarRef = useRef<HTMLDivElement>(null);
@@ -167,20 +165,11 @@ export const useSidebar = ({ navItems, language = "english" }: Props) => {
           </button>
 
           <div className={styles.drawerBody}>
-            <nav className={styles.nav} aria-label="Primary navigation">
-              {navItems.map((item) => (
-                <Link
-                  href={item.href}
-                  aria-label={item.label}
-                  key={item.label}
-                  onClick={onClose}
-                  className={styles.navButton}
-                >
-                  {item.icon}
-                  <span>{item.label}</span>
-                </Link>
-              ))}
-            </nav>
+            <WebsiteNavigation
+              lang={language === "welsh" ? "cy" : "en"}
+              variation="sidebar"
+              buttonVariant="secondaryOutline"
+            />
 
             <div className={styles.socialLinks} aria-label="Social media links">
               <a

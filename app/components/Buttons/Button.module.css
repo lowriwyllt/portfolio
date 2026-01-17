@@ -58,7 +58,6 @@
 .secondaryOutline:hover {
   color: white;
   background-color: var(--primary-color);
-  transform: translateX(4px);
 }
 
 .primarySubtle {

@@ -112,66 +112,20 @@
   outline: none;
 }
 
-.nav {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: flex-start;
-}
-
-.drawer:not(.open) .nav {
+/* WHAT DO THESE NEXT TWO DO??? */
+/* May want to add these to website navigation */
+/* .drawer:not(.open) .nav {
   opacity: 0;
   transform: translateX(20px);
-}
+} */
 
-.drawer.open .nav {
+/* .drawer.open .nav {
   opacity: 1;
   transform: translateX(0);
   transition:
     opacity 400ms cubic-bezier(0.23, 1, 0.32, 1) 250ms,
     transform 400ms cubic-bezier(0.23, 1, 0.32, 1) 250ms;
-}
-
-.navButton {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.75rem 1rem;
-  background: white;
-  color: #471ca8;
-  border: 1px solid #e2e8f0;
-  border-radius: 0.375rem;
-  text-decoration: none;
-  cursor: pointer;
-  width: 100%;
-  transition:
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    transform 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.navButton:hover {
-  background-color: #471ca8;
-  color: white;
-  transform: translateX(4px);
-}
-
-.navButton:focus-visible {
-  outline: none;
-  border-color: #471ca8;
-  box-shadow: 0 0 0 3px rgba(71, 28, 168, 0.2);
-  transform: translateX(4px);
-}
-
-.navButton:active {
-  transform: translateX(2px) scale(0.98);
-}
-
-.navButton:focus-visible:hover {
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
-}
+} */
 
 .socialLinks {
   display: flex;
@@ -207,11 +161,6 @@
   flex-shrink: 0;
 }
 
-.navButton:hover .icon,
-.navButton:focus-visible .icon {
-  transform: scale(1.1);
-}
-
 .iconShadow {
   width: 1.5rem;
   height: 1.5rem;
@@ -220,10 +169,4 @@
     transform 200ms ease,
     filter 200ms ease;
   flex-shrink: 0;
-}
-
-.navButton:hover .iconShadow,
-.navButton:focus-visible .iconShadow {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 1));
 }
