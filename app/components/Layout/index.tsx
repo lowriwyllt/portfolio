@@ -1,14 +1,12 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Socials from "./Socials";
 import styles from "./Layout.module.css";
 import Footer from "./Footer";
-import { useSidebar } from "./useSidebar";
 import langType from "@/app/constants/langType";
 import WebsiteNavigation from "./WebsiteNavigation";
+import Sidebar from "./Sidebar";
 
 const Layout = ({
   lang = "en",
@@ -17,12 +15,8 @@ const Layout = ({
   lang?: langType;
   children: React.ReactNode;
 }) => {
-  const { Button, Sidebar } = useSidebar({
-    lang,
-  });
   return (
     <>
-      <Sidebar />
       <header className={styles.header}>
         <div className={styles.headerContent}>
           <Link
@@ -47,7 +41,7 @@ const Layout = ({
             variation="header"
             buttonVariant="primarySubtle"
           />
-          <Button />
+          <Sidebar lang={lang} />
         </div>
       </header>
       <main className={styles.main}>{children}</main>
