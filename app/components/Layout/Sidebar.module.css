@@ -134,3 +134,7 @@
     filter 200ms ease;
   flex-shrink: 0;
 }
+
+.drawer[hidden] {
+  display: none !important;
+}
