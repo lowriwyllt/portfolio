@@ -30,6 +30,12 @@
   }
 }
 
+.sidebarNav {
+  width: 100%;
+  justify-content: start !important;
+  gap: 1rem;
+}
+
 .drawer {
   position: fixed;
   top: 0;

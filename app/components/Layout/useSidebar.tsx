@@ -11,6 +11,7 @@ import styles from "./Sidebar.module.css";
 import Button from "../Buttons/Button";
 import WebsiteNavigation from "./WebsiteNavigation";
 import langType from "@/app/constants/langType";
+import ButtonAsLink from "../Links/ButtonAsLink";
 
 type Props = {
   lang?: langType;
@@ -174,13 +175,14 @@ export const useSidebar = ({ lang = "en" }: Props) => {
             />
 
             <div className={styles.socialLinks} aria-label="Social media links">
-              <a
+              <ButtonAsLink
                 href="https://github.com/lowriwyllt"
-                aria-label="Visit Lowri Roberts' GitHub profile"
+                ariaLabel="Visit Lowri Roberts' GitHub profile"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={onClose}
-                className={styles.navButton}
+                variant="secondaryOutline"
+                className={styles.sidebarNav}
               >
                 <Image
                   src="/github-mark.png"
@@ -190,15 +192,16 @@ export const useSidebar = ({ lang = "en" }: Props) => {
                   className={styles.iconShadow}
                 />
                 <span>Github</span>
-              </a>
+              </ButtonAsLink>
 
-              <a
+              <ButtonAsLink
                 href="https://www.linkedin.com/in/lowri-gwenllian-roberts/"
-                aria-label="Visit Lowri Roberts' LinkedIn profile"
+                ariaLabel="Visit Lowri Roberts' LinkedIn profile"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={onClose}
-                className={styles.navButton}
+                variant="secondaryOutline"
+                className={styles.sidebarNav}
               >
                 <Image
                   src="/LI-In-Bug.png"
@@ -208,17 +211,18 @@ export const useSidebar = ({ lang = "en" }: Props) => {
                   className={styles.iconShadow}
                 />
                 <span>LinkedIn</span>
-              </a>
+              </ButtonAsLink>
 
-              <a
+              <ButtonAsLink
                 href="mailto:lowri.g.roberts@hotmail.com"
-                aria-label="Send an email to Lowri Roberts"
+                ariaLabel="Send an email to Lowri Roberts"
                 onClick={onClose}
-                className={styles.navButton}
+                variant="secondaryOutline"
+                className={styles.sidebarNav}
               >
                 <EnvelopeIcon className={styles.icon} />
                 <span>{lang === "cy" ? "E-bostiwch fi" : "Email me"}</span>
-              </a>
+              </ButtonAsLink>
             </div>
           </div>
         </div>
