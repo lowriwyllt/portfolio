@@ -1,6 +1,7 @@
 import Link, { LinkProps } from "next/link";
 import { AriaRole, ReactNode } from "react";
-import styles from "./ButtonAsLink.module.css";
+import { ButtonVariantType } from "../Buttons/Button";
+import styles from "../Buttons/Button.module.css";
 
 interface ButtonAsLinkProps extends Omit<LinkProps, "href"> {
   href: string;
@@ -8,7 +9,7 @@ interface ButtonAsLinkProps extends Omit<LinkProps, "href"> {
   children: ReactNode;
   lang?: string;
   className?: string;
-  variant?: "primary" | "primaryOutline" | "primarySubtle";
+  variant?: ButtonVariantType;
   role?: AriaRole;
 }
 
@@ -27,7 +28,7 @@ const ButtonAsLink = ({
       href={href}
       aria-label={ariaLabel}
       lang={lang}
-      className={`${styles.buttonAsLink} ${styles[variant]} ${className || ""}`}
+      className={`${styles.button} ${styles[variant]} ${className || ""}`}
       role={role}
       {...rest}
     >

@@ -1,11 +1,17 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
 import styles from "./Button.module.css";
 
+export type ButtonVariantType =
+  | "primary"
+  | "primaryOutline"
+  | "primarySubtle"
+  | "secondaryOutline";
+
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   ariaLabel: string;
   children: ReactNode;
   className?: string;
-  variant?: "primary" | "primaryOutline" | "primarySubtle";
+  variant?: ButtonVariantType;
 }
 
 const Button = ({
