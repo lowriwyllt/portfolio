@@ -8,12 +8,14 @@ type Props = {
   lang?: langType;
   variation: "header" | "footer" | "sidebar";
   buttonVariant: ButtonVariantType;
+  onClick?: () => void;
 };
 
 const WebsiteNavigation = ({
   lang = "en",
   variation,
   buttonVariant,
+  onClick,
 }: Props) => {
   const navigationItems = lang === "cy" ? WELSH_NAV_ITEMS : ENGLISH_NAV_ITEMS;
   return (
@@ -30,6 +32,7 @@ const WebsiteNavigation = ({
                 ariaLabel={item.label}
                 className={`${styles.menuitem} ${styles[`${variation}Menuitem`]}`}
                 variant={buttonVariant}
+                onClick={onClick}
               >
                 <span
                   className={styles[`${variation}IconWrapper`]}

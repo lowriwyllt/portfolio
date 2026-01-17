@@ -170,6 +170,7 @@ export const useSidebar = ({ lang = "en" }: Props) => {
               lang={lang}
               variation="sidebar"
               buttonVariant="secondaryOutline"
+              onClick={onClose}
             />
 
             <div className={styles.socialLinks} aria-label="Social media links">
