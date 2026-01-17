@@ -11,7 +11,7 @@ const CodingProjects: NextPage = () => {
   return (
     <main className={styles.main}>
       <h1>Travel</h1>
-      <UnderConstruction language="english" />
+      <UnderConstruction />
     </main>
   );
 };

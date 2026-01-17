@@ -12,7 +12,7 @@ const CodingProjects: NextPage = () => {
   return (
     <main className={styles.main}>
       <h1>Profiad</h1>
-      <UnderConstruction language="welsh" />
+      <UnderConstruction lang="cy" />
     </main>
   );
 };
