@@ -8,7 +8,11 @@ type Props = {
 const Navbar = ({ lang = "en", SidebarButton }: Props) => {
   return (
     <>
-      <WebsiteNavigation lang={lang} variation="header" />
+      <WebsiteNavigation
+        lang={lang}
+        variation="header"
+        buttonVariant="primarySubtle"
+      />
       <SidebarButton />
     </>
   );
