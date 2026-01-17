@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   useDialog,
   useOverlay,
@@ -31,11 +31,27 @@ function SidebarModalDialog({
   ...props
 }: ModalDialogProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const [isEntering, setIsEntering] = useState(true);
+  const [isExiting, setIsExiting] = useState(false);
+
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      setIsEntering(false);
+    });
+  }, []);
+
+  const handleClose = () => {
+    setIsExiting(true);
+
+    setTimeout(() => {
+      onClose();
+    }, 700);
+  };
 
   const { overlayProps, underlayProps } = useOverlay(
     {
       isOpen,
-      onClose,
+      onClose: handleClose,
       isDismissable: true,
     },
     ref,
@@ -47,7 +63,10 @@ function SidebarModalDialog({
 
   return (
     <OverlayContainer>
-      <div {...underlayProps} className={`${styles.overlay} ${styles.open}`} />
+      <div
+        {...underlayProps}
+        className={`${styles.overlay} ${!isEntering && !isExiting ? styles.overlayVisible : ""}`}
+      />
 
       <FocusScope contain restoreFocus autoFocus>
         <div
@@ -55,7 +74,7 @@ function SidebarModalDialog({
           {...dialogProps}
           {...modalProps}
           ref={ref}
-          className={`${styles.drawer} ${styles.open}`}
+          className={`${styles.drawer} ${!isEntering && !isExiting ? styles.drawerVisible : ""}`}
         >
           {children}
         </div>
