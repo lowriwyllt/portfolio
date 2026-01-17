@@ -24,7 +24,7 @@ interface ModalDialogProps extends AriaDialogProps {
   onClose: () => void;
 }
 
-function ModalDialog({
+function SidebarModalDialog({
   children,
   isOpen,
   onClose,
@@ -47,10 +47,8 @@ function ModalDialog({
 
   return (
     <OverlayContainer>
-      {/* Backdrop */}
       <div {...underlayProps} className={`${styles.overlay} ${styles.open}`} />
 
-      {/* Sidebar Dialog */}
       <FocusScope contain restoreFocus autoFocus>
         <div
           {...overlayProps}
@@ -69,30 +67,35 @@ function ModalDialog({
 export default function Sidebar({ lang }: { lang: langType }) {
   const state = useOverlayTriggerState({});
 
+  const handleNavClick = () => {
+    setTimeout(() => {
+      state.close();
+    }, 200);
+  };
+
   return (
-    <div>
+    <div className={styles.smallScreenOnly}>
       <Button
         onClick={() => state.open()}
         ariaLabel="Open Modal"
-        className={styles.menuButton}
         variant="primarySubtle"
       >
         <Bars3Icon className={styles.icon} />
       </Button>
 
       {state.isOpen && (
-        <ModalDialog isOpen={state.isOpen} onClose={state.close}>
+        <SidebarModalDialog isOpen={state.isOpen} onClose={state.close}>
           <div className={styles.drawerBody}>
             <WebsiteNavigation
               lang={lang}
               variation="sidebar"
               buttonVariant="secondaryOutline"
-              onClick={state.close}
+              onClick={handleNavClick}
             />
 
             <Socials lang={lang} variant="sidebar" />
           </div>
-        </ModalDialog>
+        </SidebarModalDialog>
       )}
     </div>
   );

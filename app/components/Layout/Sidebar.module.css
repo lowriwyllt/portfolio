@@ -1,39 +1,9 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0);
-  backdrop-filter: blur(0px);
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 400ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 400ms,
-    background-color 400ms cubic-bezier(0.4, 0, 0.2, 1),
-    backdrop-filter 400ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.overlay.open {
-  opacity: 1;
-  visibility: visible;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.407);
   backdrop-filter: blur(2px);
-}
-
-@media (min-width: 768px) {
-  .menuButton {
-    display: none !important;
-  }
-
-  .overlay {
-    display: none;
-  }
-}
-
-.sidebarNav {
-  width: 100%;
-  justify-content: start !important;
-  gap: 1rem;
+  z-index: 1000;
 }
 
 .drawer {
@@ -46,96 +16,32 @@
   background-color: white;
   z-index: 1001;
   transform: translateX(100%);
-  transition:
-    transform 450ms cubic-bezier(0.23, 1, 0.32, 1),
-    box-shadow 450ms cubic-bezier(0.23, 1, 0.32, 1);
-  display: flex;
-  flex-direction: column;
-  box-shadow: -2px 0 8px rgba(0, 0, 0, 0);
-  overflow: hidden;
-  padding: 20px;
-}
-
-.drawer.open {
-  transform: translateX(0);
-  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.2);
-}
-
-@media (min-width: 768px) {
-  .drawer {
-    display: none;
-  }
-}
-
-.closeButton {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 0.5rem;
-  line-height: 1;
-  opacity: 0;
-  transform: rotate(-90deg) scale(0.8);
-  transition:
-    opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 200ms,
-    transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 200ms,
-    background-color 200ms ease,
-    box-shadow 200ms ease;
-  border-radius: 0.375rem;
-}
-
-.drawer.open .closeButton {
-  opacity: 1;
   transform: rotate(0deg) scale(1);
 }
 
-.closeButton:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
+@media (min-width: 768px) {
+  .smallScreenOnly {
+    display: none;
+  }
 
-.closeButton:focus-visible {
-  outline: 2px solid #471ca8;
-  outline-offset: 2px;
-  background-color: rgba(71, 28, 168, 0.1);
-  box-shadow: 0 0 0 4px rgba(71, 28, 168, 0.1);
+  .overlay {
+    display: none;
+  }
+
+  .drawer {
+    display: none;
+  }
 }
 
 .drawerBody {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 3rem 1rem 1rem;
+  padding: 1rem;
   height: 100%;
-  overflow-y: auto;
-  /* Improve focus visibility during scrolling */
-  scroll-behavior: smooth;
-}
-
-/* Add focus ring when navigating within drawer body */
-.drawerBody:focus-within {
-  outline: none;
 }
 
 .icon {
   width: 1.5rem;
   height: 1.5rem;
-  transition: transform 200ms ease;
-  flex-shrink: 0;
-}
-
-.iconShadow {
-  width: 1.5rem;
-  height: 1.5rem;
-  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 1));
-  transition:
-    transform 200ms ease,
-    filter 200ms ease;
-  flex-shrink: 0;
-}
-
-.drawer[hidden] {
-  display: none !important;
 }
