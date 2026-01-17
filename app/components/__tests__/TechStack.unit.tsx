@@ -7,14 +7,14 @@ describe("TechStack Component", () => {
   it("renders the English heading by default", () => {
     render(<TechStack />);
     expect(
-      screen.getByRole("heading", { name: /tech stack/i })
+      screen.getByRole("heading", { name: /tech stack/i }),
     ).toBeInTheDocument();
   });
 
   it("renders the Welsh heading when language is set to welsh", () => {
-    render(<TechStack language="welsh" />);
+    render(<TechStack lang="cy" />);
     expect(
-      screen.getByRole("heading", { name: /stac techengol/i })
+      screen.getByRole("heading", { name: /stac techengol/i }),
     ).toBeInTheDocument();
   });
 
@@ -55,7 +55,7 @@ describe("TechStack Component", () => {
   });
 
   it("should not have accessibility violations with Welsh language", async () => {
-    const { container } = render(<TechStack language="welsh" />);
+    const { container } = render(<TechStack lang="cy" />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
