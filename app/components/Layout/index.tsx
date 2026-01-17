@@ -22,7 +22,7 @@ const Layout = ({
   });
   return (
     <>
-      <Socials />
+      <Socials lang={lang} />
       <Sidebar />
       <header className={styles.header}>
         <div className={styles.headerContent}>

@@ -19,6 +19,7 @@ const SOCIALS = [
           height={24}
           alt="Github logo"
           className={styles.icon}
+          aria-hidden="true"
         />
       );
     },
@@ -39,6 +40,7 @@ const SOCIALS = [
           height={24}
           alt="LinkedIn logo"
           className={styles.icon}
+          aria-hidden="true"
         />
       );
     },
@@ -50,7 +52,7 @@ const SOCIALS = [
     enAriaLabel: "Email Lowri Roberts",
     cyAriaLabel: "E-bostiwch Lowri Roberts",
     Icon: () => {
-      return <EnvelopeIcon className={styles.icon} />;
+      return <EnvelopeIcon className={styles.icon} aria-hidden="true" />;
     },
   },
 ];

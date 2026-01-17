@@ -8,6 +8,7 @@
   right: 0;
   z-index: 1;
   margin-bottom: 148px;
+  list-style-type: none;
 }
 
 @media (min-width: 768px) {
@@ -20,9 +21,4 @@
   border-right: none !important;
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
-}
-
-.icon {
-  width: 1.5rem;
-  height: 1.5rem;
 }
