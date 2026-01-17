@@ -1,17 +1,12 @@
 "use client";
 
-import {
-  Bars3Icon,
-  EnvelopeIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
-import Image from "next/image";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useEffect, useRef, useState } from "react";
 import styles from "./Sidebar.module.css";
 import Button from "../Buttons/Button";
 import WebsiteNavigation from "./WebsiteNavigation";
 import langType from "@/app/constants/langType";
-import ButtonAsLink from "../Links/ButtonAsLink";
+import Socials from "./Socials";
 
 type Props = {
   lang?: langType;
@@ -174,56 +169,7 @@ export const useSidebar = ({ lang = "en" }: Props) => {
               onClick={onClose}
             />
 
-            <div className={styles.socialLinks} aria-label="Social media links">
-              <ButtonAsLink
-                href="https://github.com/lowriwyllt"
-                ariaLabel="Visit Lowri Roberts' GitHub profile"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={onClose}
-                variant="secondaryOutline"
-                className={styles.sidebarNav}
-              >
-                <Image
-                  src="/github-mark.png"
-                  width={21}
-                  height={21}
-                  alt=""
-                  className={styles.iconShadow}
-                />
-                <span>Github</span>
-              </ButtonAsLink>
-
-              <ButtonAsLink
-                href="https://www.linkedin.com/in/lowri-gwenllian-roberts/"
-                ariaLabel="Visit Lowri Roberts' LinkedIn profile"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={onClose}
-                variant="secondaryOutline"
-                className={styles.sidebarNav}
-              >
-                <Image
-                  src="/LI-In-Bug.png"
-                  width={21}
-                  height={21}
-                  alt=""
-                  className={styles.iconShadow}
-                />
-                <span>LinkedIn</span>
-              </ButtonAsLink>
-
-              <ButtonAsLink
-                href="mailto:lowri.g.roberts@hotmail.com"
-                ariaLabel="Send an email to Lowri Roberts"
-                onClick={onClose}
-                variant="secondaryOutline"
-                className={styles.sidebarNav}
-              >
-                <EnvelopeIcon className={styles.icon} />
-                <span>{lang === "cy" ? "E-bostiwch fi" : "Email me"}</span>
-              </ButtonAsLink>
-            </div>
+            <Socials lang={lang} variant="sidebar" />
           </div>
         </div>
       </>

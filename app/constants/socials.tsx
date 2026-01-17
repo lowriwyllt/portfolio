@@ -11,6 +11,8 @@ const SOCIALS = [
     },
     enAriaLabel: "Github for Lowri Roberts",
     cyAriaLabel: "Github i Lowri Roberts",
+    cyButtonLabel: "Github",
+    enButtonLabel: "Github",
     Icon: () => {
       return (
         <Image
@@ -32,6 +34,8 @@ const SOCIALS = [
     },
     enAriaLabel: "LinkedIn for Lowri Roberts",
     cyAriaLabel: "LinkedIn i Lowri Roberts",
+    cyButtonLabel: "LinkedIn",
+    enButtonLabel: "LinkedIn",
     Icon: () => {
       return (
         <Image
@@ -51,6 +55,8 @@ const SOCIALS = [
     },
     enAriaLabel: "Email Lowri Roberts",
     cyAriaLabel: "E-bostiwch Lowri Roberts",
+    cyButtonLabel: "E-bostiwch fi",
+    enButtonLabel: "Email me",
     Icon: () => {
       return <EnvelopeIcon className={styles.icon} aria-hidden="true" />;
     },

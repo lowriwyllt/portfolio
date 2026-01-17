@@ -2,13 +2,16 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  list-style-type: none;
+  margin-bottom: 148px;
   align-items: flex-start;
+}
+
+.defaultSocialsContainer {
   position: fixed;
   bottom: 1.25rem;
   right: 0;
   z-index: 1;
-  margin-bottom: 148px;
-  list-style-type: none;
 }
 
 @media (min-width: 768px) {
@@ -17,8 +20,18 @@
   }
 }
 
-.socialLink {
+.defaultSocialLink {
   border-right: none !important;
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
+}
+
+.sidebarSocialLink {
+  width: 100%;
+  justify-content: start !important;
+  gap: 1rem;
+}
+
+.sidebarSocialLinkItem {
+  width: 100%;
 }
