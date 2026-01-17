@@ -1,4 +1,4 @@
-.buttonAsLink {
+.button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -13,17 +13,17 @@
   text-align: center;
 }
 
-.buttonAsLink:focus,
-.buttonAsLink:focus-visible {
+.button:focus,
+.button:focus-visible {
   outline: 3px solid var(--focus-color);
   outline-offset: 2px;
 }
 
-.buttonAsLink:hover {
+.button:hover {
   transform: scale(1.05);
 }
 
-.buttonAsLink:active {
+.button:active {
   transform: scale(0.95);
 }
 

@@ -10,6 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import styles from "./Sidebar.module.css";
+import Button from "../Buttons/Button";
 
 type Props = {
   navItems: NavItem[];
@@ -107,7 +108,7 @@ export const useSidebar = ({ navItems, language = "english" }: Props) => {
 
   // Handle overlay click with keyboard support
   const handleOverlayInteraction = (
-    e: React.MouseEvent | React.KeyboardEvent
+    e: React.MouseEvent | React.KeyboardEvent,
   ) => {
     if ("key" in e) {
       if (e.key === "Enter" || e.key === " ") {
@@ -121,16 +122,18 @@ export const useSidebar = ({ navItems, language = "english" }: Props) => {
 
   return {
     Button: () => (
-      <button
-        ref={triggerButtonRef}
+      <Button
+        // TODO: figure out why it doesn't like ref
+        // ref={triggerButtonRef}
         className={styles.menuButton}
         onClick={onOpen}
-        aria-label="Open navigation menu"
+        ariaLabel="Open navigation menu"
+        variant="primarySubtle"
         aria-expanded={isOpen}
         aria-controls="sidebar-navigation"
       >
         <Bars3Icon className={styles.icon} />
-      </button>
+      </Button>
     ),
     Sidebar: () => (
       <>
