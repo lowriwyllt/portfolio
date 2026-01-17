@@ -27,6 +27,7 @@ const WebsiteNavigation = ({
             <li key={item.label} className={styles[`${variation}ListItem`]}>
               <ButtonAsLink
                 href={item.href}
+                ariaLabel={item.label}
                 className={`${styles.menuitem} ${styles[`${variation}Menuitem`]}`}
                 variant={buttonVariant}
               >
