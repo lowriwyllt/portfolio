@@ -3,9 +3,9 @@ import { merriweather } from "@/app/fonts";
 import styles from "./RecentAdventures.module.css";
 
 export default async function RecentAdventures({
-  language = "english",
+  lang = "en",
 }: {
-  language?: string;
+  lang?: string;
 }) {
   return (
     <div className={styles.container}>
@@ -24,7 +24,7 @@ export default async function RecentAdventures({
               }}
             >
               <h3 className={styles.adventureTitle}>
-                {language === "welsh" ? adventure.enw : adventure.name}
+                {lang === "cy" ? adventure.enw : adventure.name}
               </h3>
             </div>
           );
