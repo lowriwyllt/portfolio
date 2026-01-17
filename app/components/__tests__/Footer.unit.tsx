@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import Footer from "../Layout/Footer";
-import { ENGLISH_NAV_ITEMS, WELSH_NAV_ITEMS } from "../../constants/navItems";
+import { ENGLISH_NAV_ITEMS } from "../../constants/navItems";
 
 describe("Footer Component", () => {
   it("renders the name heading", () => {
     render(<Footer />);
     expect(
-      screen.getByRole("heading", { name: /lowri roberts/i })
+      screen.getByRole("heading", { name: /lowri roberts/i }),
     ).toBeInTheDocument();
   });
 
@@ -18,50 +18,53 @@ describe("Footer Component", () => {
 
   it("renders default English navigation items", () => {
     render(<Footer />);
-    expect(screen.getByRole("link", { name: /home/i })).toBeInTheDocument();
+    expect(screen.getByRole("menuitem", { name: /home/i })).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: /coding projects/i })
+      screen.getByRole("menuitem", { name: /coding projects/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: /experience/i })
+      screen.getByRole("menuitem", { name: /experience/i }),
     ).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /travel/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("menuitem", { name: /travel/i }),
+    ).toBeInTheDocument();
   });
 
   it("renders custom Welsh navigation items when provided", () => {
-    render(<Footer navItems={WELSH_NAV_ITEMS} />);
-    expect(screen.getByRole("link", { name: /adra/i })).toBeInTheDocument();
+    render(<Footer lang="cy" />);
+    expect(screen.getByRole("menuitem", { name: /adra/i })).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: /prosiectau codio/i })
+      screen.getByRole("menuitem", { name: /prosiectau codio/i }),
     ).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /profiad/i })).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: /trafeilio/i })
+      screen.getByRole("menuitem", { name: /profiad/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("menuitem", { name: /trafeilio/i }),
     ).toBeInTheDocument();
   });
 
   it("renders correct number of navigation links", () => {
     render(<Footer />);
-    const links = screen.getAllByRole("link");
-    expect(links).toHaveLength(ENGLISH_NAV_ITEMS.length);
+    const menuitems = screen.getAllByRole("menuitem");
+    expect(menuitems).toHaveLength(ENGLISH_NAV_ITEMS.length);
   });
 
   it("renders navigation links with correct hrefs", () => {
     render(<Footer />);
-    expect(screen.getByRole("link", { name: /home/i })).toHaveAttribute(
+    expect(screen.getByRole("menuitem", { name: /home/i })).toHaveAttribute(
       "href",
-      "/en/home"
+      "/en/home",
     );
     expect(
-      screen.getByRole("link", { name: /coding projects/i })
+      screen.getByRole("menuitem", { name: /coding projects/i }),
     ).toHaveAttribute("href", "/en/codingprojects");
-    expect(screen.getByRole("link", { name: /experience/i })).toHaveAttribute(
+    expect(
+      screen.getByRole("menuitem", { name: /experience/i }),
+    ).toHaveAttribute("href", "/en/experience");
+    expect(screen.getByRole("menuitem", { name: /travel/i })).toHaveAttribute(
       "href",
-      "/en/experience"
-    );
-    expect(screen.getByRole("link", { name: /travel/i })).toHaveAttribute(
-      "href",
-      "/en/travel"
+      "/en/travel",
     );
   });
 
@@ -77,7 +80,7 @@ describe("Footer Component", () => {
   });
 
   it("should not have accessibility violations with Welsh nav items", async () => {
-    const { container } = render(<Footer navItems={WELSH_NAV_ITEMS} />);
+    const { container } = render(<Footer lang="cy" />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
