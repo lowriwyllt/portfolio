@@ -39,9 +39,7 @@ const Layout = ({
             </span>
           </Link>
           <Navbar
-            navItems={
-              language === "welsh" ? WELSH_NAV_ITEMS : ENGLISH_NAV_ITEMS
-            }
+            lang={language === "welsh" ? "cy" : "en"}
             SidebarButton={Button}
           />
         </div>

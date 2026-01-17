@@ -2,12 +2,12 @@ import { WELSH_NAV_ITEMS, ENGLISH_NAV_ITEMS } from "@/app/constants/navItems";
 import ButtonAsLink from "../Links/ButtonAsLink";
 import styles from "./WebsiteNavigation.module.css";
 
-type Props = { lang?: "en" | "cy" };
+type Props = { lang?: "en" | "cy"; variation: "header" | "footer" };
 
-const WebsiteNavigation = ({ lang = "en" }: Props) => {
+const WebsiteNavigation = ({ lang = "en", variation }: Props) => {
   const navigationItmes = lang === "cy" ? WELSH_NAV_ITEMS : ENGLISH_NAV_ITEMS;
   return (
-    <nav className={styles.nav}>
+    <nav className={styles[`${variation}Nav`]}>
       <ul role="menubar" className={styles.menubar}>
         {navigationItmes.map((item) => {
           const labelId = `label-${item.label
@@ -20,9 +20,14 @@ const WebsiteNavigation = ({ lang = "en" }: Props) => {
                 ariaLabel={item.label}
                 role="menuitem"
                 className={styles.menuitem}
+                variant={variation === "footer" ? "primary" : "primarySubtle"}
               >
-                <span className={styles.iconWrapper}>{item.icon}</span>
-                <span className={styles.labelText}>{item.label}</span>
+                <span className={styles[`${variation}IconWrapper`]}>
+                  {item.icon}
+                </span>
+                <span className={styles[`${variation}LableText`]}>
+                  {item.label}
+                </span>
               </ButtonAsLink>
             </li>
           );

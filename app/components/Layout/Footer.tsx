@@ -17,7 +17,7 @@ const Footer = ({ lang = "en" }: Props) => {
           {lang === "cy" ? "Datblygwr Gwe" : "Web Developer"}
         </p>
       </div>
-      <WebsiteNavigation lang={lang} />
+      <WebsiteNavigation lang={lang} variation="footer" />
     </footer>
   );
 };

@@ -1,30 +1,14 @@
-import { ENGLISH_NAV_ITEMS, NavItem } from "@/app/constants/navItems";
-import styles from "./Navbar.module.css";
-import ButtonAsLink from "../Links/ButtonAsLink";
+import WebsiteNavigation from "./WebsiteNavigation";
 
 type Props = {
-  navItems?: NavItem[];
+  lang?: "en" | "cy";
   SidebarButton: React.FC;
 };
 
-const Navbar = ({ navItems = ENGLISH_NAV_ITEMS, SidebarButton }: Props) => {
+const Navbar = ({ lang = "en", SidebarButton }: Props) => {
   return (
     <>
-      <nav className={styles.nav}>
-        {navItems.map((item) => (
-          <ButtonAsLink
-            key={item.label}
-            href={item.href}
-            ariaLabel={item.label}
-            variant="primarySubtle"
-          >
-            <div className={styles.navContent}>
-              {item.icon}
-              <span>{item.label}</span>
-            </div>
-          </ButtonAsLink>
-        ))}
-      </nav>
+      <WebsiteNavigation lang={lang} variation="header" />
       <SidebarButton />
     </>
   );
