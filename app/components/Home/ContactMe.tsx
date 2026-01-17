@@ -1,18 +1,14 @@
 import { merriweather } from "@/app/fonts";
 import styles from "./ContactMe.module.css";
 
-export default function ContactMe({
-  language = "english",
-}: {
-  language?: string;
-}) {
+export default function ContactMe({ lang = "en" }: { lang?: string }) {
   return (
     <div className={styles.container}>
       <h2 className={`${merriweather.className} ${styles.heading}`}>
-        {language === "welsh" ? "Cysylltwch a fi" : "Contact Me"}
+        {lang === "cy" ? "Cysylltwch a fi" : "Contact Me"}
       </h2>
       <p className={styles.description}>
-        {language === "welsh"
+        {lang === "cy"
           ? "Cysylltwch a fi trwy ebost neu taro golwg ar fy cyfryngau cymdeithasol :)"
           : "Contact me via email or check out my socials :)"}
       </p>
