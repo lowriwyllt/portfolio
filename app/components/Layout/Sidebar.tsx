@@ -19,13 +19,13 @@ import langType from "@/app/constants/langType";
 import Socials from "./Socials";
 
 interface ModalDialogProps extends AriaDialogProps {
-  children: React.ReactNode;
+  lang: langType;
   isOpen: boolean;
   onClose: () => void;
 }
 
 function SidebarModalDialog({
-  children,
+  lang = "en",
   isOpen,
   onClose,
   ...props
@@ -76,7 +76,16 @@ function SidebarModalDialog({
           ref={ref}
           className={`${styles.drawer} ${!isEntering && !isExiting ? styles.drawerVisible : ""}`}
         >
-          {children}
+          <div className={styles.drawerBody}>
+            <WebsiteNavigation
+              lang={lang}
+              variation="sidebar"
+              buttonVariant="secondaryOutline"
+              onClick={handleClose}
+            />
+
+            <Socials lang={lang} variant="sidebar" />
+          </div>
         </div>
       </FocusScope>
     </OverlayContainer>
@@ -85,12 +94,6 @@ function SidebarModalDialog({
 
 export default function Sidebar({ lang }: { lang: langType }) {
   const state = useOverlayTriggerState({});
-
-  const handleNavClick = () => {
-    setTimeout(() => {
-      state.close();
-    }, 200);
-  };
 
   return (
     <div className={styles.smallScreenOnly}>
@@ -103,18 +106,11 @@ export default function Sidebar({ lang }: { lang: langType }) {
       </Button>
 
       {state.isOpen && (
-        <SidebarModalDialog isOpen={state.isOpen} onClose={state.close}>
-          <div className={styles.drawerBody}>
-            <WebsiteNavigation
-              lang={lang}
-              variation="sidebar"
-              buttonVariant="secondaryOutline"
-              onClick={handleNavClick}
-            />
-
-            <Socials lang={lang} variant="sidebar" />
-          </div>
-        </SidebarModalDialog>
+        <SidebarModalDialog
+          lang={lang}
+          isOpen={state.isOpen}
+          onClose={state.close}
+        />
       )}
     </div>
   );
