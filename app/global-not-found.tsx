@@ -23,16 +23,15 @@ export const NotFoundContent = () => {
         chwilio amdani yn bodoli.
       </p>
       <div className={styles.links}>
-        {/* TODO: once the separate home pages are implemented, update these links */}
         <Link
-          href="/"
+          href="/en/home"
           className={`${styles.link} ${ibm_plex_mono.className}`}
           aria-label="Return to english home page"
         >
           Return Home
         </Link>
         <Link
-          href="/"
+          href="/cy/adra"
           aria-label="Return to welsh home page"
           className={`${styles.link} ${ibm_plex_mono.className}`}
           lang="cy"
