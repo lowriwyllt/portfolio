@@ -11,13 +11,13 @@ import {
   AriaDialogProps,
 } from "react-aria";
 import { useOverlayTriggerState } from "react-stately";
-import Button from "../Buttons/Button";
+import Button from "../../Buttons/Button";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import styles from "./Sidebar.module.css";
-import WebsiteNavigation from "./WebsiteNavigation";
+import WebsiteNavigation from "../WebsiteNavigation";
 import langType from "@/app/constants/langType";
-import Socials from "./Socials";
-import LanguageToggle from "./LanguageToggle";
+import Socials from "../Socials";
+import LanguageToggle from "../LanguageToggle";
 
 interface ModalDialogProps extends AriaDialogProps {
   lang: langType;

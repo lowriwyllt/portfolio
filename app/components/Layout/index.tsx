@@ -6,7 +6,7 @@ import styles from "./Layout.module.css";
 import Footer from "./Footer/Footer";
 import langType from "@/app/constants/langType";
 import WebsiteNavigation from "./WebsiteNavigation";
-import Sidebar from "./Sidebar";
+import Sidebar from "./MobileMenu/Sidebar";
 
 const Layout = ({
   lang = "en",
