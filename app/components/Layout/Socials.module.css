@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 0.5rem;
   list-style-type: none;
-  margin-bottom: 148px;
+
   align-items: flex-start;
 }
 
@@ -12,10 +12,11 @@
   bottom: 1.25rem;
   right: 0;
   z-index: 1;
+  margin-bottom: 148px;
 }
 
 @media (min-width: 768px) {
-  .socialsContainer {
+  .defaultSocialsContainer {
     margin-bottom: 108px;
   }
 }
