@@ -9,10 +9,10 @@ import Image from "next/image";
 
 const LanguageToggle = ({
   lang,
-  handleClose,
+  onClick,
 }: {
   lang: langType;
-  handleClose: () => void;
+  onClick?: () => void;
 }) => {
   const pathname = usePathname();
 
@@ -22,7 +22,7 @@ const LanguageToggle = ({
       href={getLanguageChangeUrl(lang, pathname)}
       variant="secondaryOutline"
       className={styles.languageToggle}
-      onClick={handleClose}
+      onClick={onClick}
     >
       <Image
         src={
