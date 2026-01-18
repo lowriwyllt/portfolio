@@ -1,0 +1,5 @@
+.languageToggle {
+  width: 100%;
+  justify-content: start !important;
+  gap: 1rem;
+}

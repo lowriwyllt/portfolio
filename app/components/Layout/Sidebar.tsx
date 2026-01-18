@@ -17,6 +17,7 @@ import styles from "./Sidebar.module.css";
 import WebsiteNavigation from "./WebsiteNavigation";
 import langType from "@/app/constants/langType";
 import Socials from "./Socials";
+import LanguageToggle from "./LanguageToggle";
 
 interface ModalDialogProps extends AriaDialogProps {
   lang: langType;
@@ -85,6 +86,8 @@ function SidebarModalDialog({
             />
 
             <Socials lang={lang} variant="sidebar" />
+
+            <LanguageToggle lang={lang} handleClose={handleClose} />
           </div>
         </div>
       </FocusScope>
