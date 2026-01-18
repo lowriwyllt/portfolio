@@ -20,6 +20,10 @@ const LanguageToggle = ({
 }) => {
   const pathname = usePathname();
 
+  if (pathname === "/") {
+    return null;
+  }
+
   return (
     <ButtonAsLink
       lang={lang === "cy" ? "en" : "cy"}
