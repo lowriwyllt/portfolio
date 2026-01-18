@@ -3,12 +3,15 @@ import styles from "./UnderConstruction.module.css";
 
 export default function UnderConstruction({
   lang = "en",
+  title,
 }: {
   lang?: langType;
+  title: string;
 }) {
   return (
-    <div className={styles.container}>
-      <p className={styles.title}>
+    <>
+      <h1 className={styles.title}>{title}</h1>
+      <p className={styles.subtitle}>
         {lang === "cy" ? "Dal yn cael ei osod" : "Still under construction"}
       </p>
       <p className={styles.description}>
@@ -25,6 +28,6 @@ export default function UnderConstruction({
         <div className={`${styles.stripe} ${styles.stripeRotateRight}`}></div>
         <div className={`${styles.stripe} ${styles.stripeRotateLeft}`}></div>
       </div>
-    </div>
+    </>
   );
 }

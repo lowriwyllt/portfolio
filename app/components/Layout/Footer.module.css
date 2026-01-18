@@ -6,7 +6,8 @@
   background-color: #471ca8;
   padding: 1.5rem 1rem;
   width: 100%;
-  z-index: 1;
+  z-index: 5;
+  position: relative;
 }
 
 @media (min-width: 640px) {

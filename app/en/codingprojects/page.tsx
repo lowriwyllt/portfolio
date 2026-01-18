@@ -1,6 +1,5 @@
 import { Metadata, NextPage } from "next";
 import UnderConstruction from "../../components/UnderConstruction";
-import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "Coding Project - Lowri Roberts",
@@ -8,12 +7,7 @@ export const metadata: Metadata = {
 };
 
 const CodingProjects: NextPage = () => {
-  return (
-    <main className={styles.main}>
-      <h1>Coding Projects</h1>
-      <UnderConstruction />
-    </main>
-  );
+  return <UnderConstruction title="Coding Projects" />;
 };
 
 export default CodingProjects;

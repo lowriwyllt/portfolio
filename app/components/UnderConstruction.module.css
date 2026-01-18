@@ -1,22 +1,19 @@
-.container {
-  width: 100%;
-  position: absolute;
-  top: 18rem;
-}
-
 .title {
   font-weight: bold;
   font-size: 1.875rem;
   text-align: center;
-  position: relative;
-  top: -4rem;
+  margin-bottom: 2rem;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
 }
 
 .description {
   font-size: 1.25rem;
   text-align: center;
-  position: relative;
-  top: -4rem;
 }
 
 .linkContainer {
@@ -26,8 +23,6 @@
 
 .link {
   font-size: 1.25rem;
-  position: relative;
-  top: -4rem;
   color: var(--darkPurple);
 }
 
@@ -36,7 +31,7 @@
 }
 
 .stripes {
-  margin-top: 1rem;
+  margin-top: 5rem;
 }
 
 .stripe {
