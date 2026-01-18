@@ -20,40 +20,18 @@
   width: 100%;
 }
 
-.logoLink {
+.logoContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-decoration: none;
   padding: 0.5rem;
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
-}
-
-.logoLink:hover {
-  background-color: rgba(71, 28, 168, 0.1);
-  transform: scale(1.05);
-}
-
-.logoLink:focus {
-  outline: 3px solid #fbbf24;
-  outline-offset: 2px;
-}
-
-.logoLink:focus-visible {
-  outline: 3px solid #fbbf24;
-  outline-offset: 2px;
 }
 
 .logoText {
   color: #471ca8;
   margin-top: 0.25rem;
   transition: color 0.3s ease;
-}
-
-.logoLink:hover .logoText {
-  color: #5b21b6;
 }
 
 .main {

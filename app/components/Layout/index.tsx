@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
+
 import styles from "./Layout.module.css";
 import Footer from "./Footer/Footer";
 import langType from "@/app/constants/langType";
@@ -19,23 +19,18 @@ const Layout = ({
     <>
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <Link
-            href={lang === "cy" ? "/cy/adra" : "/en/home"}
-            aria-label={
-              lang === "cy" ? "Adra - Datblygwr Gwe" : "Home - Web Developer"
-            }
-            className={styles.logoLink}
-          >
+          <div className={styles.logoContainer}>
             <Image
               src="/logo_Lowri_Roberts.png"
-              alt="Logo Lowri Roberts - Datblygwr Gwe"
+              alt={`Logo Lowri Roberts - ${lang === "cy" ? "Datblygwr Gwe" : "Web Developer"}`}
               width={61}
               height={50}
+              aria-hidden="true"
             />
             <span className={styles.logoText} aria-hidden="true">
               {lang === "cy" ? "Datblygwr Gwe" : "Web Developer"}
             </span>
-          </Link>
+          </div>
           <WebsiteNavigation
             lang={lang}
             variation="header"
@@ -44,8 +39,12 @@ const Layout = ({
           <Sidebar lang={lang} />
         </div>
       </header>
-      <main className={styles.main}>{children}</main>
-      <Widgets lang={lang} />
+
+      <main className={styles.main}>
+        <Widgets lang={lang} />
+        {children}
+      </main>
+
       <Footer lang={lang} />
     </>
   );
