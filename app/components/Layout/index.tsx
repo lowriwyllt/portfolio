@@ -1,12 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Socials from "./Socials";
 import styles from "./Layout.module.css";
 import Footer from "./Footer/Footer";
 import langType from "@/app/constants/langType";
 import WebsiteNavigation from "./WebsiteNavigation";
 import Sidebar from "./MobileMenu/Sidebar";
+import Widgets from "./Widgets/Widgets";
 
 const Layout = ({
   lang = "en",
@@ -45,7 +45,7 @@ const Layout = ({
         </div>
       </header>
       <main className={styles.main}>{children}</main>
-      <Socials lang={lang} />
+      <Widgets lang={lang} />
       <Footer lang={lang} />
     </>
   );

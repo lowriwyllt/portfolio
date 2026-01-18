@@ -10,9 +10,13 @@ import Image from "next/image";
 const LanguageToggle = ({
   lang,
   onClick,
+  variant = "default",
+  style,
 }: {
   lang: langType;
   onClick?: () => void;
+  variant?: "default" | "sidebar";
+  style?: string;
 }) => {
   const pathname = usePathname();
 
@@ -20,8 +24,9 @@ const LanguageToggle = ({
     <ButtonAsLink
       lang={lang === "cy" ? "en" : "cy"}
       href={getLanguageChangeUrl(lang, pathname)}
-      variant="secondaryOutline"
-      className={styles.languageToggle}
+      variant={variant === "default" ? "primaryOutline" : "secondaryOutline"}
+      className={`${styles.languageToggle} ${style || ""}`}
+      ariaLabel={lang === "cy" ? "Change to English" : "Newid i Gymraeg"}
       onClick={onClick}
     >
       <Image
@@ -29,10 +34,14 @@ const LanguageToggle = ({
           lang === "cy" ? "/flags/english_flag.svg" : "/flags/welsh_flag.svg"
         }
         alt={lang === "cy" ? "English flag" : "Welsh flag"}
-        width={32}
-        height={32}
+        width={24}
+        height={24}
       />
-      {lang === "cy" ? "Change to English" : "Newid i Gymraeg"}
+      {variant === "default"
+        ? null
+        : lang === "cy"
+          ? "Change to English"
+          : "Newid i Gymraeg"}
     </ButtonAsLink>
   );
 };

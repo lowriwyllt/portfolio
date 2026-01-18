@@ -3,28 +3,7 @@
   flex-direction: column;
   gap: 0.5rem;
   list-style-type: none;
-
   align-items: flex-start;
-}
-
-.defaultSocialsContainer {
-  position: fixed;
-  bottom: 1.25rem;
-  right: 0;
-  z-index: 1;
-  margin-bottom: 148px;
-}
-
-@media (min-width: 640px) {
-  .defaultSocialsContainer {
-    margin-bottom: 108px;
-  }
-}
-
-.defaultSocialLink {
-  border-right: none !important;
-  border-top-right-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
 }
 
 .sidebarSocialLink {

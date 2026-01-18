@@ -7,15 +7,14 @@ import langType from "@/app/constants/langType";
 const Socials = ({
   lang,
   variant = "default",
+  buttonStyle,
 }: {
   lang: langType;
   variant?: "default" | "sidebar";
+  buttonStyle?: string;
 }) => {
   return (
-    <ul
-      className={`${styles.socialsContainer} ${styles[`${variant}SocialsContainer`]}`}
-      aria-label="Social media links"
-    >
+    <ul className={styles.socialsContainer} aria-label="Social media links">
       {SOCIALS.map(({ commonProps, Icon, ...rest }) => {
         return (
           <li
@@ -28,12 +27,10 @@ const Socials = ({
               variant={
                 variant === "default" ? "primaryOutline" : "secondaryOutline"
               }
-              className={`${styles.socialLink} ${styles[`${variant}SocialLink`]}`}
+              className={`${styles[`${variant}SocialLink`]} ${buttonStyle || ""}`}
             >
               <Icon />
-              {variant === "default" ? null : (
-                <span>{rest[`${lang}ButtonLabel`]}</span>
-              )}
+              {variant === "default" ? null : rest[`${lang}ButtonLabel`]}
             </ButtonAsLink>
           </li>
         );

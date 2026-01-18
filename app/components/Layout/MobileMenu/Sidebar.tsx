@@ -87,7 +87,11 @@ function SidebarModalDialog({
 
             <Socials lang={lang} variant="sidebar" />
 
-            <LanguageToggle lang={lang} onClick={handleClose} />
+            <LanguageToggle
+              lang={lang}
+              onClick={handleClose}
+              variant="sidebar"
+            />
           </div>
         </div>
       </FocusScope>
