@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Socials from "./Socials";
 import styles from "./Layout.module.css";
-import Footer from "./Footer";
+import Footer from "./Footer/Footer";
 import langType from "@/app/constants/langType";
 import WebsiteNavigation from "./WebsiteNavigation";
 import Sidebar from "./Sidebar";

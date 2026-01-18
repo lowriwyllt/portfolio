@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
-import Footer from "../Layout/Footer";
+import Footer from "../Layout/Footer/Footer";
 import { ENGLISH_NAV_ITEMS } from "../../constants/navItems";
 
 describe("Footer Component", () => {

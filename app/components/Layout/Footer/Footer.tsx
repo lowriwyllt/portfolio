@@ -1,6 +1,6 @@
 import { merriweather } from "@/app/fonts";
 import styles from "./Footer.module.css";
-import WebsiteNavigation from "./WebsiteNavigation";
+import WebsiteNavigation from "../WebsiteNavigation";
 import langType from "@/app/constants/langType";
 
 type Props = {
