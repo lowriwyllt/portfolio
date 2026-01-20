@@ -8,10 +8,16 @@ import Image from "next/image";
 import langType from "@/app/constants/langType";
 import { motion } from "motion/react";
 import useIsMobile from "@/app/helpers/hooks/useIsMobile";
+import { useEffect, useState } from "react";
 
 const ExperiencePageComponent = ({ lang = "en" }: { lang?: langType }) => {
   const jobs = EXPERIENCE;
+  const [mounted, setMounted] = useState(false);
   const isMobile = useIsMobile();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const sortedJobs = jobs.sort((a, b) => {
     const [monthA, yearA] = a.start_date.split("/");
@@ -28,6 +34,14 @@ const ExperiencePageComponent = ({ lang = "en" }: { lang?: langType }) => {
       </h1>
 
       {sortedJobs.map((experience, index) => {
+        const animationX = mounted
+          ? isMobile
+            ? -100
+            : index % 2 === 0
+              ? -100
+              : 100
+          : 0;
+
         return (
           <motion.div
             className={`${styles.cardsContainer} ${index % 2 === 0 ? styles.cardsContainerLeft : styles.cardsContainerRight}`}
@@ -89,7 +103,7 @@ const ExperiencePageComponent = ({ lang = "en" }: { lang?: langType }) => {
               className={`${index % 2 === 0 ? "" : styles.flexRight}`}
               variants={{
                 hidden: {
-                  x: isMobile ? -100 : index % 2 === 0 ? -100 : 100,
+                  x: animationX,
                   opacity: 0,
                 },
                 visible: {
