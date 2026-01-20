@@ -1,12 +1,17 @@
+"use client";
+
 import { merriweather } from "@/app/fonts";
 import ExperienceCard from "./ExperienceCard";
 import EXPERIENCE from "@/app/constants/experience";
 import styles from "./ExperiencePage.module.css";
 import Image from "next/image";
 import langType from "@/app/constants/langType";
+import { motion } from "motion/react";
+import useIsMobile from "@/app/helpers/hooks/useIsMobile";
 
 const ExperiencePageComponent = ({ lang = "en" }: { lang?: langType }) => {
   const jobs = EXPERIENCE;
+  const isMobile = useIsMobile();
 
   const sortedJobs = jobs.sort((a, b) => {
     const [monthA, yearA] = a.start_date.split("/");
@@ -24,12 +29,27 @@ const ExperiencePageComponent = ({ lang = "en" }: { lang?: langType }) => {
 
       {sortedJobs.map((experience, index) => {
         return (
-          <div
+          <motion.div
             className={`${styles.cardsContainer} ${index % 2 === 0 ? styles.cardsContainerLeft : styles.cardsContainerRight}`}
             key={`${experience.company}+${experience.start_date}`}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={{
+              hidden: {},
+              visible: {},
+            }}
           >
-            <div
+            <motion.div
               className={`${index % 2 === 0 ? styles.flexRight : ""} ${styles.date}`}
+              variants={{
+                hidden: { x: index % 2 === 0 ? 100 : -100, opacity: 0 },
+                visible: {
+                  x: 0,
+                  opacity: 1,
+                  transition: { duration: 0.5, ease: "easeIn" },
+                },
+              }}
             >
               <p>
                 {experience.start_date} -{" "}
@@ -39,24 +59,49 @@ const ExperiencePageComponent = ({ lang = "en" }: { lang?: langType }) => {
                     : "presennol"
                   : experience.end_date}
               </p>
-            </div>
-            <Image
-              src={experience.companyImg}
-              alt={
-                lang === "en"
-                  ? `${experience.company} logo`
-                  : `logo ${experience.cwmni}`
-              }
-              width={50}
-              height={50}
-              className={styles.companyLogo}
-            />
-            <ExperienceCard
-              lang={lang}
-              experience={experience}
+            </motion.div>
+            <motion.div
+              className={styles.logoContainer}
+              variants={{
+                hidden: { scale: 0 },
+                visible: {
+                  scale: 1,
+                  transition: {
+                    duration: 0.5,
+                    ease: "easeIn",
+                  },
+                },
+              }}
+            >
+              <Image
+                src={experience.companyImg}
+                alt={
+                  lang === "en"
+                    ? `${experience.company} logo`
+                    : `logo ${experience.cwmni}`
+                }
+                width={50}
+                height={50}
+                className={styles.companyLogo}
+              />
+            </motion.div>
+            <motion.div
               className={`${index % 2 === 0 ? "" : styles.flexRight}`}
-            />
-          </div>
+              variants={{
+                hidden: {
+                  x: isMobile ? -100 : index % 2 === 0 ? -100 : 100,
+                  opacity: 0,
+                },
+                visible: {
+                  x: 0,
+                  opacity: 1,
+                  transition: { duration: 0.5, ease: "easeIn" },
+                },
+              }}
+            >
+              <ExperienceCard lang={lang} experience={experience} />
+            </motion.div>
+          </motion.div>
         );
       })}
     </div>

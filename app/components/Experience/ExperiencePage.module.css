@@ -29,6 +29,9 @@
   border-radius: 50%;
   border: 2px solid var(--primary-color);
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logoContainer {
   grid-area: logo;
 }
 
@@ -40,6 +43,7 @@
   .cardsContainer {
     grid-template-columns: 50px 1fr;
     gap: 1rem;
+    align-self: flex-start;
   }
 
   .cardsContainerRight {
