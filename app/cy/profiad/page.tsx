@@ -1,5 +1,5 @@
 import { Metadata, NextPage } from "next";
-import UnderConstruction from "../../components/UnderConstruction";
+import ExperiencePageComponent from "@/app/components/Experience";
 
 export const metadata: Metadata = {
   title: "Profiad - Lowri Roberts",
@@ -7,8 +7,8 @@ export const metadata: Metadata = {
     "Cymerwch olwg ar brofiad proffesiynol a chymwysterau Lowri Roberts.",
 };
 
-const CodingProjects: NextPage = () => {
-  return <UnderConstruction lang="cy" title="Profiad" />;
+const Profiad: NextPage = () => {
+  return <ExperiencePageComponent lang="cy" />;
 };
 
-export default CodingProjects;
+export default Profiad;
