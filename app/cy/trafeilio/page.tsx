@@ -6,13 +6,8 @@ export const metadata: Metadata = {
   description: "Darganfod profiadau teithio ac anturiaethau Lowri Roberts.",
 };
 
-const Travel: NextPage = (): JSX.Element => {
-  return (
-    <main className="flex md:min-h-[calc(100vh-108px)] min-h-[calc(100vh-148px)] flex-col items-center justify-between relative top-[100px] px-[56px] py-24">
-      <h1>Trafeilio</h1>
-      <UnderConstruction language="welsh" />
-    </main>
-  );
+const CodingProjects: NextPage = () => {
+  return <UnderConstruction lang="cy" title="Trafeilio" />;
 };
 
-export default Travel;
+export default CodingProjects;

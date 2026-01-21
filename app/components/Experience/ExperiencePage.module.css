@@ -1,0 +1,79 @@
+.experiencePageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.cardsContainer {
+  display: grid;
+  grid-template-columns: 1fr 50px 1fr;
+  gap: 3rem;
+}
+
+.cardsContainerRight {
+  grid-template-areas: "card logo date";
+}
+
+.cardsContainerLeft {
+  grid-template-areas: "date logo card";
+}
+
+.date {
+  grid-area: date;
+}
+
+.companyLogo {
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
+.logoContainer {
+  grid-area: logo;
+}
+
+.flexRight {
+  justify-self: end;
+}
+
+@media (max-width: 880px) {
+  .cardsContainer {
+    grid-template-columns: 50px 1fr;
+    gap: 1rem;
+    align-self: flex-start;
+  }
+
+  .cardsContainerRight {
+    grid-template-areas: "logo card";
+  }
+
+  .cardsContainerLeft {
+    grid-template-areas: "logo card";
+  }
+
+  .date {
+    display: none;
+  }
+
+  .flexRight {
+    justify-self: start;
+  }
+}
+
+.timelineLine {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: calc(100%); /* stretch to bottom of card */
+  background: repeating-linear-gradient(
+    to bottom,
+    #000 0 8px,
+    transparent 8px 16px
+  );
+  z-index: -1;
+}

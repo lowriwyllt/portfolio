@@ -1,0 +1,57 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.407);
+  backdrop-filter: blur(2px);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 700ms;
+}
+
+.overlayVisible {
+  opacity: 1;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 80%;
+  max-width: 400px;
+  background-color: white;
+  z-index: 1001;
+  transform: translateX(100%);
+  transition: transform 700ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.drawerVisible {
+  transform: translateX(0);
+}
+
+@media (min-width: 768px) {
+  .smallScreenOnly {
+    display: none;
+  }
+
+  .overlay {
+    display: none;
+  }
+
+  .drawer {
+    display: none;
+  }
+}
+
+.drawerBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  height: 100%;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}

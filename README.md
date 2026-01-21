@@ -31,11 +31,21 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 I've looked at this for the first time in a good part of 2 years. This has completely made me realise how much I've grown as a dev. I'm going to be working on this portfolio once again, trying to improve what I already have and upgrade from techniques I've learnt. Some of the things I'll be looking to add:
 
-- Add tests... oops
-- Use jest axe to help test for accessability
-- Integrate Knip to detect unused code
-- Remove Firebase config; site is fully static
-- Consolidate styling (Tailwind CSS vs. Chakra UI vs something completely different) and migrate to one.
-- Add linting
+- Add tests... oops - getting there
+- Use jest axe to help test for accessability ✅
+- Integrate Knip to detect unused code ✅
+- Remove Firebase config; site is fully static ✅
+- Consolidate styling (Tailwind CSS vs. Chakra UI vs something completely different) and migrate to one. ✅ - going to use css modules going forward
+- Add linting ✅ - fixed ones
 - Add workflows for PRs to run linting, testing, knip and run a build
 - Complete pages that are under construction
+
+### 17/01/2026
+
+I'm getting a lot of this into a better spot, but keeping this as a note of what I need to do.
+
+- add experience section back in
+- add flags to be able to change languages
+- disable the current page navigation, so as not to confuse people
+- make sure place names under recent adventures doesn't cover the header
+- add tests to the components and pages I've got so far

@@ -1,0 +1,32 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #471ca8;
+  padding: 1.5rem 1rem;
+  width: 100%;
+  z-index: 5;
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .footer {
+    flex-direction: row;
+  }
+}
+
+.info {
+  width: 100%;
+}
+
+.name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+}
+
+.role {
+  color: white;
+  margin-top: 0.5rem;
+}

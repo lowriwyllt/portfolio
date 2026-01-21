@@ -1,0 +1,30 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 3.5rem;
+  min-height: 80dvh;
+}
+
+.title {
+  text-align: center;
+}
+
+.languageLinks {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1rem;
+  max-width: 400px;
+}
+
+.languageLink {
+  flex: 1;
+}
+
+@media (max-width: 480px) {
+  .languageLinks {
+    flex-direction: column;
+  }
+}

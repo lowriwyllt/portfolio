@@ -1,41 +1,39 @@
 import { Metadata, NextPage } from "next";
 import { merriweather } from "../fonts";
-import Link from "next/link";
 import Image from "next/image";
+import styles from "./page.module.css";
+import ButtonAsLink from "../components/Links/ButtonAsLink";
 
 export const metadata: Metadata = {
   title: "Landing page - Lowri Roberts",
-  description: "",
+  description:
+    "Welcome to Lowri Roberts' portfolio. Full stack web developer specializing in JavaScript, React, and Next.js. Explore my projects and experience.",
 };
 
-const LandingPage: NextPage = (): JSX.Element => {
+const LandingPage: NextPage = () => {
   return (
-    <main className="flex md:min-h-[calc(100vh-108px)] min-h-[calc(100vh-148px)] flex-col items-center relative top-[100px] px-[56px] py-24">
-      <h1 className={merriweather.className}>
-        Welcome to my portfolio - Croeso i fy mhortfolio
+    <main className={styles.main}>
+      <h1 className={`${styles.title} ${merriweather.className}`}>
+        Welcome - <span lang="cy">Croeso</span>
       </h1>
-      <Image
-        src="/lowri_roberts_working.png"
-        alt="Set up of Lowri Roberts work area.  She is wearing headphones while working on a laptop with a second monitor. She has a ipad on side."
-        width={250}
-        height={250}
-        priority
-      />
-      <div className="flex gap-4">
-        <Link
-          href="/en/home"
-          aria-label={"English Home"}
-          className="flex items-center rounded-md p-2 bg-darkPurple text-white hover:text-darkPurple border-solid border-2 border-darkPurple   hover:bg-white transition-colors duration-300"
-        >
-          English
-        </Link>
-        <Link
-          href="/cy/adra"
-          aria-label={"Welsh Home"}
-          className="flex items-center rounded-md p-2 bg-darkPurple text-white hover:text-darkPurple border-solid border-2 border-darkPurple   hover:bg-white transition-colors duration-300"
-        >
-          Cymraeg
-        </Link>
+      <div>
+        <Image
+          src="/lowri_roberts_working.png"
+          alt="Lowri Roberts working at her desk"
+          width={250}
+          height={250}
+          priority
+          fetchPriority="high"
+        />
+      </div>
+      <div className={styles.languageLinks}>
+        <ButtonAsLink href="/en/home" className={styles.languageLink}>
+          Continue in English
+        </ButtonAsLink>
+
+        <ButtonAsLink href="/cy/adra" lang="cy" className={styles.languageLink}>
+          Parhau yn Gymraeg
+        </ButtonAsLink>
       </div>
     </main>
   );

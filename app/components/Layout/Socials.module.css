@@ -1,0 +1,17 @@
+.socialsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style-type: none;
+  align-items: flex-start;
+}
+
+.sidebarSocialLink {
+  width: 100%;
+  justify-content: start !important;
+  gap: 1rem;
+}
+
+.sidebarSocialLinkItem {
+  width: 100%;
+}
