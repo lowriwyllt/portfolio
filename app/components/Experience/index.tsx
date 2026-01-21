@@ -7,13 +7,9 @@ import styles from "./ExperiencePage.module.css";
 import Image from "next/image";
 import langType from "@/app/constants/langType";
 import { motion } from "motion/react";
-import useIsMobile from "@/app/helpers/hooks/useIsMobile";
 
 const ExperiencePageComponent = ({ lang = "en" }: { lang?: langType }) => {
   const jobs = EXPERIENCE;
-
-  const isMobile = useIsMobile();
-  const isClient = typeof window !== "undefined";
 
   const sortedJobs = jobs.sort((a, b) => {
     const [monthA, yearA] = a.start_date.split("/");
@@ -30,14 +26,6 @@ const ExperiencePageComponent = ({ lang = "en" }: { lang?: langType }) => {
       </h1>
 
       {sortedJobs.map((experience, index) => {
-        const animationX = isClient
-          ? isMobile
-            ? -100
-            : index % 2 === 0
-              ? -100
-              : 100
-          : 0;
-
         return (
           <motion.div
             className={`${styles.cardsContainer} ${index % 2 === 0 ? styles.cardsContainerLeft : styles.cardsContainerRight}`}
@@ -94,12 +82,13 @@ const ExperiencePageComponent = ({ lang = "en" }: { lang?: langType }) => {
                 height={50}
                 className={styles.companyLogo}
               />
+              <div className={styles.timelineLine} />
             </motion.div>
             <motion.div
               className={`${index % 2 === 0 ? "" : styles.flexRight}`}
               variants={{
                 hidden: {
-                  x: animationX,
+                  x: index % 2 === 0 ? -100 : 100,
                   opacity: 0,
                 },
                 visible: {
