@@ -42,8 +42,8 @@ const EXPERIENCE: ExperienceItem[] = [
       "Yn gweithio ar nodweddion ac yn helpu mentora datblygwyr iau i ddatblygu’r profiad gorau i gwsmeriaid Interactive Investor.",
     end_date: "present",
     long_description: "angen ychwanegu",
-    rol: "Datblygwr Ap (Canolig)",
-    role: "Mid level App Developer",
+    rol: "Peiriannydd Meddalwedd (Canolig)",
+    role: "Mid level Software Engineer",
     shortDescription:
       "Working on features and helping mentor junior developers to develop the best experience for Interactive Investor customers.",
     start_date: "09/2024",
@@ -56,8 +56,8 @@ const EXPERIENCE: ExperienceItem[] = [
     end_date: "09/2024",
     long_description:
       "I have worked in two squads. The most recent I have been working on content and research, working with third parties in providing data in the best possible way for our customers.I have also worked on the re-platform squad which are re-platforming part of the ii website to React from WebBroker.",
-    rol: "Datblygwr Ap (Junior)",
-    role: "Junior App Developer",
+    rol: "Peiriannydd Meddalwedd (Junior)",
+    role: "Junior Software Engineer",
     shortDescription:
       "Working on developing the best experience for Interactive Investor customers.",
     start_date: "08/2023",
@@ -65,9 +65,10 @@ const EXPERIENCE: ExperienceItem[] = [
   {
     company: "Northcoders",
     companyImg: "/experience/northcoders_logo.jpg",
-    disgrifiadByr: "Bootcamp mewn datblygu we llawn.",
+    disgrifiadByr:
+      "Bootcamp mewn datblygu gwefannau. Express.js ar gyfer y API, a defnyddiwyd React ar gyfer y UI. Defnyddiodd y prosiect olaf Firebase a React Native i greu ap symudol.",
     end_date: "05/2023",
-    rol: "Datblygwr We (Junior)",
+    rol: "Datblygwr Wê (Junior)",
     role: "Junior Web Developer",
     shortDescription:
       "Bootcamp in full stack web development. Express.js for backend and used react for frontend.  Final project used firebase and react native to create a mobile app.",
