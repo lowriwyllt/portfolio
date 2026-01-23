@@ -11,11 +11,8 @@
     transform 200ms ease;
   text-decoration: none;
   text-align: center;
-<<<<<<< Updated upstream
-=======
   font-style: normal;
   font-size: 1rem;
->>>>>>> Stashed changes
 }
 
 .button:focus,
@@ -32,8 +29,6 @@
   transform: scale(0.95);
 }
 
-<<<<<<< Updated upstream
-=======
 .button:disabled {
   box-shadow: none;
   transform: none;
@@ -43,7 +38,6 @@
   opacity: 0.7;
 }
 
->>>>>>> Stashed changes
 .primary {
   background-color: var(--primary-color);
   color: white;

@@ -1,9 +1,6 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
 import styles from "./Button.module.css";
-<<<<<<< Updated upstream
-=======
 import { ibm_plex_mono } from "@/app/fonts";
->>>>>>> Stashed changes
 
 export type ButtonVariantType =
   | "primary"
@@ -28,11 +25,7 @@ const Button = ({
   return (
     <button
       aria-label={ariaLabel}
-<<<<<<< Updated upstream
-      className={`${styles.button} ${styles[variant]} ${className || ""}`}
-=======
       className={`${styles.button} ${styles[variant]} ${ibm_plex_mono.className} ${className || ""}`}
->>>>>>> Stashed changes
       {...rest}
     >
       {children}
