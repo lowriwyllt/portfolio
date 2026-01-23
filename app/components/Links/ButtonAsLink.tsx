@@ -4,8 +4,12 @@ import { ButtonVariantType } from "../Buttons/Button";
 import styles from "../Buttons/Button.module.css";
 import langType from "@/app/constants/langType";
 
+<<<<<<< Updated upstream
 interface ButtonAsLinkProps extends Omit<LinkProps, "href"> {
   href: string;
+=======
+interface ButtonAsLinkProps extends LinkProps {
+>>>>>>> Stashed changes
   ariaLabel?: string;
   children: ReactNode;
   lang?: langType;
