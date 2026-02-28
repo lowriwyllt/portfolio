@@ -4,10 +4,11 @@ import langType from "@/app/constants/langType";
 import Link from "next/link";
 import ButtonAsLink from "../Links/ButtonAsLink";
 import getLanguageChangeUrl from "@/app/helpers/getLanguageChangeUrl";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import styles from "./LanguageToggle.module.css";
 import Image from "next/image";
 import Button from "../Buttons/Button";
+import { useState, useEffect } from "react";
 
 const LanguageToggle = ({
   lang,
@@ -21,12 +22,25 @@ const LanguageToggle = ({
   style?: string;
 }) => {
   const pathname = usePathname();
+  const router = useRouter();
+  const [isSwapping, setIsSwapping] = useState(false);
+
+  useEffect(() => {
+    setIsSwapping(false);
+  }, [pathname]);
 
   if (pathname === "/") {
     return null;
   }
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (!isSwapping) {
+      setIsSwapping(true);
+      setTimeout(() => {
+        router.push(getLanguageChangeUrl(lang, pathname));
+      }, 600);
+    }
     onClick?.();
   };
 
@@ -37,7 +51,7 @@ const LanguageToggle = ({
         onClick={handleClick}
         lang={lang === "cy" ? "en" : "cy"}
         aria-label={lang === "cy" ? "Change to English" : "Newid i Gymraeg"}
-        className={`${styles.stackedToggle}  ${style || ""}`}
+        className={`${styles.stackedToggle} ${isSwapping ? styles.swapping : ""} ${style || ""}`}
       >
         <Button
           as="div"
