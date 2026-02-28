@@ -47,17 +47,18 @@ const LanguageToggle = ({
   };
 
   if (variant === "default") {
+    const ariaLabel = lang === "cy" ? "Change to English" : "Newid i Gymraeg";
     return (
       <Link
         ref={linkRef}
         href={getLanguageChangeUrl(lang, pathname)}
         onClick={handleClick}
         lang={lang === "cy" ? "en" : "cy"}
-        aria-label={lang === "cy" ? "Change to English" : "Newid i Gymraeg"}
+        aria-label={ariaLabel}
         className={`${styles.stackedToggle} ${isSwapping ? styles.swapping : ""} ${style || ""}`}
       >
         <Button
-          as="div"
+          ariaLabel={ariaLabel}
           variant="primaryOutline"
           tabIndex={-1}
           aria-hidden="true"
@@ -71,7 +72,7 @@ const LanguageToggle = ({
           />
         </Button>
         <Button
-          as="div"
+          ariaLabel={ariaLabel}
           variant="primaryOutline"
           tabIndex={-1}
           aria-hidden="true"
