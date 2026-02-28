@@ -30,7 +30,7 @@ jobs:
         run: pnpm test --coverage
 
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@9f0a0ae5ebe7fa38f0ae9c14c3f1e53a0f0ef6c7 # v5.0.0
+        uses: SonarSource/sonarqube-scan-action@v5.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
