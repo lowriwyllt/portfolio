@@ -30,7 +30,7 @@ const WebsiteNavigation = ({
         {navigationItems.map((item) => {
           const isCurrent =
             pathname === item.href ||
-            (item.href !== "/" && pathname.startsWith(item.href));
+            (item.href !== "/" && pathname?.startsWith(item.href));
           return (
             <li key={item.label} className={styles[`${variation}ListItem`]}>
               {isCurrent ? (
