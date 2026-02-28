@@ -1,11 +1,14 @@
 "use client";
 
 import langType from "@/app/constants/langType";
+import Link from "next/link";
 import ButtonAsLink from "../Links/ButtonAsLink";
 import getLanguageChangeUrl from "@/app/helpers/getLanguageChangeUrl";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import styles from "./LanguageToggle.module.css";
 import Image from "next/image";
+import Button from "../Buttons/Button";
+import { useState, useEffect, useRef } from "react";
 
 const LanguageToggle = ({
   lang,
@@ -19,16 +22,78 @@ const LanguageToggle = ({
   style?: string;
 }) => {
   const pathname = usePathname();
+  const router = useRouter();
+  const [isSwapping, setIsSwapping] = useState(false);
+  const linkRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    setIsSwapping(false);
+  }, [pathname]);
 
   if (pathname === "/") {
     return null;
+  }
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (!isSwapping) {
+      setIsSwapping(true);
+      setTimeout(() => {
+        router.push(getLanguageChangeUrl(lang, pathname));
+        linkRef.current?.focus();
+      }, 600);
+    }
+    onClick?.();
+  };
+
+  if (variant === "default") {
+    const ariaLabel = lang === "cy" ? "Change to English" : "Newid i Gymraeg";
+    return (
+      <Link
+        ref={linkRef}
+        href={getLanguageChangeUrl(lang, pathname)}
+        onClick={handleClick}
+        lang={lang === "cy" ? "en" : "cy"}
+        aria-label={ariaLabel}
+        className={`${styles.stackedToggle} ${isSwapping ? styles.swapping : ""} ${style || ""}`}
+      >
+        <Button
+          ariaLabel={ariaLabel}
+          variant="primaryOutline"
+          tabIndex={-1}
+          aria-hidden="true"
+          className={`${styles.languageToggle} ${styles.languageWidget}  ${lang === "cy" ? styles.topButton : styles.bottomButton}`}
+        >
+          <Image
+            src={"/flags/english_flag.svg"}
+            alt={"English flag"}
+            width={24}
+            height={24}
+          />
+        </Button>
+        <Button
+          ariaLabel={ariaLabel}
+          variant="primaryOutline"
+          tabIndex={-1}
+          aria-hidden="true"
+          className={`${styles.languageToggle} ${styles.languageWidget}  ${lang === "en" ? styles.topButton : styles.bottomButton}`}
+        >
+          <Image
+            src={"/flags/welsh_flag.svg"}
+            alt={"Fflag Cymraeg"}
+            width={24}
+            height={24}
+          />
+        </Button>
+      </Link>
+    );
   }
 
   return (
     <ButtonAsLink
       lang={lang === "cy" ? "en" : "cy"}
       href={getLanguageChangeUrl(lang, pathname)}
-      variant={variant === "default" ? "primaryOutline" : "secondaryOutline"}
+      variant="secondaryOutline"
       className={`${styles.languageToggle} ${style || ""}`}
       ariaLabel={lang === "cy" ? "Change to English" : "Newid i Gymraeg"}
       onClick={onClick}
@@ -41,11 +106,7 @@ const LanguageToggle = ({
         width={24}
         height={24}
       />
-      {variant === "default"
-        ? null
-        : lang === "cy"
-          ? "Change to English"
-          : "Newid i Gymraeg"}
+      {lang === "cy" ? "Change to English" : "Newid i Gymraeg"}
     </ButtonAsLink>
   );
 };

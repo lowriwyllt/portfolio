@@ -7,10 +7,7 @@ const Widgets = ({ lang }: { lang: langType }) => {
   return (
     <div className={styles.widgetsContainer}>
       <Socials lang={lang} buttonStyle={styles.linkButton} />
-      <LanguageToggle
-        lang={lang}
-        style={`${styles.linkButton} ${styles.languageToggle}`}
-      />
+      <LanguageToggle lang={lang} style={styles.languageToggle} />
     </div>
   );
 };
