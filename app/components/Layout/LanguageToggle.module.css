@@ -16,6 +16,12 @@
   position: relative;
 }
 
+.stackedToggle:focus .topButton,
+.stackedToggle:focus-visible .topButton {
+  outline: 3px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
 .topButton {
   top: 0rem;
   z-index: 2;
