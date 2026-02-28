@@ -8,7 +8,7 @@ import { usePathname, useRouter } from "next/navigation";
 import styles from "./LanguageToggle.module.css";
 import Image from "next/image";
 import Button from "../Buttons/Button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const LanguageToggle = ({
   lang,
@@ -24,6 +24,7 @@ const LanguageToggle = ({
   const pathname = usePathname();
   const router = useRouter();
   const [isSwapping, setIsSwapping] = useState(false);
+  const linkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     setIsSwapping(false);
@@ -39,6 +40,7 @@ const LanguageToggle = ({
       setIsSwapping(true);
       setTimeout(() => {
         router.push(getLanguageChangeUrl(lang, pathname));
+        linkRef.current.focus();
       }, 600);
     }
     onClick?.();
@@ -47,6 +49,7 @@ const LanguageToggle = ({
   if (variant === "default") {
     return (
       <Link
+        ref={linkRef}
         href={getLanguageChangeUrl(lang, pathname)}
         onClick={handleClick}
         lang={lang === "cy" ? "en" : "cy"}
