@@ -34,13 +34,13 @@ const LanguageToggle = ({
     return null;
   }
 
-  const handleClick = (e) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     if (!isSwapping) {
       setIsSwapping(true);
       setTimeout(() => {
         router.push(getLanguageChangeUrl(lang, pathname));
-        linkRef.current.focus();
+        linkRef.current?.focus();
       }, 600);
     }
     onClick?.();
