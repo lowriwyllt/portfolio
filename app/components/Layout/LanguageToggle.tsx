@@ -24,11 +24,61 @@ const LanguageToggle = ({
     return null;
   }
 
+  const handleClick = () => {
+    onClick?.();
+  };
+
+  if (variant === "default") {
+    return (
+      <div className={`${styles.stackedToggle}  ${style || ""}`}>
+        <ButtonAsLink
+          lang={lang === "cy" ? "en" : "cy"}
+          href={getLanguageChangeUrl(lang, pathname)}
+          variant="primaryOutline"
+          className={`${styles.languageToggle} ${styles.languageWidget} ${styles.topButton} `}
+          ariaLabel={lang === "cy" ? "Change to English" : "Newid i Gymraeg"}
+          onClick={handleClick}
+        >
+          <Image
+            src={
+              lang === "cy"
+                ? "/flags/english_flag.svg"
+                : "/flags/welsh_flag.svg"
+            }
+            alt={lang === "cy" ? "English flag" : "Welsh flag"}
+            width={24}
+            height={24}
+          />
+        </ButtonAsLink>
+        <ButtonAsLink
+          lang={lang === "cy" ? "cy" : "en"}
+          href={pathname}
+          variant="primaryOutline"
+          className={`${styles.languageToggle} ${styles.languageWidget} ${styles.bottomButton} `}
+          ariaLabel={lang === "cy" ? "Cymraeg (current)" : "English (current)"}
+          tabIndex={-1}
+          aria-hidden="true"
+        >
+          <Image
+            src={
+              lang === "cy"
+                ? "/flags/welsh_flag.svg"
+                : "/flags/english_flag.svg"
+            }
+            alt={lang === "cy" ? "Welsh flag" : "English flag"}
+            width={24}
+            height={24}
+          />
+        </ButtonAsLink>
+      </div>
+    );
+  }
+
   return (
     <ButtonAsLink
       lang={lang === "cy" ? "en" : "cy"}
       href={getLanguageChangeUrl(lang, pathname)}
-      variant={variant === "default" ? "primaryOutline" : "secondaryOutline"}
+      variant="secondaryOutline"
       className={`${styles.languageToggle} ${style || ""}`}
       ariaLabel={lang === "cy" ? "Change to English" : "Newid i Gymraeg"}
       onClick={onClick}
@@ -41,11 +91,7 @@ const LanguageToggle = ({
         width={24}
         height={24}
       />
-      {variant === "default"
-        ? null
-        : lang === "cy"
-          ? "Change to English"
-          : "Newid i Gymraeg"}
+      {lang === "cy" ? "Change to English" : "Newid i Gymraeg"}
     </ButtonAsLink>
   );
 };

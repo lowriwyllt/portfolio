@@ -23,4 +23,5 @@
   border-left: none !important;
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
+  box-shadow: 0 4px 10px rgba(0 0 0);
 }

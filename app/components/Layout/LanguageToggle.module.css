@@ -3,3 +3,28 @@
   justify-content: start !important;
   gap: 1rem;
 }
+
+.languageWidget {
+  border-left: none !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  width: fit-content;
+  position: absolute;
+}
+
+.stackedToggle {
+  position: relative;
+}
+
+.topButton {
+  top: 0rem;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0 0 0);
+}
+
+.bottomButton {
+  top: 0.5rem;
+  z-index: 1;
+  pointer-events: none;
+  filter: blur(0.5px);
+}
