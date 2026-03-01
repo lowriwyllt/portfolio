@@ -31,9 +31,9 @@ const AdventuresFilter = ({
   const allCountries = Array.from(
     new Set(
       ADVENTURES.flatMap((adventure) =>
-        Object.values(adventure.areas).flatMap((continent) =>
-          Object.keys(continent)
-        )
+        Object.values(
+          lang === "en" ? adventure.areas : adventure.ardaloedd
+        ).flatMap((continent) => Object.keys(continent))
       )
     )
   ).sort();
