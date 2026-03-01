@@ -1,9 +1,17 @@
+.adventuresContainer {
+  max-width: 1420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
+}
+
 .travelGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
   width: 100%;
-  max-width: 1420px;
 }
 
 .travelCard {

@@ -14,8 +14,8 @@ const Adventures = ({ lang = "en" }: { lang?: langType }) => {
   const countryFilter = searchParams.get(lang === "en" ? "country" : "gwlad");
 
   return (
-    <>
-      <AdventuresFilter lang={lang} />
+    <div className={styles.adventuresContainer}>
+      <AdventuresFilter lang={lang} countryFilter={countryFilter} />
       <div className={styles.travelGrid}>
         {ADVENTURES.map((adventure) => {
           if (
@@ -84,7 +84,7 @@ const Adventures = ({ lang = "en" }: { lang?: langType }) => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 
