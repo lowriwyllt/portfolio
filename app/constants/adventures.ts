@@ -19,7 +19,7 @@ type adventureType = {
   disgrifiadByr: string;
 };
 
-const ADVENTURES: adventureType[] = [
+const adventures: adventureType[] = [
   {
     name: "Europe",
     enw: "Ewrop",
@@ -163,5 +163,7 @@ const ADVENTURES: adventureType[] = [
     year: 2019,
   },
 ];
+
+const ADVENTURES = adventures.sort((a, b) => b.year - a.year);
 
 export default ADVENTURES;
