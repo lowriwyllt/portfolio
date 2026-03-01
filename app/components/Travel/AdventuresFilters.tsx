@@ -79,9 +79,15 @@ const AdventuresFilter = ({
         </Button>
 
         {isOpen && (
-          <div id={dropdownId} className={styles.popover}>
+          <div
+            id={dropdownId}
+            className={styles.popover}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="countryFilterPopover"
+          >
             <div className={styles.popoverHeader}>
-              <h3 className={styles.popoverTitle}>
+              <h3 className={styles.popoverTitle} id="countryFilterPopover">
                 {lang === "en" ? "Filter by Country" : "Hidlo fesul Gwlad"}
               </h3>
               {countryFilters.length > 0 && (
