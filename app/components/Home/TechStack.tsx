@@ -6,7 +6,7 @@ import langType from "@/app/constants/langType";
 export default function TechStack({ lang = "en" }: { lang?: langType }) {
   return (
     <div className={styles.container}>
-      <h2 className={`${styles.heading} ${merriweather.className}`}>
+      <h2 className={merriweather.className}>
         {lang === "cy" ? "Stac Techengol" : "Tech Stack"}
       </h2>
       <div className={styles.techGrid}>

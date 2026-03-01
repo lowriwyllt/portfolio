@@ -1,17 +1,12 @@
 .container {
-  padding: 0.5rem;
-  padding-right: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.heading {
-  margin-bottom: 1rem;
+  gap: 2rem;
 }
 
 .techGrid {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -20,6 +15,7 @@
 }
 
 .techItem {
+  max-width: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,10 +28,13 @@
 }
 
 .icon {
-  height: 5rem;
+  height: 80%;
+  width: 80%;
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 }
 
 .label {
   margin-top: 0.5rem;
+  font-size: smaller;
+  text-align: center;
 }
