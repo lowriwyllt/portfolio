@@ -10,12 +10,12 @@ import ADVENTURES from "@/app/constants/adventures";
 
 type AdventuresFilterProps = {
   lang?: langType;
-  countryFilter: string | null;
+  countryFilters: string[];
 };
 
 const AdventuresFilter = ({
   lang = "en",
-  countryFilter,
+  countryFilters,
 }: AdventuresFilterProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownId = useId();
@@ -41,12 +41,14 @@ const AdventuresFilter = ({
   const handleCountryToggle = (country: string) => {
     const params = new URLSearchParams(searchParams.toString());
 
-    if (countryFilter === country) {
-      // If clicking the same country, remove the filter
+    if (countryFilters.includes(country)) {
+      // Remove the country from filter
       params.delete(queryParam);
+      const remainingCountries = countryFilters.filter((c) => c !== country);
+      remainingCountries.forEach((c) => params.append(queryParam, c));
     } else {
-      // Set the new country filter
-      params.set(queryParam, country);
+      // Add the country to filter
+      params.append(queryParam, country);
     }
 
     const newUrl = params.toString() ? `?${params.toString()}` : pathname || "";
@@ -81,7 +83,7 @@ const AdventuresFilter = ({
             <h3 className={styles.popoverTitle}>
               {lang === "en" ? "Filter by Country" : "Hidlo fesul Gwlad"}
             </h3>
-            {countryFilter && (
+            {countryFilters.length > 0 && (
               <Button
                 variant="primarySubtle"
                 onClick={clearAllFilters}
@@ -100,7 +102,7 @@ const AdventuresFilter = ({
               <label key={country} className={styles.checkboxLabel}>
                 <input
                   type="checkbox"
-                  checked={countryFilter === country}
+                  checked={countryFilters.includes(country)}
                   onChange={() => handleCountryToggle(country)}
                   className={styles.checkbox}
                 />

@@ -11,23 +11,30 @@ import AdventuresFilter from "./AdventuresFilters";
 
 const Adventures = ({ lang = "en" }: { lang?: langType }) => {
   const searchParams = useSearchParams();
-  const countryFilter = searchParams.get(lang === "en" ? "country" : "gwlad");
+  const countryFilters = searchParams.getAll(
+    lang === "en" ? "country" : "gwlad"
+  );
 
-  const filteredAdventures = ADVENTURES.filter((adventure) => {
-    if (
-      countryFilter &&
-      !Object.values(
-        lang === "en" ? adventure.areas : adventure.ardaloedd
-      ).some((countries) => Object.keys(countries).includes(countryFilter))
-    ) {
-      return false;
-    }
-    return true;
-  });
+  const filteredAdventures =
+    countryFilters.length === 0
+      ? ADVENTURES
+      : ADVENTURES.filter((adventure) => {
+          if (countryFilters.length === 0) {
+            return true;
+          }
+
+          const adventureCountries = Object.values(
+            lang === "en" ? adventure.areas : adventure.ardaloedd
+          ).flatMap((continent) => Object.keys(continent));
+
+          return countryFilters.some((filter) =>
+            adventureCountries.includes(filter)
+          );
+        });
 
   return (
     <div className={styles.adventuresContainer}>
-      <AdventuresFilter lang={lang} countryFilter={countryFilter} />
+      <AdventuresFilter lang={lang} countryFilters={countryFilters} />
       <div className={styles.travelGrid}>
         {filteredAdventures.length === 0 ? (
           <div className={styles.noAdventures}>
@@ -36,11 +43,11 @@ const Adventures = ({ lang = "en" }: { lang?: langType }) => {
                 ? "No adventures found for this filter."
                 : "Dim anturiaethau wedi'u canfod ar gyfer yr hidlydd hwn."}
             </p>
-            {countryFilter && (
+            {countryFilters.length > 0 && (
               <p className={styles.noAdventuresHint}>
                 {lang === "en"
-                  ? "Try selecting a different filter."
-                  : "Ceisiwch ddewis hidlydd gwahanol."}
+                  ? "Try selecting a different country."
+                  : "Ceisiwch ddewis gwlad wahanol."}
               </p>
             )}
           </div>
