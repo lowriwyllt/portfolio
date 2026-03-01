@@ -1,12 +1,13 @@
 .travelGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 330px);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
   width: 100%;
   max-width: 1420px;
 }
 
 .travelCard {
+  width: min(100%, 400px);
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
