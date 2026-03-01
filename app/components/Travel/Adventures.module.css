@@ -68,3 +68,22 @@
 .cardTitle {
   color: var(--primary-color);
 }
+
+.noAdventures {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #666;
+}
+
+.noAdventures p {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.noAdventuresHint {
+  margin-top: 0.5rem !important;
+  font-size: 0.95rem !important;
+  color: #888;
+}
