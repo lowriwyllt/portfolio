@@ -1,4 +1,3 @@
-import { merriweather } from "@/app/fonts";
 import Image from "next/image";
 import styles from "./home.module.css";
 import TechStack from "./TechStack";
@@ -24,7 +23,7 @@ const HomePageComponent = ({ lang = "en" }: { lang?: langType }) => {
           />
         </div>
         <div className={styles.content}>
-          <h1 className={merriweather.className}>Lowri Roberts</h1>
+          <h1>Lowri Roberts</h1>
           <p>
             {lang === "cy"
               ? "Rwy'n ddatblygwr gwe stac llawn, gyda ffocws ar JavaScript. Rwy'n ymroddedig i ddarparu gwefannau slic a dynamig"

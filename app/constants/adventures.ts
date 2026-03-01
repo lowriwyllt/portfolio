@@ -1,3 +1,11 @@
+type CityMap = {
+  [country: string]: string[];
+};
+
+type AreaMap = {
+  [continent: string]: CityMap;
+};
+
 type adventureType = {
   name: string;
   enw: string;
@@ -6,18 +14,66 @@ type adventureType = {
   duration: string;
   with: string[];
   year: number;
+  areas: AreaMap;
+  ardaloedd: AreaMap;
+  disgrifiadByr: string;
 };
 
-const ADVENTURES: adventureType[] = [
+const adventures: adventureType[] = [
   {
     name: "Europe",
     enw: "Ewrop",
-    mainImg: [
-      "https://firebasestorage.googleapis.com/v0/b/lowri-roberts.appspot.com/o/Travel%2FEurope%202022%2Fimage.avif?alt=media&token=315efea2-2609-442a-afbc-062406d73a35",
-      "https://firebasestorage.googleapis.com/v0/b/lowri-roberts.appspot.com/o/Travel%2FEurope%202022%2F59454301-DB11-440E-8194-005A88FE604D.jpeg?alt=media&token=9b4670f5-73cb-46e8-8788-84a425a664c1",
-    ],
+    areas: {
+      Europe: {
+        Portugal: ["Faro", "Lisbon", "Sintra", "Porto"],
+        Spain: ["Pontevedra", "Madrid", "Barcelona"],
+        France: ["Nimes", "Marseille", "Nice"],
+        Italy: [
+          "Genoa",
+          "La Spezia",
+          "Milan",
+          "Como",
+          "Bellagio",
+          "Verona",
+          "Venice",
+          "Bologna",
+          "Florence",
+          "Rome",
+          "Naples",
+          "Sorrento",
+          "Capri",
+        ],
+        Greece: ["Rhodes", "Symi"],
+      },
+    },
+    ardaloedd: {
+      Ewrop: {
+        Portiwgal: ["Faro", "Lisbon", "Sintra", "Porto"],
+        Sbaen: ["Pontevedra", "Madrid", "Barcelona"],
+        Ffrainc: ["Nimes", "Marseille", "Nice"],
+        "Yr Eidal": [
+          "Genoa",
+          "La Spezia",
+          "Milan",
+          "Como",
+          "Bellagio",
+          "Verona",
+          "Venice",
+          "Bologna",
+          "Florence",
+          "Rome",
+          "Naples",
+          "Sorrento",
+          "Capri",
+        ],
+        "Gwlad Groeg": ["Rhodes", "Symi"],
+      },
+    },
+    mainImg: ["/adventures/Europe2019.png"],
     shortDescription:
       "Travelling after university with George. Sam F coming to meet us from La Ciotat to Verona. Sam H and Tom coming to meet us from Venice to Rome.",
+    disgrifiadByr:
+      "Teithio ar ôl y brifysgol gyda George. Sam F yn dod i gwrdd â ni o La Ciotat i Verona. Sam H a Tom yn dod i gwrdd â ni o Venice i Rome.",
     duration: "90 days",
     with: ["Sam F", "Sam H", "Tom", "George Bell"],
     year: 2022,
@@ -25,23 +81,41 @@ const ADVENTURES: adventureType[] = [
   {
     name: "Kefalonia",
     enw: "Kefalonia",
-    mainImg: [
-      "https://firebasestorage.googleapis.com/v0/b/lowri-roberts.appspot.com/o/Travel%2FKefalonia%202017%2Fimage%20(1).avif?alt=media&token=01546471-bff4-4d8f-9a18-d7556f855d23",
-      "https://firebasestorage.googleapis.com/v0/b/lowri-roberts.appspot.com/o/Travel%2FKefalonia%202017%2FEB5DAE3C-E4A2-4433-9119-F1F958131FB9.jpeg?alt=media&token=dd2e905b-86fb-4800-a56b-d4fb138c102e",
-    ],
-    shortDescription: "holiday with my mam.",
+    areas: {
+      Europe: {
+        Greece: ["Kefalonia"],
+      },
+    },
+    ardaloedd: {
+      Ewrop: {
+        "Gwlad Groeg": ["Kefalonia"],
+      },
+    },
+    mainImg: ["/adventures/Kefalonia2017.png"],
+    shortDescription:
+      "Relaxing holiday with my mam, going around this lovely island - although it being a heat wave!",
+    disgrifiadByr:
+      "Gwyliau ymlacio gyda fy mam, yn mynd o gwmpas y ynys hyfryd hon - er bod hi'n 'heat wave'!",
     duration: "11 days",
-    with: ["my mam"],
+    with: ["mam"],
     year: 2017,
   },
   {
     name: "Milan",
     enw: "Milan",
-    mainImg: [
-      "https://firebasestorage.googleapis.com/v0/b/lowri-roberts.appspot.com/o/Travel%2FMilan%202022%2Fimage%20(2).avif?alt=media&token=44c66f33-1c46-4341-b9a6-4139c4dd8778",
-      "https://firebasestorage.googleapis.com/v0/b/lowri-roberts.appspot.com/o/Travel%2FMilan%202022%2F3BF8249B-69FF-41A9-B13D-228A6B28A33D.jpeg?alt=media&token=44b64807-2e85-4be4-b95d-b93a9f5f1055",
-    ],
+    areas: {
+      Europe: {
+        Italy: ["Milan"],
+      },
+    },
+    ardaloedd: {
+      Ewrop: {
+        "Yr Eidal": ["Milan"],
+      },
+    },
+    mainImg: ["/adventures/Milan2022.png"],
     shortDescription: "Long weekend trip to Milan to explore a new city.",
+    disgrifiadByr: "Penwythnos hir i Milan i gweld dinas newydd.",
     duration: "4 days",
     with: ["Ruairidh", "George Bell"],
     year: 2022,
@@ -49,28 +123,47 @@ const ADVENTURES: adventureType[] = [
   {
     name: "Morocco",
     enw: "Morocco",
-    mainImg: [
-      "https://firebasestorage.googleapis.com/v0/b/lowri-roberts.appspot.com/o/Travel%2FMorrocco%202022%2Fimage%20(3).avif?alt=media&token=e1c1f400-2ea2-4439-9891-9ff25ccfa3fa",
-      "https://firebasestorage.googleapis.com/v0/b/lowri-roberts.appspot.com/o/Travel%2FMorrocco%202022%2FBAB19FFA-3173-4745-89EB-E45558E83180.jpeg?alt=media&token=df18f9e7-d94d-4639-b991-5504840d0982",
-    ],
+    areas: {
+      Africa: {
+        Morocco: ["Marrakech", "Essaouira"],
+      },
+    },
+    ardaloedd: {
+      Affrica: {
+        Morocco: ["Marrakech", "Essaouira"],
+      },
+    },
+    mainImg: ["/adventures/Morocco2022.png"],
     shortDescription: "Spend some time exploring a new country with my mother!",
+    disgrifiadByr: "Treulio amser yn mynd o gwmpas gwlad newydd gyda fy mam!",
     duration: "10 days",
-    with: ["my mam"],
+    with: ["mam"],
     year: 2022,
   },
   {
     name: "Portugal",
     enw: "Portiwgal",
-    mainImg: [
-      "https://firebasestorage.googleapis.com/v0/b/lowri-roberts.appspot.com/o/Travel%2FPortugal%202019%2Fimage%20(4).avif?alt=media&token=85700ec4-cd7a-43ed-a8ef-9eb58ef6aee0",
-      "https://firebasestorage.googleapis.com/v0/b/lowri-roberts.appspot.com/o/Travel%2FPortugal%202019%2F929D6A4A-70A2-4027-9D50-6062541D2CED.jpeg?alt=media&token=26554720-1f22-4409-b1f0-96bf09de9580",
-    ],
+    areas: {
+      Europe: {
+        Portugal: ["Faro", "Lisbon", "Sintra", "Porto"],
+      },
+    },
+    ardaloedd: {
+      Ewrop: {
+        Portiwgal: ["Faro", "Lisbon", "Sintra", "Porto"],
+      },
+    },
+    mainImg: ["/adventures/Portugal2019.png"],
     shortDescription:
       "My first solo travel exerience staying in hostels and meeting amazing people from all over!",
+    disgrifiadByr:
+      "Fy mhrofiad teithio unigol cyntaf yn aros mewn hosteli a chwrdd â phobl anhygoel o bob man!",
     duration: "21 days",
-    with: ["my mam"],
+    with: ["mam"],
     year: 2019,
   },
 ];
+
+const ADVENTURES = adventures.sort((a, b) => b.year - a.year);
 
 export default ADVENTURES;
