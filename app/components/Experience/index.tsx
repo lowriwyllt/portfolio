@@ -1,6 +1,5 @@
 "use client";
 
-import { merriweather } from "@/app/fonts";
 import ExperienceCard from "./ExperienceCard";
 import EXPERIENCE from "@/app/constants/experience";
 import styles from "./ExperiencePage.module.css";
@@ -21,9 +20,7 @@ const ExperiencePageComponent = ({ lang = "en" }: { lang?: langType }) => {
 
   return (
     <div className={styles.experiencePageContainer}>
-      <h1 className={merriweather.className}>
-        {lang === "en" ? "Experience" : "Profiad"}
-      </h1>
+      <h1>{lang === "en" ? "Experience" : "Profiad"}</h1>
 
       {sortedJobs.map((experience, index) => {
         return (
