@@ -46,8 +46,8 @@ const Adventures = ({ lang = "en" }: { lang?: langType }) => {
             {countryFilters.length > 0 && (
               <p className={styles.noAdventuresHint}>
                 {lang === "en"
-                  ? "Try selecting a different country."
-                  : "Ceisiwch ddewis gwlad wahanol."}
+                  ? "Try selecting a different filter."
+                  : "Ceisiwch ddewis hidlydd gwahanol."}
               </p>
             )}
           </div>
