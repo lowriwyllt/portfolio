@@ -90,63 +90,65 @@ const AdventuresFilter = ({
   return (
     <section className={styles.filtersContainer}>
       <h2>{lang === "en" ? "Filter Adventures" : "Hidlo Anturiaethau"}</h2>
-      <div className={styles.filterControl} ref={filterControlRef}>
-        <Button
-          variant="primaryOutline"
-          className={styles.filtersToggle}
-          onClick={toggleOpen}
-          aria-expanded={isOpen}
-          aria-controls={dropdownId}
-          ariaLabel={lang === "en" ? "Country filter" : "Hidlydd Gwlad"}
-        >
-          {lang === "en" ? "Countries" : "Gwledydd"}
-          <ChevronDownIcon
-            className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ""}`}
-            aria-hidden="true"
-          />
-        </Button>
-
-        {isOpen && (
-          <div
-            id={dropdownId}
-            className={styles.popover}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="countryFilterPopover"
+      <div className={styles.filterControl}>
+        <div className={styles.filterControlInner} ref={filterControlRef}>
+          <Button
+            variant="primaryOutline"
+            className={styles.filtersToggle}
+            onClick={toggleOpen}
+            aria-expanded={isOpen}
+            aria-controls={dropdownId}
+            ariaLabel={lang === "en" ? "Country filter" : "Hidlydd Gwlad"}
           >
-            <div className={styles.popoverHeader}>
-              <h3 className={styles.popoverTitle} id="countryFilterPopover">
-                {lang === "en" ? "Filter by Country" : "Hidlo fesul Gwlad"}
-              </h3>
-              {countryFilters.length > 0 && (
-                <Button
-                  variant="primarySubtle"
-                  onClick={clearAllFilters}
-                  ariaLabel={
-                    lang === "en"
-                      ? "Clear country filter"
-                      : "Clirio hidlydd gwlad"
-                  }
-                >
-                  {lang === "en" ? "Clear" : "Clirio"}
-                </Button>
-              )}
+            {lang === "en" ? "Countries" : "Gwledydd"}
+            <ChevronDownIcon
+              className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ""}`}
+              aria-hidden="true"
+            />
+          </Button>
+
+          {isOpen && (
+            <div
+              id={dropdownId}
+              className={styles.popover}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="countryFilterPopover"
+            >
+              <div className={styles.popoverHeader}>
+                <h3 className={styles.popoverTitle} id="countryFilterPopover">
+                  {lang === "en" ? "Filter by Country" : "Hidlo fesul Gwlad"}
+                </h3>
+                {countryFilters.length > 0 && (
+                  <Button
+                    variant="primarySubtle"
+                    onClick={clearAllFilters}
+                    ariaLabel={
+                      lang === "en"
+                        ? "Clear country filter"
+                        : "Clirio hidlydd gwlad"
+                    }
+                  >
+                    {lang === "en" ? "Clear" : "Clirio"}
+                  </Button>
+                )}
+              </div>
+              <div className={styles.checkboxList}>
+                {allCountries.map((country) => (
+                  <label key={country} className={styles.checkboxLabel}>
+                    <input
+                      type="checkbox"
+                      checked={countryFilters.includes(country)}
+                      onChange={() => handleCountryToggle(country)}
+                      className={styles.checkbox}
+                    />
+                    <span className={styles.checkboxText}>{country}</span>
+                  </label>
+                ))}
+              </div>
             </div>
-            <div className={styles.checkboxList}>
-              {allCountries.map((country) => (
-                <label key={country} className={styles.checkboxLabel}>
-                  <input
-                    type="checkbox"
-                    checked={countryFilters.includes(country)}
-                    onChange={() => handleCountryToggle(country)}
-                    className={styles.checkbox}
-                  />
-                  <span className={styles.checkboxText}>{country}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </section>
   );
