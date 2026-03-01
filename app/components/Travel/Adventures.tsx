@@ -2,7 +2,7 @@
 
 import langType from "@/app/constants/langType";
 import { merriweather } from "@/app/fonts";
-import styles from "./TravelPage.module.css";
+import styles from "./Adventures.module.css";
 import ADVENTURES from "@/app/constants/adventures";
 import Image from "next/image";
 import ButtonAsLink from "../Links/ButtonAsLink";
