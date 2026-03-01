@@ -8,6 +8,7 @@
 
 :root {
   --primary-color: #471ca8;
+  --secondary-color: #7c5ce6;
   --focus-color: #fbbf24;
 }
 
@@ -18,6 +19,7 @@
 }
 
 h1 {
+  font-family: var(--font-merriweather);
   font-size: 1.5rem;
   line-height: 2rem;
 }

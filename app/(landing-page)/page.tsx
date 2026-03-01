@@ -1,5 +1,4 @@
 import { Metadata, NextPage } from "next";
-import { merriweather } from "../fonts";
 import Image from "next/image";
 import styles from "./page.module.css";
 import ButtonAsLink from "../components/Links/ButtonAsLink";
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
 const LandingPage: NextPage = () => {
   return (
     <main className={styles.main}>
-      <h1 className={`${styles.title} ${merriweather.className}`}>
+      <h1 className={`${styles.title}`}>
         Welcome - <span lang="cy">Croeso</span>
       </h1>
       <div>
