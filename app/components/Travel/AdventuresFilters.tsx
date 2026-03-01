@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useState, useEffect, useRef } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import langType from "@/app/constants/langType";
 import styles from "./AdventuresFilters.module.css";
@@ -22,8 +22,36 @@ const AdventuresFilter = ({
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
+  const filterControlRef = useRef<HTMLDivElement>(null);
 
   const toggleOpen = () => setIsOpen((prev) => !prev);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        filterControlRef.current &&
+        !filterControlRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("keydown", handleEscape);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [isOpen]);
 
   const queryParam = lang === "en" ? "country" : "gwlad";
 
@@ -62,7 +90,7 @@ const AdventuresFilter = ({
   return (
     <section className={styles.filtersContainer}>
       <h2>{lang === "en" ? "Filter Adventures" : "Hidlo Anturiaethau"}</h2>
-      <div className={styles.filterControl}>
+      <div className={styles.filterControl} ref={filterControlRef}>
         <Button
           variant="primaryOutline"
           className={styles.filtersToggle}
