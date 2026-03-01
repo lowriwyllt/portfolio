@@ -1,13 +1,13 @@
 import { Metadata, NextPage } from "next";
-import UnderConstruction from "../../components/UnderConstruction";
+import TravelPageComponent from "@/app/components/Travel";
 
 export const metadata: Metadata = {
   title: "Trafeilio - Lowri Roberts",
   description: "Darganfod profiadau teithio ac anturiaethau Lowri Roberts.",
 };
 
-const CodingProjects: NextPage = () => {
-  return <UnderConstruction lang="cy" title="Trafeilio" />;
+const Travel: NextPage = () => {
+  return <TravelPageComponent lang="cy" />;
 };
 
-export default CodingProjects;
+export default Travel;
