@@ -6,7 +6,7 @@
   padding: 2rem;
   padding-top: 0.5rem;
   gap: 2rem;
-  height: calc(100vh - 100px);
+  height: calc(100svh - 100px);
 }
 
 .content {
