@@ -21,7 +21,7 @@ export default async function RecentAdventures({
               key={adventure.name}
               className={styles.adventureCard}
               style={{
-                backgroundImage: `url(${adventure.mainImg[1]})`,
+                backgroundImage: `url(${adventure.mainImg[0]})`,
               }}
             >
               <h3 className={styles.adventureTitle}>
