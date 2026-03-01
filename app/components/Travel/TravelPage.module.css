@@ -9,7 +9,7 @@
 
 .travelGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, 330px);
   gap: 2rem;
   width: 100%;
   max-width: 1420px;
