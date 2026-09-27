@@ -55,7 +55,6 @@ const Adventures = ({ lang = "en" }: { lang?: langType }) => {
         ) : (
           filteredAdventures.map((adventure) => {
             const title = lang === "cy" ? adventure.enw : adventure.name;
-            const companions = adventure.with.join(", ");
             const year =
               "year" in adventure.time
                 ? adventure.time.year
