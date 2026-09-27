@@ -2,6 +2,7 @@ import ADVENTURES from "@/app/constants/adventures";
 import { merriweather } from "@/app/fonts";
 import styles from "./RecentAdventures.module.css";
 import langType from "@/app/constants/langType";
+import Link from "next/dist/client/link";
 
 export default async function RecentAdventures({
   lang = "en",
@@ -25,7 +26,12 @@ export default async function RecentAdventures({
             return null;
           }
           return (
-            <div
+            <Link
+              href={
+                lang === "cy"
+                  ? `/cy/trafeilio/${adventure.id}`
+                  : `/en/travel/${adventure.id}`
+              }
               aria-label={adventure.name}
               key={adventure.name}
               className={styles.adventureCard}
@@ -36,7 +42,7 @@ export default async function RecentAdventures({
               <h3 className={styles.adventureTitle}>
                 {lang === "cy" ? adventure.enw : adventure.name}
               </h3>
-            </div>
+            </Link>
           );
         })}
       </div>
