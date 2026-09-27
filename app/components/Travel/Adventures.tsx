@@ -56,10 +56,14 @@ const Adventures = ({ lang = "en" }: { lang?: langType }) => {
           filteredAdventures.map((adventure) => {
             const title = lang === "cy" ? adventure.enw : adventure.name;
             const companions = adventure.with.join(", ");
+            const year =
+              "year" in adventure.time
+                ? adventure.time.year
+                : adventure.time.start?.split("-")[0];
 
             return (
               <article
-                key={`${adventure.name}-${adventure.year}-${adventure.id}`}
+                key={`${adventure.name}-${year}-${adventure.id}`}
                 className={styles.travelCard}
               >
                 <div className={styles.imageWrapper}>
@@ -92,7 +96,7 @@ const Adventures = ({ lang = "en" }: { lang?: langType }) => {
                     <h2
                       className={`${merriweather.className} ${styles.cardTitle}`}
                     >
-                      {title} - {adventure.year}
+                      {title} - {year}
                     </h2>
                   </Link>
                   <div className={styles.metaRow}>

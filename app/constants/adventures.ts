@@ -32,9 +32,13 @@ type adventureType = {
   enw: string;
   mainImg?: string[];
   shortDescription: string;
-  duration: string;
   with: People[];
-  year?: number;
+  time:
+    | {
+        start: string;
+        end: string;
+      }
+    | { year: number };
   areas: AreaMap;
   ardaloedd: AreaMap;
   disgrifiadByr: string;
@@ -96,9 +100,11 @@ const adventures: adventureType[] = [
       "Travelling after university with George. Sam F coming to meet us from La Ciotat to Verona. Sam H and Tom coming to meet us from Venice to Rome.",
     disgrifiadByr:
       "Teithio ar ôl y brifysgol gyda George. Sam F yn dod i gwrdd â ni o La Ciotat i Verona. Sam H a Tom yn dod i gwrdd â ni o Venice i Rome.",
-    duration: "90 days",
     with: ["Sam F", "Sam H", "Tom", "George Bell"],
-    year: 2022,
+    time: {
+      start: "2022-07-26",
+      end: "2022-10-22",
+    },
   },
   {
     id: 2,
@@ -119,9 +125,11 @@ const adventures: adventureType[] = [
       "Relaxing holiday with my mam, going around this lovely island - although it being a heat wave!",
     disgrifiadByr:
       "Gwyliau ymlacio gyda fy mam, yn mynd o gwmpas y ynys hyfryd hon - er bod hi'n 'heat wave'!",
-    duration: "11 days",
     with: ["mam"],
-    year: 2017,
+    time: {
+      start: "2017-06-23",
+      end: "2017-07-04",
+    },
   },
   {
     id: 3,
@@ -140,9 +148,11 @@ const adventures: adventureType[] = [
     mainImg: ["/adventures/Milan2022.png"],
     shortDescription: "Long weekend trip to Milan to explore a new city.",
     disgrifiadByr: "Penwythnos hir i Milan i gweld dinas newydd.",
-    duration: "4 days",
     with: ["Ruairidh", "George Bell"],
-    year: 2022,
+    time: {
+      start: "2022-03-03",
+      end: "2022-03-06",
+    },
   },
   {
     id: 4,
@@ -161,9 +171,12 @@ const adventures: adventureType[] = [
     mainImg: ["/adventures/Morocco2022.png"],
     shortDescription: "Spend some time exploring a new country with my mother!",
     disgrifiadByr: "Treulio amser yn mynd o gwmpas gwlad newydd gyda fy mam!",
-    duration: "10 days",
+
     with: ["mam"],
-    year: 2022,
+    time: {
+      start: "2022-11-25",
+      end: "2022-12-04",
+    },
   },
   {
     id: 5,
@@ -184,9 +197,12 @@ const adventures: adventureType[] = [
       "My first solo travel exerience staying in hostels and meeting amazing people from all over!",
     disgrifiadByr:
       "Fy mhrofiad teithio unigol cyntaf yn aros mewn hosteli a chwrdd â phobl anhygoel o bob man!",
-    duration: "21 days",
+
     with: ["mam"],
-    year: 2019,
+    time: {
+      start: "2019-06-29",
+      end: "2019-07-20",
+    },
   },
   {
     id: 6,
@@ -206,9 +222,11 @@ const adventures: adventureType[] = [
       "Catch up with uni friends whilst enjoying the beach and some sun!",
     disgrifiadByr:
       "Dal fyny hefo ffrindiau o coleg tra yn mwynhau y traeth a'r haul!",
-    duration: "10 days",
     with: ["George", "Tom", "Sam H", "Sophie", "Ruairidh", "Anastasia"],
-    year: 2026,
+    time: {
+      start: "2026-09-04",
+      end: "2026-09-13",
+    },
   },
   {
     id: 7,
@@ -226,9 +244,11 @@ const adventures: adventureType[] = [
     },
     shortDescription: "A bit of travelling around Vietnam with my mam",
     disgrifiadByr: "Ychydig o trafeilio o gwmpas vietnam hefo fy mam",
-    duration: "3 weeks",
+    time: {
+      start: "2024-12-24",
+      end: "2025-01-16",
+    },
     with: ["mam"],
-    year: 2024,
   },
   {
     id: 8,
@@ -246,9 +266,11 @@ const adventures: adventureType[] = [
     },
     shortDescription: "Skiing holiday with George and his parents",
     disgrifiadByr: "Holides sgio hefo George a'i rhieni",
-    duration: "1 week",
+    time: {
+      start: "2025-03-01",
+      end: "2025-03-08",
+    },
     with: ["George", "Clare", "Harry"],
-    year: 2025,
   },
   {
     id: 9,
@@ -266,12 +288,14 @@ const adventures: adventureType[] = [
     },
     shortDescription: "Catch uni with uni friends in Budapest",
     disgrifiadByr: "Dal fyny hefo ffrindiau coleg yn Budapest",
-    duration: "1 week",
+    time: {
+      start: "2025-10-08",
+      end: "2025-10-14",
+    },
     with: ["George", "Ruairidh", "Sam H", "Rhianon"],
-    year: 2025,
   },
   {
-    id: 9,
+    id: 20,
     name: "Amsterdam",
     enw: "Amsterdam",
     areas: {
@@ -286,9 +310,11 @@ const adventures: adventureType[] = [
     },
     shortDescription: "Catch uni with uni friends in Amsterdam",
     disgrifiadByr: "Dal fyny hefo ffrindiau coleg yn Amsterdam",
-    duration: "1 week",
+    time: {
+      start: "2024-01-31",
+      end: "2024-02-05",
+    },
     with: ["Ruairidh", "Sam H", "Rhianon", "Tom", "George Bell"],
-    year: 2024,
   },
   {
     id: 10,
@@ -306,9 +332,11 @@ const adventures: adventureType[] = [
     },
     shortDescription: "Catch up and spend some time exploring Silily",
     disgrifiadByr: "Dal fyny a gwario amser yn Sicily",
-    duration: "1 week",
+    time: {
+      start: "2024-09-24",
+      end: "2024-10-04",
+    },
     with: ["Jon"],
-    year: 2024,
   },
   {
     id: 11,
@@ -326,9 +354,11 @@ const adventures: adventureType[] = [
     },
     shortDescription: "Catch up with uni friends",
     disgrifiadByr: "Dal fyny hefo ffrindiau coleg",
-    duration: "5 days",
+    time: {
+      start: "2024-07-10",
+      end: "2024-07-15",
+    },
     with: ["Ruairidh", "Sam H", "Rhianon"],
-    year: 2024,
   },
   {
     id: 12,
@@ -346,9 +376,11 @@ const adventures: adventureType[] = [
     },
     shortDescription: "Chill",
     disgrifiadByr: "Chilio allan",
-    duration: "5 days",
+    time: {
+      start: "2023-11-11",
+      end: "2023-11-18",
+    },
     with: ["mam"],
-    year: 2024,
   },
   {
     id: 13,
@@ -366,9 +398,8 @@ const adventures: adventureType[] = [
     },
     shortDescription: "Chill",
     disgrifiadByr: "Chilio allan",
-    duration: "5 days",
+    time: { start: "2016-08-17", end: "2016-08-22" },
     with: ["mam"],
-    year: 2016,
   },
   {
     id: 14,
@@ -386,9 +417,11 @@ const adventures: adventureType[] = [
     },
     shortDescription: "Trip to New York and Washington DC with school",
     disgrifiadByr: "Trip i Efrog Newydd a Washington DC hefo ysgol",
-    duration: "5 days",
+    time: {
+      start: "2015-03-10",
+      end: "2015-03-15",
+    },
     with: [],
-    year: 2015,
   },
   {
     id: 15,
@@ -424,11 +457,13 @@ const adventures: adventureType[] = [
         Awstralia: ["Sydney", "Corrowa"],
       },
     },
-    shortDescription: "Trip to New York and Washington DC with school",
-    disgrifiadByr: "Trip i Efrog Newydd a Washington DC hefo ysgol",
-    duration: "5 weeks",
+    shortDescription: "Trip to New Zealand and Australia",
+    disgrifiadByr: "Trip i Seland Newydd a Awstralia",
+    time: {
+      start: "2014-11-28",
+      end: "2015-01-01",
+    },
     with: ["mam", "Alex", "Lousie", "Gwenlli"],
-    year: 2014,
   },
   {
     id: 16,
@@ -446,9 +481,11 @@ const adventures: adventureType[] = [
     },
     shortDescription: "Visiting Barcelona",
     disgrifiadByr: "Ymweld a Barcelona",
-    duration: "1 week",
+    time: {
+      start: "2014-02-22",
+      end: "2014-02-26",
+    },
     with: ["mam", "nain"],
-    year: 2014,
   },
   {
     id: 17,
@@ -466,12 +503,13 @@ const adventures: adventureType[] = [
     },
     shortDescription: "Visiting Koppenhagen",
     disgrifiadByr: "Ymweld a Koppenhagen",
-    duration: "5 week",
+    time: {
+      year: 2014,
+    },
     with: ["mam"],
-    year: 2014,
   },
   {
-    id: 17,
+    id: 21,
     name: "Paris",
     enw: "Paris",
     areas: {
@@ -486,7 +524,9 @@ const adventures: adventureType[] = [
     },
     shortDescription: "Visiting Paris",
     disgrifiadByr: "Ymweld a Paris",
-    duration: "5 days",
+    time: {
+      year: 2014,
+    },
     with: ["mam"],
   },
   {
@@ -505,35 +545,20 @@ const adventures: adventureType[] = [
     },
     shortDescription: "Visiting Paris",
     disgrifiadByr: "Ymweld a Paris",
-    duration: "5 days",
-    with: ["Yr Urdd"],
-  },
-  {
-    id: 19,
-    name: "Paris",
-    enw: "Paris",
-    areas: {
-      Europe: {
-        France: ["Paris"],
-      },
+    time: {
+      year: 2014,
     },
-    ardaloedd: {
-      Ewrop: {
-        Ffrainc: ["Paris"],
-      },
-    },
-    shortDescription: "Visiting Paris",
-    disgrifiadByr: "Ymweld a Paris",
-    duration: "5 days",
     with: ["Yr Urdd"],
   },
 ];
 
-const ADVENTURES = adventures.sort((a, b) => {
-  if (!a.year) return 1;
-  if (!b.year) return -1;
+const getAdventureSortDate = (adventure: adventureType): number =>
+  "start" in adventure.time
+    ? Date.parse(adventure.time.start)
+    : Date.UTC(adventure.time.year, 0, 1);
 
-  return b.year - a.year;
-});
+const ADVENTURES = adventures.sort(
+  (a, b) => getAdventureSortDate(b) - getAdventureSortDate(a)
+);
 
 export default ADVENTURES;
