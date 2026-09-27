@@ -28,9 +28,7 @@ const WebsiteNavigation = ({
     >
       <ul className={`${styles.menubar} ${styles[`${variation}Menubar`]}`}>
         {navigationItems.map((item) => {
-          const isCurrent =
-            pathname === item.href ||
-            (item.href !== "/" && pathname?.startsWith(item.href));
+          const isCurrent = pathname === item.href;
           return (
             <li key={item.label} className={styles[`${variation}ListItem`]}>
               {isCurrent ? (
