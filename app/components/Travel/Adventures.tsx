@@ -58,17 +58,19 @@ const Adventures = ({ lang = "en" }: { lang?: langType }) => {
 
             return (
               <article
-                key={`${adventure.name}-${adventure.year}`}
+                key={`${adventure.name}-${adventure.year}-${adventure.id}`}
                 className={styles.travelCard}
               >
                 <div className={styles.imageWrapper}>
-                  <Image
-                    src={adventure.mainImg[0]}
-                    alt={title}
-                    className={styles.image}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
+                  {adventure.mainImg?.[0] && (
+                    <Image
+                      src={adventure.mainImg[0]}
+                      alt={title}
+                      className={styles.image}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  )}
                 </div>
                 <div className={styles.cardContent}>
                   <h2
@@ -102,9 +104,11 @@ const Adventures = ({ lang = "en" }: { lang?: langType }) => {
                       ? adventure.shortDescription
                       : adventure.disgrifiadByr}
                   </p>
-                  <p className={styles.metaText}>
-                    {lang === "en" ? "With" : "Gyda"}: {companions}
-                  </p>
+                  {adventure.with.length > 0 && (
+                    <p className={styles.metaText}>
+                      {lang === "en" ? "With" : "Gyda"}: {companions}
+                    </p>
+                  )}
                 </div>
               </article>
             );
