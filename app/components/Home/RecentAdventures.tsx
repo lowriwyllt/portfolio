@@ -8,13 +8,22 @@ export default async function RecentAdventures({
 }: {
   lang?: langType;
 }) {
+  const adventuresWithImages = ADVENTURES.filter(
+    (adventure) => adventure.mainImg && adventure.mainImg[0]
+  );
+
+  const recentAdventures = adventuresWithImages.slice(0, 5);
+
   return (
     <div className={styles.container}>
       <h2 className={`${merriweather.className} ${styles.heading}`}>
         Recent Adventures
       </h2>
       <div className={styles.adventuresGrid}>
-        {ADVENTURES.map((adventure) => {
+        {recentAdventures.map((adventure) => {
+          if (!adventure.mainImg?.[0]) {
+            return null;
+          }
           return (
             <div
               aria-label={adventure.name}
