@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { merriweather } from "@/app/fonts";
 import ADVENTURES from "@/app/constants/adventures";
@@ -25,7 +24,6 @@ const AdventurePage = ({
     ? adventure.disgrifiadByr
     : adventure.shortDescription;
   const areas = isWelsh ? adventure.ardaloedd : adventure.areas;
-  const backHref = isWelsh ? "/cy/trafeilio" : "/en/travel";
 
   const lengthInDays =
     "start" in adventure.time && "end" in adventure.time
