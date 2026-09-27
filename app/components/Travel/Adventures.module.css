@@ -35,6 +35,16 @@
   object-fit: cover;
 }
 
+.image:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+.cardTitle:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
 .cardContent {
   display: flex;
   flex-direction: column;

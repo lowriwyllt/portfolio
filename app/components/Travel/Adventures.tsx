@@ -8,6 +8,7 @@ import Image from "next/image";
 import ButtonAsLink from "../Links/ButtonAsLink";
 import { useSearchParams } from "next/navigation";
 import AdventuresFilter from "./AdventuresFilters";
+import Link from "next/link";
 
 const Adventures = ({ lang = "en" }: { lang?: langType }) => {
   const searchParams = useSearchParams();
@@ -63,21 +64,37 @@ const Adventures = ({ lang = "en" }: { lang?: langType }) => {
               >
                 <div className={styles.imageWrapper}>
                   {adventure.mainImg?.[0] && (
-                    <Image
-                      src={adventure.mainImg[0]}
-                      alt={title}
-                      className={styles.image}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
+                    <Link
+                      href={
+                        lang === "cy"
+                          ? `/cy/trafeilio/${adventure.id}`
+                          : `/en/travel/${adventure.id}`
+                      }
+                    >
+                      <Image
+                        src={adventure.mainImg[0]}
+                        alt={title}
+                        className={styles.image}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </Link>
                   )}
                 </div>
                 <div className={styles.cardContent}>
-                  <h2
-                    className={`${merriweather.className} ${styles.cardTitle}`}
+                  <Link
+                    href={
+                      lang === "cy"
+                        ? `/cy/trafeilio/${adventure.id}`
+                        : `/en/travel/${adventure.id}`
+                    }
                   >
-                    {title} - {adventure.year}
-                  </h2>
+                    <h2
+                      className={`${merriweather.className} ${styles.cardTitle}`}
+                    >
+                      {title} - {adventure.year}
+                    </h2>
+                  </Link>
                   <div className={styles.metaRow}>
                     {Object.entries(
                       lang === "en" ? adventure.areas : adventure.ardaloedd
