@@ -66,4 +66,7 @@ Again getting there but more still to do and finding more things I want to corre
 
 - Add images to all the adventures and possibly multiple photos in some cases
 - Add more details to my adventures
--
+- Need a selected state for the filters on the travel page
+- Clear all filters on the travel page
+- Add filter for companions
+- Add tags to adventures e.g. "Beach", "City break" etc
