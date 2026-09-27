@@ -5,7 +5,7 @@ import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import langType from "@/app/constants/langType";
 import styles from "./AdventuresFilters.module.css";
 import Button from "../Buttons/Button";
-import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { ChevronDownIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import ADVENTURES from "@/app/constants/adventures";
 
 type AdventuresFilterProps = {
@@ -18,6 +18,7 @@ const AdventuresFilter = ({
   countryFilters,
 }: AdventuresFilterProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isClearButtonExiting, setIsClearButtonExiting] = useState(false);
   const dropdownId = useId();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -87,6 +88,26 @@ const AdventuresFilter = ({
     router.push(pathname || "");
   };
 
+  const clearFiltersWithAnimation = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      clearAllFilters();
+      return;
+    }
+
+    setIsClearButtonExiting(true);
+    window.setTimeout(clearAllFilters, 220);
+  };
+
+  const hasActiveCountryFilters = countryFilters.length > 0;
+
+  const hasActiveFilters = hasActiveCountryFilters;
+
+  useEffect(() => {
+    if (!hasActiveFilters) {
+      setIsClearButtonExiting(false);
+    }
+  }, [hasActiveFilters]);
+
   return (
     <section className={styles.filtersContainer}>
       <h2>{lang === "en" ? "Filter Adventures" : "Hidlo Anturiaethau"}</h2>
@@ -94,7 +115,7 @@ const AdventuresFilter = ({
         <div className={styles.filterControlInner} ref={filterControlRef}>
           <Button
             variant="primaryOutline"
-            className={styles.filtersToggle}
+            className={`${styles.filtersToggle} ${hasActiveCountryFilters ? styles.filtersToggleActive : ""}`}
             onClick={toggleOpen}
             aria-expanded={isOpen}
             aria-controls={dropdownId}
@@ -146,6 +167,21 @@ const AdventuresFilter = ({
                   </label>
                 ))}
               </div>
+            </div>
+          )}
+
+          {hasActiveFilters && (
+            <div
+              className={`${styles.clearFiltersWrapper} ${isClearButtonExiting ? styles.clearFiltersWrapperExiting : ""}`}
+            >
+              <Button
+                variant="primaryOutline"
+                className={styles.filtersToggle}
+                onClick={clearFiltersWithAnimation}
+                ariaLabel={lang === "en" ? "Clear filters" : "Clirio hidlydd"}
+              >
+                <XMarkIcon className={`${styles.chevron}`} aria-hidden="true" />
+              </Button>
             </div>
           )}
         </div>
