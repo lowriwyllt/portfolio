@@ -125,11 +125,6 @@ const Adventures = ({ lang = "en" }: { lang?: langType }) => {
                       ? adventure.shortDescription
                       : adventure.disgrifiadByr}
                   </p>
-                  {adventure.with.length > 0 && (
-                    <p className={styles.metaText}>
-                      {lang === "en" ? "With" : "Gyda"}: {companions}
-                    </p>
-                  )}
                 </div>
               </article>
             );
